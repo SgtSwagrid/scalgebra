@@ -10,6 +10,14 @@
   
 </div>
 
+## ⬇️ Installation
+
+Add the following dependency to your `build.sbt`:
+
+```scala
+libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.0"
+```
+
 ## 📢 Publishing workflow
 
 GitHub releases are automatically published to [Maven Central](https://central.sonatype.com/) upon creation, using [`sbt-dynver`](https://github.com/sbt/sbt-dynver).
