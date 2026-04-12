@@ -10,7 +10,7 @@
   
 </div>
 
-## Overview
+## 💡 Overview
 
 **Not Enough Structures** provides a hierarchy of type classes for algebraic structures: semigroups, monoids, groups, rings, fields, and more, split cleanly along additive and multiplicative lines.
 
@@ -33,7 +33,7 @@ Your users can then call `dot` on any type for which a `Ring` is in scope, inclu
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.0"
+libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.2"
 ```
 
 Requires Scala 3.
