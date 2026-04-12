@@ -205,17 +205,17 @@ The following `given` instances are provided out of the box. They are available 
 
 The standard library's numerical type classes are monolithic: `Numeric` bundles addition, subtraction, multiplication, absolute value, sign, and conversions all at once, with no way to express a weaker requirement. `Ordering` is a separate, unrelated type class with no connection to the numeric hierarchy.
 
-### Cats / Cats-kernel (`Semigroup`, `Monoid`, `Group`)
+### Cats / Cats-kernel (`Semigroup`, `Monoid`, `Group`, `Ring`, …)
 
-Cats treats addition and multiplication as the same abstract operation. There is no syntactic or semantic distinction between `+` and `*`, and there is no way to express a constraint like "has both addition and multiplication with compatible identities". It is a good fit for purely additive aggregation but is not designed for numeric abstractions.
+Cats has two layers. The core `Semigroup`/`Monoid`/`Group` types treat addition and multiplication as the same abstract operation, with no syntactic or semantic distinction between `+` and `*`. However, Cats also absorbed the typelevel/algebra library (see below), so `cats-kernel` now includes `Ring`, `Field`, `EuclideanRing`, etc. with an additive/multiplicative split. For the algebraic-structure use case, Cats is a reasonable choice, though it carries a much larger dependency footprint.
 
 ### Algebra (typelevel/algebra)
 
-The closest analogue to this library. It also provides `Ring`, `Field`, `EuclideanRing`, etc. with an additive/multiplicative split, and targets a similar audience. The main differences are that it targets both Scala 2 and 3, has a broader scope (lattices, `Hash`, `Eq`), and does not have first-class ordered variants.
+Originally an attempt to unify the algebraic type classes from Spire and Algebird, this library has since been merged into Cats and is now maintained there. It targets Scala 2 and 3.
 
 ### Algebird (twitter/algebird)
 
-Algebird is built around aggregation in distributed and streaming systems. Its primary structures are `Semigroup`, `Monoid`, and `Group`, plus higher-level combinators like approximate data structures (HyperLogLog, Count-Min Sketch) and MapReduce-friendly accumulators. It is not designed as a general algebraic-structure layer for numeric code.
+Algebird provided some of the input to typelevel/algebra. Its own focus is aggregation in distributed and streaming systems, with higher-level combinators like approximate data structures (HyperLogLog, Count-Min Sketch) and MapReduce-friendly accumulators on top of a basic `Semigroup`/`Monoid`/`Group` foundation. It is not designed as a general algebraic-structure layer for numeric code.
 
 ### Spire (typelevel/spire)
 
