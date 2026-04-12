@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <option name="separateProdTestSources" value="true" />
-    <profile name="sbt 1" modules="root,root.main,root.test,scala-colour,scala-colour.main,scala-colour.main~1,scala-colour.test,scala-colour.test~1,scala-library-template" />
+    <profile name="sbt 1" modules="not-enough-structures,root,root.main,root.test,scala-colour,scala-colour.main,scala-colour.main~1,scala-colour.test,scala-colour.test~1,scala-library-template" />
     <profile name="sbt 2" modules="scala-library-template.main,scala-library-template.test">
       <parameters>
         <parameter value="-language:experimental.subCases" />
@@ -11,6 +11,18 @@
         <parameter value="-language:experimental.strictEqualityPatternMatching" />
         <parameter value="-Xmax-inlines" />
         <parameter value="64" />
+      </parameters>
+    </profile>
+    <profile name="sbt 3" modules="not-enough-structures.main,not-enough-structures.test">
+      <parameters>
+        <parameter value="-explain" />
+        <parameter value="-explain-types" />
+        <parameter value="-explain-cyclic" />
+        <parameter value="-language:experimental.subCases" />
+        <parameter value="-language:experimental.relaxedLambdaSyntax" />
+        <parameter value="-language:experimental.multiSpreads" />
+        <parameter value="-language:experimental.strictEqualityPatternMatching" />
+        <parameter value="-language:experimental.erasedDefinitions" />
       </parameters>
     </profile>
   </component>

@@ -1,0 +1,33 @@
+package io.github.sgtswagrid.structures
+
+import io.github.sgtswagrid.structures.builder.ZeroBuilder
+import io.github.sgtswagrid.structures.ops.ZeroOps
+
+/** For algebraic structures with an additive identity (`zero`). */
+trait AdditiveIdentity[+X]:
+
+  /**
+    * The unique representation of the additive identity (`0`) in this algebra
+    * system. Typically corresponds to values such as `0`, `0.0F`, or
+    * `Seq.empty`.
+    *
+    * @note
+    *   All implementations must obey the identity property, i.e.
+    *   `x + zero == zero + x == x`.
+    */
+  def zero: X
+
+/**
+  * The companion object for [[AdditiveIdentity]]. Import as
+  * {{{
+  * import io.github.sgtswagrid.structures.Zero.{*, given}
+  * }}}
+  * to receive all necessary syntax for working with zero.
+  */
+object AdditiveIdentity extends ZeroBuilder, ZeroOps:
+
+  export io.github.sgtswagrid.structures.AdditiveIdentity
+
+  /** The [[AdditiveIdentity]] instance describing the current algebra system. */
+  inline def additiveIdentity[X : AdditiveIdentity as zero]
+    : AdditiveIdentity[X] = zero
