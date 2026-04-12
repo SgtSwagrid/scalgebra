@@ -2,7 +2,6 @@ package io.github.sgtswagrid.structures
 
 import io.github.sgtswagrid.structures.builder.MultiplicativeSemigroupBuilder
 import io.github.sgtswagrid.structures.ops.MultiplicativeSemigroupOps
-import scala.annotation.tailrec
 
 /** For algebraic structures with an associative multiplication operator. */
 trait MultiplicativeSemigroup[X]:
@@ -35,14 +34,13 @@ trait MultiplicativeSemigroup[X]:
     * @throws IllegalArgumentException
     *   if `n ≤ 0`.
     */
-  inline def pow(x: X, n: Int): X =
+  def pow(x: X, n: Int): X =
 
     require(
       n > 0,
       s"Non-positive exponents ($n) aren't supported in this algebra.",
     )
 
-    @tailrec
     def recurse(x: X, n: Int): X =
       if n == 1 then x
       else if n % 2 == 0 then recurse(multiply(x, x), n / 2)

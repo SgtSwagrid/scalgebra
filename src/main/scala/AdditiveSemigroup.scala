@@ -2,7 +2,6 @@ package io.github.sgtswagrid.structures
 
 import io.github.sgtswagrid.structures.builder.AdditiveSemigroupBuilder
 import io.github.sgtswagrid.structures.ops.AdditiveSemigroupOps
-import scala.annotation.tailrec
 
 /** For algebraic structures with an associative addition operator. */
 trait AdditiveSemigroup[X]:
@@ -34,14 +33,13 @@ trait AdditiveSemigroup[X]:
     * @throws IllegalArgumentException
     *   if `n ≤ 0`.
     */
-  inline def scale(x: X, n: Int): X =
+  def scale(x: X, n: Int): X =
 
     require(
       n > 0,
       s"Non-positive multipliers ($n) aren't supported in this algebra.",
     )
 
-    @tailrec
     def recurse(x: X, n: Int): X =
       if n == 1 then x
       else if n % 2 == 0 then recurse(add(x, x), n / 2)

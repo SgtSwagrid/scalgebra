@@ -8,7 +8,7 @@ import scala.annotation.tailrec
 trait EuclideanRing[X] extends Ring[X], EuclideanMonoid[X]:
 
   /** Computes the signed remainder between two values [[x]] and [[y]]. */
-  inline def mod(x: X, y: X): X = subtract(x, multiply(divide(x, y), y))
+  def mod(x: X, y: X): X = subtract(x, multiply(divide(x, y), y))
 
   /** Computes the greatest common divisor of two values [[x]] and [[y]]. */
   @tailrec

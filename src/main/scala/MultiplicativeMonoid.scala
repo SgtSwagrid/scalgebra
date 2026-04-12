@@ -20,7 +20,7 @@ trait MultiplicativeMonoid[X]
     * @throws IllegalArgumentException
     *   if `n < 0`.
     */
-  def pow(x: X, n: Int): X =
+  override def pow(x: X, n: Int): X =
 
     require(
       n >= 0,
