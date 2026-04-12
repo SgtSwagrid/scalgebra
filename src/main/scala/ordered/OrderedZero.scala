@@ -2,8 +2,8 @@ package io.github.sgtswagrid.structures
 package ordered
 
 import io.github.sgtswagrid.structures.AdditiveIdentity
-import io.github.sgtswagrid.structures.ordered.builder.OrderedZeroBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedZeroOps
+import io.github.sgtswagrid.structures.ordered.builder.OrderedAdditiveIdentityBuilder
+import io.github.sgtswagrid.structures.ordered.ops.OrderedAdditiveIdentityOps
 
 /** An ordered version of [[AdditiveIdentity]]. */
 trait OrderedZero[X] extends AdditiveIdentity[X], Ordering[X]:
@@ -27,7 +27,7 @@ trait OrderedZero[X] extends AdditiveIdentity[X], Ordering[X]:
   * }}}
   * to receive all necessary syntax for working with ordered zero.
   */
-object OrderedZero extends OrderedZeroBuilder, OrderedZeroOps:
+object OrderedZero extends OrderedAdditiveIdentityBuilder, OrderedAdditiveIdentityOps:
 
   export io.github.sgtswagrid.structures.ordered.OrderedZero
 

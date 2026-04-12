@@ -4,7 +4,7 @@ package ops
 import io.github.sgtswagrid.structures.MultiplicativeIdentity
 
 /** Extension methods for [[MultiplicativeIdentity]]. */
-trait OneOps:
+trait MultiplicativeIdentityOps:
 
   extension [X : MultiplicativeIdentity as X](x: X)
 

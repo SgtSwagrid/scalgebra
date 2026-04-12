@@ -4,7 +4,7 @@ package ops
 import io.github.sgtswagrid.structures.AdditiveIdentity
 
 /** Extension methods for [[AdditiveIdentity]]. */
-trait ZeroOps:
+trait AdditiveIdentityOps:
 
   extension [X : AdditiveIdentity as X](x: X)
 

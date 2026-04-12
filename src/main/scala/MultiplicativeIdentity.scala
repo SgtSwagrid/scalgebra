@@ -1,7 +1,7 @@
 package io.github.sgtswagrid.structures
 
-import io.github.sgtswagrid.structures.builder.OneBuilder
-import io.github.sgtswagrid.structures.ops.OneOps
+import io.github.sgtswagrid.structures.builder.MultiplicativeIdentityBuilder
+import io.github.sgtswagrid.structures.ops.MultiplicativeIdentityOps
 
 /** For algebraic structures with a multiplicative identity (`one`). */
 trait MultiplicativeIdentity[+X]:
@@ -23,7 +23,7 @@ trait MultiplicativeIdentity[+X]:
   * }}}
   * to receive all necessary syntax for working with one.
   */
-object MultiplicativeIdentity extends OneBuilder, OneOps:
+object MultiplicativeIdentity extends MultiplicativeIdentityBuilder, MultiplicativeIdentityOps:
 
   export io.github.sgtswagrid.structures.MultiplicativeIdentity
 

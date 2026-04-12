@@ -4,7 +4,7 @@ package ops
 import io.github.sgtswagrid.structures.AdditiveMonoid
 
 /** Extension methods for [[AdditiveMonoid]]. */
-trait AdditiveMonoidOps extends AdditiveSemigroupOps, ZeroOps:
+trait AdditiveMonoidOps extends AdditiveSemigroupOps, AdditiveIdentityOps:
 
   extension [X : AdditiveMonoid as X](x: X)
 

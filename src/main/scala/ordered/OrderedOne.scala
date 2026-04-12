@@ -2,8 +2,8 @@ package io.github.sgtswagrid.structures
 package ordered
 
 import io.github.sgtswagrid.structures.MultiplicativeIdentity
-import io.github.sgtswagrid.structures.ordered.builder.OrderedOneBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedOneOps
+import io.github.sgtswagrid.structures.ordered.builder.OrderedMultiplicativeIdentityBuilder
+import io.github.sgtswagrid.structures.ordered.ops.OrderedMultiplicativeIdentityOps
 
 /** An ordered version of [[MultiplicativeIdentity]]. */
 trait OrderedOne[X] extends MultiplicativeIdentity[X], Ordering[X]
@@ -15,7 +15,7 @@ trait OrderedOne[X] extends MultiplicativeIdentity[X], Ordering[X]
   * }}}
   * to receive all necessary syntax for working with ordered one.
   */
-object OrderedOne extends OrderedOneBuilder, OrderedOneOps:
+object OrderedOne extends OrderedMultiplicativeIdentityBuilder, OrderedMultiplicativeIdentityOps:
 
   export io.github.sgtswagrid.structures.ordered.OrderedOne
 

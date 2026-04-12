@@ -1,7 +1,7 @@
 package io.github.sgtswagrid.structures
 
-import io.github.sgtswagrid.structures.builder.ZeroBuilder
-import io.github.sgtswagrid.structures.ops.ZeroOps
+import io.github.sgtswagrid.structures.builder.AdditiveIdentityBuilder
+import io.github.sgtswagrid.structures.ops.AdditiveIdentityOps
 
 /** For algebraic structures with an additive identity (`zero`). */
 trait AdditiveIdentity[+X]:
@@ -24,7 +24,7 @@ trait AdditiveIdentity[+X]:
   * }}}
   * to receive all necessary syntax for working with zero.
   */
-object AdditiveIdentity extends ZeroBuilder, ZeroOps:
+object AdditiveIdentity extends AdditiveIdentityBuilder, AdditiveIdentityOps:
 
   export io.github.sgtswagrid.structures.AdditiveIdentity
 

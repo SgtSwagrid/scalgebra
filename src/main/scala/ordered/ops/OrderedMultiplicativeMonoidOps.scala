@@ -8,4 +8,4 @@ import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeMonoid
 trait OrderedMultiplicativeMonoidOps
   extends MultiplicativeMonoidOps,
           OrderedMultiplicativeSemigroupOps,
-          OrderedOneOps
+          OrderedMultiplicativeIdentityOps
