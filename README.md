@@ -63,8 +63,8 @@ You only need one import regardless of how many capabilities the type class bund
 ```scala 3
 import io.github.sgtswagrid.structures.EuclideanRing.{*, given}
 
-def gcdNorm[X : EuclideanRing](xs: Seq[X]): X =
-  xs.reduce(_.gcd(_))  // gcd, +, -, *, /, % all available
+def gcdNorm[X : EuclideanRing as E](xs: Seq[X]): X =
+  xs.reduce(E.gcd)  // gcd, +, -, *, /, % all available
 ```
 
 ### Providing evidence
@@ -91,8 +91,6 @@ The `ordered` subpackage provides `Ordered`-prefixed variants that combine each 
 import io.github.sgtswagrid.structures.ordered.OrderedField.{*, given}
 
 def clamp[X : OrderedField](x: X, lo: X, hi: X): X = x.max(lo).min(hi)
-
-def lerp[X : OrderedField](a: X, b: X, t: X): X = a + (b - a) * t
 ```
 
 `[X : OrderedField]` is equivalent to `[X : {Field, Ordering}]` but is usable in contexts where multiple bounds cannot be expressed (e.g., as a type argument to another generic type class).
@@ -142,8 +140,8 @@ These are standalone mix-ins for individual capabilities. They are rarely used a
 |---|---|---|
 | `Semiring[X]` | `AdditiveMonoid`, `MultiplicativeMonoid` | `two` |
 | `DifferenceSemiring[X]` | `Semiring`, `DifferenceMonoid` | — |
-| `Ring[X]` | `AdditiveGroup`, `DifferenceSemiring` | `negativeOne`, `x.signum`¹ |
-| `EuclideanRing[X]` | `Ring`, `EuclideanMonoid` | `x % y`, `gcd(x, y)`, `lcm(x, y)` |
+| `Ring[X]` | `AdditiveGroup`, `DifferenceSemiring` | `negativeOne`, `x.sign`¹ |
+| `EuclideanRing[X]` | `Ring`, `EuclideanMonoid` | `x % y`, `E.gcd(x, y)`, `E.lcm(x, y)` |
 | `Semifield[X]` | `Semiring`, `MultiplicativeGroup` | — |
 | `Field[X]` | `EuclideanRing`, `Semifield` | (`mod` is always `zero`) |
 
@@ -170,7 +168,7 @@ Every type class above has a corresponding `Ordered`-prefixed variant in the `or
 | `OrderedSemifield[X]` | `Semifield[X]`, `Ordering[X]` |
 | `OrderedField[X]` | `Field[X]`, `Ordering[X]` |
 
-The ordered variants add the comparison operators `<`, `<=`, `>`, `>=`, `min`, `max`, and `compare` from `Ordering`. They also unlock `abs` on `OrderedAdditiveGroup` and `signum` on `OrderedRing` unconditionally (rather than requiring a separate `Ordering` bound).
+The ordered variants add the comparison operators `<`, `<=`, `>`, `>=`, `min`, `max`, and `compare` from `Ordering`. They also make `abs` available on `OrderedAdditiveGroup` and `sign` available on `OrderedRing`.
 
 ---
 
@@ -213,6 +211,12 @@ Not Enough Structures uses the conventional mathematical naming split: additive 
 - **F-bounded inheritance with `-Ops` traits.** Extension methods are delivered through a dedicated `-Ops` hierarchy that mirrors the type class hierarchy, rather than standalone `implicit class` wrappers.
 - **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes in their own subpackage, not just a convention for combining `Ring[X]` with `cats.kernel.Order[X]`.
 - **Smaller scope.** This library is a pure algebraic-structure layer with no additional machinery (no lattices, no `Hash`, no `Eq`).
+
+### Algebird (twitter/algebird)
+
+Algebird is Twitter's abstract algebra library, built around aggregation in distributed and streaming systems. Its primary structures are `Semigroup`, `Monoid`, and `Group` (abstract, not additive/multiplicative), plus higher-level combinators like approximate data structures (HyperLogLog, Count-Min Sketch) and MapReduce-friendly accumulators.
+
+Algebird and Not Enough Structures serve different goals. Algebird is optimised for large-scale aggregation pipelines; its algebraic types are a means to that end. Not Enough Structures is a pure structural layer for generic numeric algorithms, with no runtime machinery beyond the type classes themselves.
 
 ### Spire (typelevel/spire)
 

@@ -32,3 +32,11 @@ trait OrderingOps:
 
     /** @return the larger of both operands. */
     inline infix def max(y: X): X = if x >= y then x else y
+
+    /**
+      * Clamps this value to the inclusive range `[lb, ub]`.
+      *
+      * @return [[lb]] if this value is less than [[lb]], [[ub]] if greater
+      *   than [[ub]], or this value otherwise.
+      */
+    inline def clamp(lb: X, ub: X): X = x.max(lb).min(ub)

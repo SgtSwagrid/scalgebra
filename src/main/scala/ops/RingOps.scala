@@ -9,7 +9,7 @@ trait RingOps extends AdditiveGroupOps, DifferenceSemiringOps:
   extension [X : {Ring as R, Ordering as O}](x: X)
 
     /** Computes the sign of this value as `-1`, `0`, or `1`. */
-    inline def signum: X =
+    inline def sign: X =
       if O.lt(x, R.zero) then R.negativeOne
       else if O.gt(x, R.zero) then R.one
       else R.zero
