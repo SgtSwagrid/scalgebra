@@ -26,3 +26,7 @@ GitHub releases are automatically published to [Maven Central](https://central.s
 
 To release version `1.2.3`, go to **Releases → Draft a new release**, create the tag `v1.2.3`, and click **Publish release**.
 Note the inclusion of `v` in the GitHub release name but not the resulting Maven version.
+
+## 👁️ See also
+
+Check out [Abstract Nonsense](https://github.com/SgtSwagrid/abstract-nonsense) for some different abstractions with a more category-theoretic focus.
