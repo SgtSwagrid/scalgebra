@@ -2,7 +2,8 @@ package io.github.sgtswagrid.structures
 package ordered.builder
 
 import io.github.sgtswagrid.structures.evidence.{
-  IntIsOrderedEuclideanRing, LongIsOrderedEuclideanRing,
+  BigIntIsOrderedEuclideanRing, IntIsOrderedEuclideanRing,
+  LongIsOrderedEuclideanRing,
 }
 import io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing
 
@@ -10,4 +11,5 @@ import io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing
 trait OrderedEuclideanRingBuilder
   extends OrderedFieldBuilder,
           IntIsOrderedEuclideanRing,
-          LongIsOrderedEuclideanRing
+          LongIsOrderedEuclideanRing,
+          BigIntIsOrderedEuclideanRing
