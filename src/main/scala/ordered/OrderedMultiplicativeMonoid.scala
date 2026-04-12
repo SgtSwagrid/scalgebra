@@ -9,7 +9,7 @@ import io.github.sgtswagrid.structures.ordered.ops.OrderedMultiplicativeMonoidOp
 trait OrderedMultiplicativeMonoid[X]
   extends MultiplicativeMonoid[X],
           OrderedMultiplicativeSemigroup[X],
-          OrderedOne[X]
+          OrderedMultiplicativeIdentity[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeMonoid]]. Import as

@@ -6,7 +6,7 @@ import io.github.sgtswagrid.structures.ordered.builder.OrderedAdditiveIdentityBu
 import io.github.sgtswagrid.structures.ordered.ops.OrderedAdditiveIdentityOps
 
 /** An ordered version of [[AdditiveIdentity]]. */
-trait OrderedZero[X] extends AdditiveIdentity[X], Ordering[X]:
+trait OrderedAdditiveIdentity[X] extends AdditiveIdentity[X], Ordering[X]:
 
   /** @return `true` if a value [[x]] is strictly positive, i.e. `x > 0`. */
   final inline def isPositive(x: X): Boolean = gt(x, zero)
@@ -21,17 +21,18 @@ trait OrderedZero[X] extends AdditiveIdentity[X], Ordering[X]:
   final inline def isNonPositive(x: X): Boolean = lteq(x, zero)
 
 /**
-  * The companion object for [[OrderedZero]]. Import as
+  * The companion object for [[OrderedAdditiveIdentity]]. Import as
   * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedZero.{*, given}
+  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveIdentity.{*, given}
   * }}}
-  * to receive all necessary syntax for working with ordered zero.
+  * to receive all necessary syntax for working with ordered additive identity.
   */
-object OrderedZero
+object OrderedAdditiveIdentity
   extends OrderedAdditiveIdentityBuilder, OrderedAdditiveIdentityOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedZero
+  export io.github.sgtswagrid.structures.ordered.OrderedAdditiveIdentity
 
-  /** The [[OrderedZero]] instance describing the current algebra system. */
-  inline def orderedZero[X : OrderedZero as orderedZero]: OrderedZero[X] =
-    orderedZero
+  /** The [[OrderedAdditiveIdentity]] instance describing the current algebra system. */
+  inline def orderedAdditiveIdentity[
+    X : OrderedAdditiveIdentity as orderedAdditiveIdentity,
+  ]: OrderedAdditiveIdentity[X] = orderedAdditiveIdentity

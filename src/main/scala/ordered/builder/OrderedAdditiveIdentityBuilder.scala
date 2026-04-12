@@ -1,7 +1,7 @@
 package io.github.sgtswagrid.structures
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedZero
+import io.github.sgtswagrid.structures.ordered.OrderedAdditiveIdentity
 
-/** Methods for constructing [[OrderedZero]] type classes. */
+/** Methods for constructing [[OrderedAdditiveIdentity]] type classes. */
 trait OrderedAdditiveIdentityBuilder extends OrderedAdditiveMonoidBuilder
