@@ -10,7 +10,7 @@
   
 </div>
 
-## Overview
+## 💡 Overview
 
 **Not Enough Structures** provides a hierarchy of type classes for algebraic structures: semigroups, monoids, groups, rings, fields, and more, split cleanly along additive and multiplicative lines.
 
