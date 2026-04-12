@@ -1,9 +1,9 @@
-ThisBuild / name           := "Scala Library Template"
-ThisBuild / normalizedName := "scala-library-template"
-ThisBuild / description    := "A reusable template for Scala libraries."
+ThisBuild / name           := "Not Enough Structures"
+ThisBuild / normalizedName := "not-enough-structures"
+ThisBuild / description    := "A collection of type classes for algebraic structures in Scala."
 
 ThisBuild / homepage :=
-  Some(url("https://github.com/SgtSwagrid/scala-library-template"))
+  Some(url("https://github.com/SgtSwagrid/not-enough-structures"))
 
 ThisBuild / organization         := "io.github.sgtswagrid"
 ThisBuild / organizationName     := "SgtSwagrid"
@@ -15,8 +15,8 @@ ThisBuild / licenses :=
   List("MIT" -> url("https://opensource.org/licenses/MIT"))
 
 ThisBuild / scmInfo := Some(ScmInfo(
-  url("https://github.com/SgtSwagrid/scala-library-template"),
-  "scm:git@github.com:SgtSwagrid/scala-library-template.git",
+  url("https://github.com/SgtSwagrid/not-enough-structures"),
+  "scm:git@github.com:SgtSwagrid/not-enough-structures.git",
 ))
 
 ThisBuild / developers := List(Developer(
