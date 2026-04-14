@@ -192,6 +192,33 @@ The following `given` instances are provided out of the box. They are available 
 
 ---
 
+## 🔌 Connectors
+
+_Not Enough Structures_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
+These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
+
+### Usage
+
+Each connector is published under the name:
+```
+not-enough-structures-connector-<library-name>
+```
+The version of the connector always matches the version of the core _Not Enough Structures_ library.
+
+The following import statement will load all relevant conversions:
+```scala
+import io.github.sgtswagrid.structures.connector.<libraryname>.<LibraryName>Conversions.given
+```
+
+### Supported projects
+
+- [Algebird](https://twitter.github.io/algebird/)
+- [Breeze](https://github.com/scalanlp/breeze)
+- [Cats Algebra](https://typelevel.org/cats/algebra.html)
+- [Scalaz](https://github.com/scalaz/scalaz)
+- [Spire](https://spire-math.org/)
+- [ZIO Prelude](https://zio.dev/zio-prelude/)
+
 ## ⚖️ Comparison to other libraries
 
 ### What sets this library apart
@@ -202,6 +229,7 @@ The following `given` instances are provided out of the box. They are available 
 - **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes, not just a convention for pairing a structure with `Ordering`. They expose additional operations (`abs`, `sign`, `clamp`) that require both capabilities simultaneously.
 - **Zero-import evidence.** Instances for in-built types (`Int`, `Double`, etc.) are propagated through the companion object hierarchy, so call sites need no extra imports.
 - **Minimal footprint.** No number types, no approximate data structures, no lattices. Just the structural layer.
+- **Compatibility.** Integrates seamlessly with the competition.
 
 ### Standard library (`Numeric`, `Integral`, `Fractional`)
 
