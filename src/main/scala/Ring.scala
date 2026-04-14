@@ -11,9 +11,9 @@ trait Ring[X] extends AdditiveGroup[X], DifferenceSemiring[X]:
 
 /**
   * The companion object for [[Ring]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.Ring.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with rings.
   */
 object Ring extends RingBuilder, RingOps:

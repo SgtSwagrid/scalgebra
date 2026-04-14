@@ -19,9 +19,9 @@ trait AdditiveIdentity[+X]:
 
 /**
   * The companion object for [[AdditiveIdentity]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.Zero.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with zero.
   */
 object AdditiveIdentity extends AdditiveIdentityBuilder, AdditiveIdentityOps:

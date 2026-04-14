@@ -13,9 +13,11 @@ trait OrderedMultiplicativeMonoid[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeMonoid]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeMonoid.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeMonoid.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered multiplicative
   * monoids.
   */

@@ -2,7 +2,15 @@ package io.github.sgtswagrid.structures
 package builder
 
 import io.github.sgtswagrid.structures.EuclideanRing
+import io.github.sgtswagrid.structures.evidence.function.FunctionIsEuclideanRing
+import io.github.sgtswagrid.structures.evidence.future.FutureIsEuclideanRing
+import io.github.sgtswagrid.structures.evidence.tuple.TupleIsEuclideanRing
 import io.github.sgtswagrid.structures.ordered.builder.OrderedEuclideanRingBuilder
 
 /** Methods for constructing [[EuclideanRing]] type classes. */
-trait EuclideanRingBuilder extends OrderedEuclideanRingBuilder, FieldBuilder
+trait EuclideanRingBuilder
+  extends OrderedEuclideanRingBuilder,
+          FieldBuilder,
+          TupleIsEuclideanRing,
+          FutureIsEuclideanRing,
+          FunctionIsEuclideanRing

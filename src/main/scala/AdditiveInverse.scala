@@ -16,9 +16,9 @@ trait AdditiveInverse[X]:
 
 /**
   * The companion object for [[AdditiveInverse]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.AdditiveInverse.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with additive inverses.
   */
 object AdditiveInverse extends AdditiveInverseBuilder, AdditiveInverseOps:

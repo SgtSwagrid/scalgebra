@@ -18,9 +18,9 @@ trait MultiplicativeInverse[X]:
 
 /**
   * The companion object for [[MultiplicativeInverse]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.MultiplicativeInverse.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with multiplicative inverses.
   */
 object MultiplicativeInverse

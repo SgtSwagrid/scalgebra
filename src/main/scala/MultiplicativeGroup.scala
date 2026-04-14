@@ -15,9 +15,9 @@ trait MultiplicativeGroup[X]
 
 /**
   * The companion object for [[MultiplicativeGroup]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.MultiplicativeGroup.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with multiplicative groups.
   */
 object MultiplicativeGroup

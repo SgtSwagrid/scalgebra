@@ -11,9 +11,9 @@ trait DifferenceMonoid[X] extends AdditiveMonoid[X]:
 
 /**
   * The companion object for [[DifferenceMonoid]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.DifferenceMonoid.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with difference monoids.
   */
 object DifferenceMonoid extends DifferenceMonoidBuilder, DifferenceMonoidOps:

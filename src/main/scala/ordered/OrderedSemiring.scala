@@ -11,9 +11,9 @@ trait OrderedSemiring[X]
 
 /**
   * The companion object for [[OrderedSemiring]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.ordered.OrderedSemiring.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with ordered semirings.
   */
 object OrderedSemiring extends OrderedSemiringBuilder, OrderedSemiringOps:

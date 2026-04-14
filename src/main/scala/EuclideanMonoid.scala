@@ -11,9 +11,9 @@ trait EuclideanMonoid[X] extends MultiplicativeMonoid[X]:
 
 /**
   * The companion object for [[EuclideanMonoid]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.EuclideanMonoid.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with Euclidean monoids.
   */
 object EuclideanMonoid extends EuclideanMonoidBuilder, EuclideanMonoidOps:

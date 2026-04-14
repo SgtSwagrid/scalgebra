@@ -11,9 +11,11 @@ trait OrderedDifferenceSemiring[X]
 
 /**
   * The companion object for [[OrderedDifferenceSemiring]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedDifferenceSemiring.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedDifferenceSemiring.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered difference
   * semirings.
   */

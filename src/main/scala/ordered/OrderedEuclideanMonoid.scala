@@ -11,9 +11,11 @@ trait OrderedEuclideanMonoid[X]
 
 /**
   * The companion object for [[OrderedEuclideanMonoid]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedEuclideanMonoid.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedEuclideanMonoid.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered Euclidean monoids.
   */
 object OrderedEuclideanMonoid

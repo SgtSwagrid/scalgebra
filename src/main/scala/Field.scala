@@ -10,9 +10,9 @@ trait Field[X] extends EuclideanRing[X], Semifield[X]:
 
 /**
   * The companion object for [[Field]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.Field.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with fields.
   */
 object Field extends FieldBuilder, FieldOps:

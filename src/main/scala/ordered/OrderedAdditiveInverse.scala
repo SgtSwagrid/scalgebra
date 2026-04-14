@@ -10,9 +10,11 @@ trait OrderedAdditiveInverse[X] extends AdditiveInverse[X], Ordering[X]
 
 /**
   * The companion object for [[OrderedAdditiveInverse]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveInverse.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveInverse.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered additive inverses.
   */
 object OrderedAdditiveInverse

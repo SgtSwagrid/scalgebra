@@ -15,6 +15,13 @@ This is a Scala library intended for use by other library developers.
 It provides type classes for an assortment of algebraic structures (monoids, groups, rings, fields, etc.).
 It is (and should remain) very lightweight and dependency-free.
 
+### Structure
+
+The [core project](src/main/scala) contains the type classes themselves. It needs to remain dependency-free.
+Compatibility with other algebra libraries (e.g. cats, algebrid, spire) is provided in [connectors](connectors).
+Each connector is for a single library and exists in a distinct subproject.
+Make sure to keep the connectors updated following changes to the core type classes.
+
 ## Instructions
 
 ### Compilation and Diagnostics
@@ -54,6 +61,9 @@ It is (and should remain) very lightweight and dependency-free.
 - Never use the `implicit` keyword, always prefer `given` and `using` instead.
 - Format with `sbt scalafmtAll` before committing. In general, match your style to that defined in `.scalafmt.conf`.
 - When in doubt, follow the style of existing code in the repository.
+- Avoid qualified names when there is no reason to use them. Write e.g. `AdditiveMonoid` instead of `structures.AdditiveMonoid`, and add a proper import statement instead.
+  - Exception 1: Things nested inside singleton objects, where the name in unclear without the object name as context.
+  - Exception 2: When multiple libraries have similar sets of names on account of representing similar ideas from a different angle.
 
 #### Naming conventions
 

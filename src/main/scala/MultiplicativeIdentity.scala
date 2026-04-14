@@ -18,9 +18,9 @@ trait MultiplicativeIdentity[+X]:
 
 /**
   * The companion object for [[MultiplicativeIdentity]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.One.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with one.
   */
 object MultiplicativeIdentity

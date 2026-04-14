@@ -8,9 +8,9 @@ trait Semifield[X] extends Semiring[X], MultiplicativeGroup[X]
 
 /**
   * The companion object for [[Semifield]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.Semifield.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with semifields.
   */
 object Semifield extends SemifieldBuilder, SemifieldOps:

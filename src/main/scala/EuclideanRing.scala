@@ -21,9 +21,9 @@ trait EuclideanRing[X] extends Ring[X], EuclideanMonoid[X]:
 
 /**
   * The companion object for [[EuclideanRing]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.EuclideanRing.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with Euclidean rings.
   */
 object EuclideanRing extends EuclideanRingBuilder, EuclideanRingOps:

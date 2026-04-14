@@ -11,9 +11,9 @@ trait Semiring[X] extends AdditiveMonoid[X], MultiplicativeMonoid[X]:
 
 /**
   * The companion object for [[Semiring]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.Semiring.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with semirings.
   */
 object Semiring extends SemiringBuilder, SemiringOps:

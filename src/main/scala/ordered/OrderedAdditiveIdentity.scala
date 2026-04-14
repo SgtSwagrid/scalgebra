@@ -22,9 +22,11 @@ trait OrderedAdditiveIdentity[X] extends AdditiveIdentity[X], Ordering[X]:
 
 /**
   * The companion object for [[OrderedAdditiveIdentity]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveIdentity.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveIdentity.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered additive identity.
   */
 object OrderedAdditiveIdentity

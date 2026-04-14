@@ -11,9 +11,9 @@ trait OrderedSemifield[X]
 
 /**
   * The companion object for [[OrderedSemifield]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.ordered.OrderedSemifield.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with ordered semifields.
   */
 object OrderedSemifield extends OrderedSemifieldBuilder, OrderedSemifieldOps:

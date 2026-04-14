@@ -8,9 +8,9 @@ trait DifferenceSemiring[X] extends Semiring[X], DifferenceMonoid[X]
 
 /**
   * The companion object for [[DifferenceSemiring]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.DifferenceSemiring.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with difference semirings.
   */
 object DifferenceSemiring

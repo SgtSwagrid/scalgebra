@@ -11,9 +11,11 @@ trait OrderedDifferenceMonoid[X]
 
 /**
   * The companion object for [[OrderedDifferenceMonoid]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedDifferenceMonoid.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedDifferenceMonoid.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered difference monoids.
   */
 object OrderedDifferenceMonoid

@@ -50,9 +50,9 @@ trait MultiplicativeSemigroup[X]:
 
 /**
   * The companion object for [[MultiplicativeSemigroup]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.MultiplicativeSemigroup.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with multiplicative semigroups.
   */
 object MultiplicativeSemigroup

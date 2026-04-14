@@ -15,9 +15,9 @@ trait AdditiveGroup[X] extends DifferenceMonoid[X], AdditiveInverse[X]:
 
 /**
   * The companion object for [[AdditiveGroup]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.AdditiveGroup.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with additive groups.
   */
 object AdditiveGroup extends AdditiveGroupBuilder, AdditiveGroupOps:

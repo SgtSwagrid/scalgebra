@@ -11,9 +11,11 @@ trait OrderedMultiplicativeInverse[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeInverse]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeInverse.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeInverse.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered multiplicative
   * inverses.
   */

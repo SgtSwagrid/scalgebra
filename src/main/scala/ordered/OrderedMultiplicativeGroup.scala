@@ -13,9 +13,11 @@ trait OrderedMultiplicativeGroup[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeGroup]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeGroup.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeGroup.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered multiplicative
   * groups.
   */

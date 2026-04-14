@@ -11,9 +11,11 @@ trait OrderedEuclideanRing[X]
 
 /**
   * The companion object for [[OrderedEuclideanRing]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered Euclidean rings.
   */
 object OrderedEuclideanRing

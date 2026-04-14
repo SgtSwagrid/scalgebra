@@ -11,9 +11,9 @@ trait OrderedField[X]
 
 /**
   * The companion object for [[OrderedField]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.ordered.OrderedField.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with ordered fields.
   */
 object OrderedField extends OrderedFieldBuilder, OrderedFieldOps:

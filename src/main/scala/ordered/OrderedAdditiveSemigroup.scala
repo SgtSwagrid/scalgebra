@@ -10,9 +10,11 @@ trait OrderedAdditiveSemigroup[X] extends AdditiveSemigroup[X], Ordering[X]
 
 /**
   * The companion object for [[OrderedAdditiveSemigroup]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveSemigroup.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveSemigroup.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered additive
   * semigroups.
   */

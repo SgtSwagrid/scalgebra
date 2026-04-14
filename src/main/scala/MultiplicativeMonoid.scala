@@ -31,9 +31,9 @@ trait MultiplicativeMonoid[X]
 
 /**
   * The companion object for [[MultiplicativeMonoid]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.MultiplicativeMonoid.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with multiplicative monoids.
   */
 object MultiplicativeMonoid

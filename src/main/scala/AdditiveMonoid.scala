@@ -29,9 +29,9 @@ trait AdditiveMonoid[X] extends AdditiveSemigroup[X], AdditiveIdentity[X]:
 
 /**
   * The companion object for [[AdditiveMonoid]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.AdditiveMonoid.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with additive monoids.
   */
 object AdditiveMonoid extends AdditiveMonoidBuilder, AdditiveMonoidOps:

@@ -11,9 +11,11 @@ trait OrderedMultiplicativeIdentity[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeIdentity]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeIdentity.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeIdentity.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered multiplicative
   * identity.
   */

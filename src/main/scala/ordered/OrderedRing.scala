@@ -18,9 +18,9 @@ trait OrderedRing[X]
 
 /**
   * The companion object for [[OrderedRing]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.ordered.OrderedRing.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with ordered rings.
   */
 object OrderedRing extends OrderedRingBuilder, OrderedRingOps:

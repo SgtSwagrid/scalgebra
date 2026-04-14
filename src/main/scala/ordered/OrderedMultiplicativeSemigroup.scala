@@ -11,9 +11,11 @@ trait OrderedMultiplicativeSemigroup[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeSemigroup]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeSemigroup.{*, given}
-  * }}}
+  * ```scala
+  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeSemigroup.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered multiplicative
   * semigroups.
   */

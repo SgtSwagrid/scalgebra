@@ -2,8 +2,15 @@ package io.github.sgtswagrid.structures
 package builder
 
 import io.github.sgtswagrid.structures.AdditiveInverse
+import io.github.sgtswagrid.structures.evidence.function.FunctionIsAdditiveInverse
+import io.github.sgtswagrid.structures.evidence.future.FutureIsAdditiveInverse
+import io.github.sgtswagrid.structures.evidence.tuple.TupleIsAdditiveInverse
 import io.github.sgtswagrid.structures.ordered.builder.OrderedAdditiveInverseBuilder
 
 /** Methods for constructing [[AdditiveInverse]] type classes. */
 trait AdditiveInverseBuilder
-  extends OrderedAdditiveInverseBuilder, AdditiveGroupBuilder
+  extends OrderedAdditiveInverseBuilder,
+          AdditiveGroupBuilder,
+          TupleIsAdditiveInverse,
+          FutureIsAdditiveInverse,
+          FunctionIsAdditiveInverse

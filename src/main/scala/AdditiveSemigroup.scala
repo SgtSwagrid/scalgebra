@@ -49,9 +49,9 @@ trait AdditiveSemigroup[X]:
 
 /**
   * The companion object for [[AdditiveSemigroup]]. Import as
-  * {{{
+  * ```scala
   * import io.github.sgtswagrid.structures.AdditiveSemigroup.{*, given}
-  * }}}
+  * ```
   * to receive all necessary syntax for working with additive semigroups.
   */
 object AdditiveSemigroup extends AdditiveSemigroupBuilder, AdditiveSemigroupOps:
