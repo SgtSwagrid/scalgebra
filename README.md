@@ -33,7 +33,7 @@ Your users can then call `dot` on any type for which a `Ring` is in scope, inclu
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.3"
+libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.4"
 ```
 
 Requires Scala 3.
@@ -110,7 +110,7 @@ not-enough-structures-connector-<library-name>
 ```
 The version of the connector always matches the version of the core _Not Enough Structures_ library.
 
-The following import statement will load all relevant conversions:
+The following import statement will then load all relevant conversions:
 ```scala
 import io.github.sgtswagrid.structures.connector.<libraryname>.<LibraryName>Conversions.given
 ```
