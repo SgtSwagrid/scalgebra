@@ -101,12 +101,15 @@ The ordered variants go beyond merely combining their unordered counterpart with
 
 _Not Enough Structures_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
 These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
+Conversions are provided in both directions.
 
 ### Usage
 
-Each connector is published under the name:
-```
-not-enough-structures-connector-<library-name>
+Each connector is published under the name
+`not-enough-structures-connector-<library-name>`
+and can be installed using:
+```scala
+libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures-connector-<library-name>" % "0.1.4"
 ```
 The version of the connector always matches the version of the core _Not Enough Structures_ library.
 
@@ -114,6 +117,9 @@ The following import statement will then load all relevant conversions:
 ```scala
 import io.github.sgtswagrid.structures.connector.<libraryname>.<LibraryName>Conversions.given
 ```
+
+This could even be used to convert between algebra systems from multiple foreign libraries,
+with no intention to ever use the intermediates that exist here.
 
 ### Supported projects
 
