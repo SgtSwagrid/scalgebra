@@ -97,7 +97,32 @@ def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
 
 The ordered variants go beyond merely combining their unordered counterpart with `Ordering` — they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`. They are also useful in contexts where multiple context bounds cannot be expressed. Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
 
----
+## 🔌 Connectors
+
+_Not Enough Structures_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
+These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
+
+### Usage
+
+Each connector is published under the name:
+```
+not-enough-structures-connector-<library-name>
+```
+The version of the connector always matches the version of the core _Not Enough Structures_ library.
+
+The following import statement will load all relevant conversions:
+```scala
+import io.github.sgtswagrid.structures.connector.<libraryname>.<LibraryName>Conversions.given
+```
+
+### Supported projects
+
+- [Algebird](https://twitter.github.io/algebird/)
+- [Breeze](https://github.com/scalanlp/breeze)
+- [Cats Algebra](https://typelevel.org/cats/algebra.html)
+- [Scalaz](https://github.com/scalaz/scalaz)
+- [Spire](https://spire-math.org/)
+- [ZIO Prelude](https://zio.dev/zio-prelude/)
 
 ## 📐 Type class reference
 
@@ -172,52 +197,10 @@ Every type class above has a corresponding `Ordered`-prefixed variant in the `or
 
 The ordered variants add the comparison operators `<`, `<=`, `>`, `>=`, `min`, `max`, `clamp`, and `compare` from `Ordering`. They also make `abs` available on `OrderedAdditiveGroup` and `sign` available on `OrderedRing`.
 
----
-
 ## 🔢 Built-in instances
 
-The following `given` instances are provided out of the box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
-
-| Type | Instance |
-|---|---|
-| `Boolean` | `OrderedRing` |
-| `Short` | `OrderedEuclideanRing` |
-| `Int` | `OrderedEuclideanRing` |
-| `Long` | `OrderedEuclideanRing` |
-| `BigInt` | `OrderedEuclideanRing` |
-| `Float` | `OrderedField` |
-| `Double` | `OrderedEuclideanRing` |
-| `Unit` | `OrderedField` |
-| `Nothing` | `OrderedField` |
-
----
-
-## 🔌 Connectors
-
-_Not Enough Structures_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
-These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
-
-### Usage
-
-Each connector is published under the name:
-```
-not-enough-structures-connector-<library-name>
-```
-The version of the connector always matches the version of the core _Not Enough Structures_ library.
-
-The following import statement will load all relevant conversions:
-```scala
-import io.github.sgtswagrid.structures.connector.<libraryname>.<LibraryName>Conversions.given
-```
-
-### Supported projects
-
-- [Algebird](https://twitter.github.io/algebird/)
-- [Breeze](https://github.com/scalanlp/breeze)
-- [Cats Algebra](https://typelevel.org/cats/algebra.html)
-- [Scalaz](https://github.com/scalaz/scalaz)
-- [Spire](https://spire-math.org/)
-- [ZIO Prelude](https://zio.dev/zio-prelude/)
+`given` instances for many types from the standard library are provided out-of-the-box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
+Included are all numeric types, tuples of algebraic structures, many collections, functions, etc.
 
 ## ⚖️ Comparison to other libraries
 
