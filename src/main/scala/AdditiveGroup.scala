@@ -5,7 +5,7 @@ import com.alecdorrington.scalgebra.ops.AdditiveGroupOps
 import scala.reflect.ClassTag
 
 /** For algebraic structures with addition and negation. */
-trait AdditiveGroup[X] extends DifferenceMonoid[X], AdditiveInverse[X]:
+trait  AdditiveGroup[X] extends DifferenceMonoid[X], AdditiveInverse[X]:
 
   override inline def subtract(x: X, y: X): X = add(x, negate(y))
 
