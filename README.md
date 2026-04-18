@@ -14,7 +14,7 @@
 
 **Scalgebra** provides a hierarchy of type classes for algebraic structures: semigroups, monoids, groups, rings, fields, and more, split cleanly along additive and multiplicative lines.
 
-It is aimed at **library designers** rather than end users. If you are writing a generic algorithm and want to express the minimal algebraic requirements on your type parameters, rather than demanding an all-or-nothing `Numeric`. This library gives you the tools to do so.
+It is aimed at **library designers** rather than end users. If you are writing a generic algorithm and want to express the minimal algebraic requirements on your type parameters, rather than demanding an all-or-nothing `Numeric`, then this library gives you the tools to do so.
 
 ### Example
 
