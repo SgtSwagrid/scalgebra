@@ -4,10 +4,10 @@ import com.alecdorrington.scalgebra.builder.SemiringBuilder
 import com.alecdorrington.scalgebra.ops.SemiringOps
 
 /** For algebraic structures with both addition and multiplication. */
-trait Semiring[X ] extends AdditiveMonoid[X], MultiplicativeMonoid[X]:
+trait Semiring[X] extends AdditiveMonoid[X], MultiplicativeMonoid[X]:
 
   /** The unique representation of `2` in this algebra system. */
-  def two: X = add(one , one)
+  def two: X = add(one, one)
 
 /**
   * The companion object for [[Semiring]]. Import as
