@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.Semiring
+import com.alecdorrington.scalgebra.Semiring
 
 /** Extension methods for [[Semiring]]. */
 trait SemiringOps extends AdditiveMonoidOps, MultiplicativeMonoidOps:

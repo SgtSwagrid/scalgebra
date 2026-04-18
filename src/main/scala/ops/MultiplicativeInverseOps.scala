@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.MultiplicativeInverse
+import com.alecdorrington.scalgebra.MultiplicativeInverse
 
 /** Extension methods for [[MultiplicativeInverse]]. */
 trait MultiplicativeInverseOps:

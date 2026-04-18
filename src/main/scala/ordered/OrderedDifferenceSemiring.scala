@@ -1,9 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered
 
-import io.github.sgtswagrid.structures.DifferenceSemiring
-import io.github.sgtswagrid.structures.ordered.builder.OrderedDifferenceSemiringBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedDifferenceSemiringOps
+import com.alecdorrington.scalgebra.DifferenceSemiring
+import com.alecdorrington.scalgebra.ordered.builder.OrderedDifferenceSemiringBuilder
+import com.alecdorrington.scalgebra.ordered.ops.OrderedDifferenceSemiringOps
 
 /** An ordered version of [[DifferenceSemiring]]. */
 trait OrderedDifferenceSemiring[X]
@@ -11,16 +11,18 @@ trait OrderedDifferenceSemiring[X]
 
 /**
   * The companion object for [[OrderedDifferenceSemiring]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedDifferenceSemiring.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemiring.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered difference
   * semirings.
   */
 object OrderedDifferenceSemiring
   extends OrderedDifferenceSemiringBuilder, OrderedDifferenceSemiringOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedDifferenceSemiring
+  export com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemiring
 
   /**
     * The [[OrderedDifferenceSemiring]] instance describing the current algebra

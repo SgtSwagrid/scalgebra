@@ -1,4 +1,4 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
 /** Extension methods for [[DifferenceSemiring]]. */

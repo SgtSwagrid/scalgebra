@@ -1,11 +1,17 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package builder
 
-import io.github.sgtswagrid.structures.DifferenceMonoid
-import io.github.sgtswagrid.structures.ordered.builder.OrderedDifferenceMonoidBuilder
+import com.alecdorrington.scalgebra.DifferenceMonoid
+import com.alecdorrington.scalgebra.evidence.function.FunctionIsDifferenceMonoid
+import com.alecdorrington.scalgebra.evidence.future.FutureIsDifferenceMonoid
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsDifferenceMonoid
+import com.alecdorrington.scalgebra.ordered.builder.OrderedDifferenceMonoidBuilder
 
 /** Methods for constructing [[DifferenceMonoid]] type classes. */
 trait DifferenceMonoidBuilder
   extends OrderedDifferenceMonoidBuilder,
           AdditiveGroupBuilder,
-          DifferenceSemiringBuilder
+          DifferenceSemiringBuilder,
+          TupleIsDifferenceMonoid,
+          FutureIsDifferenceMonoid,
+          FunctionIsDifferenceMonoid

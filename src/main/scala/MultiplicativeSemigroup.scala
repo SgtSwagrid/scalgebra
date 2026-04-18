@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 
-import io.github.sgtswagrid.structures.builder.MultiplicativeSemigroupBuilder
-import io.github.sgtswagrid.structures.ops.MultiplicativeSemigroupOps
+import com.alecdorrington.scalgebra.builder.MultiplicativeSemigroupBuilder
+import com.alecdorrington.scalgebra.ops.MultiplicativeSemigroupOps
 
 /** For algebraic structures with an associative multiplication operator. */
 trait MultiplicativeSemigroup[X]:
@@ -50,15 +50,15 @@ trait MultiplicativeSemigroup[X]:
 
 /**
   * The companion object for [[MultiplicativeSemigroup]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.MultiplicativeSemigroup.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.MultiplicativeSemigroup.{*, given}
+  * ```
   * to receive all necessary syntax for working with multiplicative semigroups.
   */
 object MultiplicativeSemigroup
   extends MultiplicativeSemigroupBuilder, MultiplicativeSemigroupOps:
 
-  export io.github.sgtswagrid.structures.MultiplicativeSemigroup
+  export com.alecdorrington.scalgebra.MultiplicativeSemigroup
 
   /**
     * The [[MultiplicativeSemigroup]] instance describing the current algebra

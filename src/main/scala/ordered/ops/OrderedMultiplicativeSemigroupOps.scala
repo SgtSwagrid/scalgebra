@@ -1,8 +1,8 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.ops
 
-import io.github.sgtswagrid.structures.ops.MultiplicativeSemigroupOps
-import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeSemigroup
+import com.alecdorrington.scalgebra.ops.MultiplicativeSemigroupOps
+import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeSemigroup
 
 /** Extension methods for [[OrderedMultiplicativeSemigroup]]. */
 trait OrderedMultiplicativeSemigroupOps

@@ -5,6 +5,8 @@ It is not intended for human eyes.
 
 ## Instructions
 
-* Read the [README.md](README.md) from this package before proceeding.
-* This package contains evidence that assorted in-built types conform to the requirements of the provided algebraic structures.
-* After adding a new trait to this package, make sure to mix it into the builder trait hierarchy as appropriate.
+- Read the [README.md](README.md) from this package before proceeding.
+- This package contains evidence that assorted in-built types conform to the requirements of the provided algebraic com.alecdorrington.scalgebra.
+- After adding a new trait to this package, make sure to mix it into the builder trait hierarchy as appropriate.
+  - For example, "FloatIsOrderedField" should be extended by "OrderedFieldBuilder".
+- When adding a new type class, check to see if it can be reasonably defined for any standard library types. If so, add evidence here.

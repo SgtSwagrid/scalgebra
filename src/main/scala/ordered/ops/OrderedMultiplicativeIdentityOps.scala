@@ -1,8 +1,8 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.ops
 
-import io.github.sgtswagrid.structures.ops.MultiplicativeIdentityOps
-import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeIdentity
+import com.alecdorrington.scalgebra.ops.MultiplicativeIdentityOps
+import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeIdentity
 
 /** Extension methods for [[OrderedMultiplicativeIdentity]]. */
 trait OrderedMultiplicativeIdentityOps

@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 
-import io.github.sgtswagrid.structures.builder.MultiplicativeGroupBuilder
-import io.github.sgtswagrid.structures.ops.MultiplicativeGroupOps
+import com.alecdorrington.scalgebra.builder.MultiplicativeGroupBuilder
+import com.alecdorrington.scalgebra.ops.MultiplicativeGroupOps
 
 /** For algebraic structures with multiplication and reciprocation. */
 trait MultiplicativeGroup[X]
@@ -15,15 +15,15 @@ trait MultiplicativeGroup[X]
 
 /**
   * The companion object for [[MultiplicativeGroup]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.MultiplicativeGroup.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.MultiplicativeGroup.{*, given}
+  * ```
   * to receive all necessary syntax for working with multiplicative groups.
   */
 object MultiplicativeGroup
   extends MultiplicativeGroupBuilder, MultiplicativeGroupOps:
 
-  export io.github.sgtswagrid.structures.MultiplicativeGroup
+  export com.alecdorrington.scalgebra.MultiplicativeGroup
 
   /**
     * The [[MultiplicativeGroup]] instance describing the current algebra

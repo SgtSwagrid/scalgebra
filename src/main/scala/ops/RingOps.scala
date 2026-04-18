@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.Ring
+import com.alecdorrington.scalgebra.Ring
 
 /** Extension methods for [[Ring]]. */
 trait RingOps extends AdditiveGroupOps, DifferenceSemiringOps:

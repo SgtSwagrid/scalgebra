@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.AdditiveSemigroup
+import com.alecdorrington.scalgebra.AdditiveSemigroup
 
 /** Extension methods for [[AdditiveSemigroup]]. */
 trait AdditiveSemigroupOps:

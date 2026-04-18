@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 
-import io.github.sgtswagrid.structures.builder.AdditiveGroupBuilder
-import io.github.sgtswagrid.structures.ops.AdditiveGroupOps
+import com.alecdorrington.scalgebra.builder.AdditiveGroupBuilder
+import com.alecdorrington.scalgebra.ops.AdditiveGroupOps
 import scala.reflect.ClassTag
 
 /** For algebraic structures with addition and negation. */
@@ -15,14 +15,14 @@ trait AdditiveGroup[X] extends DifferenceMonoid[X], AdditiveInverse[X]:
 
 /**
   * The companion object for [[AdditiveGroup]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.AdditiveGroup.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.AdditiveGroup.{*, given}
+  * ```
   * to receive all necessary syntax for working with additive groups.
   */
 object AdditiveGroup extends AdditiveGroupBuilder, AdditiveGroupOps:
 
-  export io.github.sgtswagrid.structures.AdditiveGroup
+  export com.alecdorrington.scalgebra.AdditiveGroup
 
   /** The [[AdditiveGroup]] instance describing the current algebra system. */
   inline def additiveGroup[X : AdditiveGroup as additiveGroup]

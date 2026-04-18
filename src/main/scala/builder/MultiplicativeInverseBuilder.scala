@@ -1,9 +1,16 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package builder
 
-import io.github.sgtswagrid.structures.MultiplicativeInverse
-import io.github.sgtswagrid.structures.ordered.builder.OrderedMultiplicativeInverseBuilder
+import com.alecdorrington.scalgebra.MultiplicativeInverse
+import com.alecdorrington.scalgebra.evidence.function.FunctionIsMultiplicativeInverse
+import com.alecdorrington.scalgebra.evidence.future.FutureIsMultiplicativeInverse
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsMultiplicativeInverse
+import com.alecdorrington.scalgebra.ordered.builder.OrderedMultiplicativeInverseBuilder
 
 /** Methods for constructing [[MultiplicativeInverse]] type classes. */
 trait MultiplicativeInverseBuilder
-  extends OrderedMultiplicativeInverseBuilder, MultiplicativeGroupBuilder
+  extends OrderedMultiplicativeInverseBuilder,
+          MultiplicativeGroupBuilder,
+          TupleIsMultiplicativeInverse,
+          FutureIsMultiplicativeInverse,
+          FunctionIsMultiplicativeInverse

@@ -1,8 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeInverse
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedMultiplicativeInverse
+import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeInverse
 
 /** Methods for constructing [[OrderedMultiplicativeInverse]] type classes. */
 trait OrderedMultiplicativeInverseBuilder
-  extends OrderedMultiplicativeGroupBuilder
+  extends OrderedMultiplicativeGroupBuilder, TupleIsOrderedMultiplicativeInverse

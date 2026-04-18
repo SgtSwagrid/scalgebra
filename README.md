@@ -1,25 +1,25 @@
 <div align="center">
 
-  <h1>🌀 Not Enough Structures</h1>
-  <p>A fine-grained collection of algebraic type classes for Scala 3 library authors.</p>
+  <h1>🌀 Scalgebra</h1>
+  <p>Fine-grained algebraic type classes for Scala 3 library authors. </p>
   
   <span>
-    <a href="https://github.com/SgtSwagrid/not-enough-structures/actions/workflows/build-integrity.yml"><img src="https://github.com/SgtSwagrid/not-enough-structures/actions/workflows/build-integrity.yml/badge.svg" alt="Build status" /></a>
-    <a href="https://search.maven.org/artifact/io.github.sgtswagrid/not-enough-structures_3"><img src="https://img.shields.io/maven-central/v/io.github.sgtswagrid/not-enough-structures_3.svg" alt="Maven Central" /></a>
+    <a href="https://github.com/SgtSwagrid/scalgebra/actions/workflows/build-integrity.yml"><img src="https://github.com/SgtSwagrid/scalgebra/actions/workflows/build-integrity.yml/badge.svg" alt="Build status" /></a>
+    <a href="https://search.maven.org/artifact/com.alecdorrington/scalgebra_3"><img src="https://img.shields.io/maven-central/v/com.alecdorrington/scalgebra_3.svg" alt="Maven Central" /></a>
   </span>
   
 </div>
 
 ## 💡 Overview
 
-**Not Enough Structures** provides a hierarchy of type classes for algebraic structures: semigroups, monoids, groups, rings, fields, and more, split cleanly along additive and multiplicative lines.
+**Scalgebra** provides a hierarchy of type classes for algebraic structures: semigroups, monoids, groups, rings, fields, and more, split cleanly along additive and multiplicative lines.
 
-It is aimed at **library designers** rather than end users. If you are writing a generic algorithm and want to express the minimal algebraic requirements on your type parameters, rather than demanding an all-or-nothing `Numeric`. This library gives you the tools to do so.
+It is aimed at **library designers** rather than end users. If you are writing a generic algorithm and want to express the minimal algebraic requirements on your type parameters, rather than demanding an all-or-nothing `Numeric`, then this library gives you the tools to do so.
 
 ### Example
 
 ```scala 3
-import io.github.sgtswagrid.structures.Ring.{*, given}
+import com.alecdorrington.scalgebra.Ring.{*, given}
 
 // Only requires addition, negation, and multiplication (not division).
 def dot[X : Ring](xs: Seq[X], ys: Seq[X]): X =
@@ -33,7 +33,7 @@ Your users can then call `dot` on any type for which a `Ring` is in scope, inclu
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.3"
+libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.1.4"
 ```
 
 Requires Scala 3.
@@ -57,13 +57,13 @@ def double[X : AdditiveSemigroup](x: X): X = x + x
 Each type class exposes all necessary syntax through its companion object. Import it with:
 
 ```scala 3
-import io.github.sgtswagrid.structures.<TypeClass>.{*, given}
+import com.alecdorrington.scalgebra.<TypeClass>.{*, given}
 ```
 
 You only need one import regardless of how many capabilities the type class bundles.
 
 ```scala 3
-import io.github.sgtswagrid.structures.EuclideanRing.{*, given}
+import com.alecdorrington.scalgebra.EuclideanRing.{*, given}
 
 def gcdNorm[X : EuclideanRing as E](xs: Seq[X]): X =
   xs.reduce(E.gcd)  // gcd, +, -, *, /, % all available
@@ -74,7 +74,7 @@ def gcdNorm[X : EuclideanRing as E](xs: Seq[X]): X =
 To make your own type work with these type classes, provide a `given` instance:
 
 ```scala 3
-import io.github.sgtswagrid.structures.AdditiveMonoid
+import com.alecdorrington.scalgebra.AdditiveMonoid
 
 case class Vec2(x: Double, y: Double)
 
@@ -90,18 +90,49 @@ For in-built types (`Int`, `Double`, etc.), evidence is already included; see [b
 The `ordered` subpackage provides `Ordered`-prefixed variants that combine each type class with `Ordering[X]`. Use these when your algorithm needs both algebraic operations and comparisons under a single context bound.
 
 ```scala 3
-import io.github.sgtswagrid.structures.ordered.OrderedField.{*, given}
+import com.alecdorrington.scalgebra.ordered.OrderedField.{*, given}
 
 def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
 ```
 
 The ordered variants go beyond merely combining their unordered counterpart with `Ordering` — they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`. They are also useful in contexts where multiple context bounds cannot be expressed. Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
 
----
+## 🔌 Connectors
+
+_Scalgebra_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
+These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
+Conversions are provided in both directions.
+
+### Usage
+
+Each connector is published under the name
+`scalgebra-connector-<library-name>`
+and can be installed using:
+```scala
+libraryDependencies += "com.alecdorrington" %% "scalgebra-connector-<library-name>" % "0.1.4"
+```
+The version of the connector always matches the version of the core _Scalgebra_ library.
+
+The following import statement will then load all relevant conversions:
+```scala
+import com.alecdorrington.scalgebra.connector.<libraryname>.<LibraryName>Conversions.given
+```
+
+This could even be used to convert between algebra systems from multiple foreign libraries,
+with no intention to ever use the intermediates that exist here.
+
+### Supported projects
+
+- [Algebird](https://twitter.github.io/algebird/)
+- [Breeze](https://github.com/scalanlp/breeze)
+- [Cats Algebra](https://typelevel.org/cats/algebra.html)
+- [Scalaz](https://github.com/scalaz/scalaz)
+- [Spire](https://spire-math.org/)
+- [ZIO Prelude](https://zio.dev/zio-prelude/)
 
 ## 📐 Type class reference
 
-The complete hierarchy is shown below. Each trait is in the package `io.github.sgtswagrid.structures`.
+The complete hierarchy is shown below. Each trait is in the package `com.alecdorrington.scalgebra`.
 
 ### Component traits
 
@@ -172,25 +203,10 @@ Every type class above has a corresponding `Ordered`-prefixed variant in the `or
 
 The ordered variants add the comparison operators `<`, `<=`, `>`, `>=`, `min`, `max`, `clamp`, and `compare` from `Ordering`. They also make `abs` available on `OrderedAdditiveGroup` and `sign` available on `OrderedRing`.
 
----
-
 ## 🔢 Built-in instances
 
-The following `given` instances are provided out of the box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
-
-| Type | Instance |
-|---|---|
-| `Boolean` | `OrderedRing` |
-| `Short` | `OrderedEuclideanRing` |
-| `Int` | `OrderedEuclideanRing` |
-| `Long` | `OrderedEuclideanRing` |
-| `BigInt` | `OrderedEuclideanRing` |
-| `Float` | `OrderedField` |
-| `Double` | `OrderedEuclideanRing` |
-| `Unit` | `OrderedField` |
-| `Nothing` | `OrderedField` |
-
----
+`given` instances for many types from the standard library are provided out-of-the-box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
+Included are all numeric types, tuples of algebraic structures, many collections, functions, etc.
 
 ## ⚖️ Comparison to other libraries
 
@@ -202,6 +218,7 @@ The following `given` instances are provided out of the box. They are available 
 - **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes, not just a convention for pairing a structure with `Ordering`. They expose additional operations (`abs`, `sign`, `clamp`) that require both capabilities simultaneously.
 - **Zero-import evidence.** Instances for in-built types (`Int`, `Double`, etc.) are propagated through the companion object hierarchy, so call sites need no extra imports.
 - **Minimal footprint.** No number types, no approximate data structures, no lattices. Just the structural layer.
+- **Compatibility.** Integrates seamlessly with the competition.
 
 ### Standard library (`Numeric`, `Integral`, `Fractional`)
 
@@ -213,7 +230,7 @@ Cats treats addition and multiplication as the same abstract operation, with no 
 
 ### Algebra (typelevel/algebra / cats-algebra)
 
-Originally a standalone attempt to unify the algebraic type classes from Spire and Algebird, algebra is now maintained as the `algebra-core` subproject of Cats. It provides `Ring`, `Field`, `EuclideanRing`, and an additive/multiplicative split, and depends only on `cats-kernel`. It targets Scala 2 and 3. Not Enough Structures is a Scala 3-native alternative in the same spirit: a self-contained algebraic-structure layer with no dependencies to speak of.
+Originally a standalone attempt to unify the algebraic type classes from Spire and Algebird, algebra is now maintained as the `algebra-core` subproject of Cats. It provides `Ring`, `Field`, `EuclideanRing`, and an additive/multiplicative split, and depends only on `cats-kernel`. It targets Scala 2 and 3. Scalgebra is a Scala 3-native alternative in the same spirit: a self-contained algebraic-structure layer with no dependencies to speak of.
 
 ### Algebird (twitter/algebird)
 

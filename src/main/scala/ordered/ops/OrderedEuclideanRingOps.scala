@@ -1,8 +1,8 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.ops
 
-import io.github.sgtswagrid.structures.ops.EuclideanRingOps
-import io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing
+import com.alecdorrington.scalgebra.ops.EuclideanRingOps
+import com.alecdorrington.scalgebra.ordered.OrderedEuclideanRing
 
 /** Extension methods for [[OrderedEuclideanRing]]. */
 trait OrderedEuclideanRingOps

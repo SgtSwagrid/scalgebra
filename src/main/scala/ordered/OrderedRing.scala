@@ -1,9 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered
 
-import io.github.sgtswagrid.structures.Ring
-import io.github.sgtswagrid.structures.ordered.builder.OrderedRingBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedRingOps
+import com.alecdorrington.scalgebra.Ring
+import com.alecdorrington.scalgebra.ordered.builder.OrderedRingBuilder
+import com.alecdorrington.scalgebra.ordered.ops.OrderedRingOps
 
 /** An ordered version of [[Ring]]. */
 trait OrderedRing[X]
@@ -18,14 +18,14 @@ trait OrderedRing[X]
 
 /**
   * The companion object for [[OrderedRing]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedRing.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.ordered.OrderedRing.{*, given}
+  * ```
   * to receive all necessary syntax for working with ordered rings.
   */
 object OrderedRing extends OrderedRingBuilder, OrderedRingOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedRing
+  export com.alecdorrington.scalgebra.ordered.OrderedRing
 
   /** The [[OrderedRing]] instance describing the current algebra system. */
   inline def orderedRing[X : OrderedRing as orderedRing]: OrderedRing[X] =

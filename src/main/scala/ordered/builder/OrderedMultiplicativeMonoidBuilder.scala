@@ -1,8 +1,11 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeMonoid
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedMultiplicativeMonoid
+import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeMonoid
 
 /** Methods for constructing [[OrderedMultiplicativeMonoid]] type classes. */
 trait OrderedMultiplicativeMonoidBuilder
-  extends OrderedEuclideanMonoidBuilder, OrderedSemiringBuilder
+  extends OrderedEuclideanMonoidBuilder,
+          OrderedSemiringBuilder,
+          TupleIsOrderedMultiplicativeMonoid

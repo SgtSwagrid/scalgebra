@@ -1,9 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered
 
-import io.github.sgtswagrid.structures.EuclideanRing
-import io.github.sgtswagrid.structures.ordered.builder.OrderedEuclideanRingBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedEuclideanRingOps
+import com.alecdorrington.scalgebra.EuclideanRing
+import com.alecdorrington.scalgebra.ordered.builder.OrderedEuclideanRingBuilder
+import com.alecdorrington.scalgebra.ordered.ops.OrderedEuclideanRingOps
 
 /** An ordered version of [[EuclideanRing]]. */
 trait OrderedEuclideanRing[X]
@@ -11,15 +11,15 @@ trait OrderedEuclideanRing[X]
 
 /**
   * The companion object for [[OrderedEuclideanRing]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.ordered.OrderedEuclideanRing.{*, given}
+  * ```
   * to receive all necessary syntax for working with ordered Euclidean rings.
   */
 object OrderedEuclideanRing
   extends OrderedEuclideanRingBuilder, OrderedEuclideanRingOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedEuclideanRing
+  export com.alecdorrington.scalgebra.ordered.OrderedEuclideanRing
 
   /**
     * The [[OrderedEuclideanRing]] instance describing the current algebra

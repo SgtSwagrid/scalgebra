@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 
-import io.github.sgtswagrid.structures.builder.RingBuilder
-import io.github.sgtswagrid.structures.ops.RingOps
+import com.alecdorrington.scalgebra.builder.RingBuilder
+import com.alecdorrington.scalgebra.ops.RingOps
 
 /** For algebraic structures with addition, negation, and multiplication. */
 trait Ring[X] extends AdditiveGroup[X], DifferenceSemiring[X]:
@@ -11,14 +11,14 @@ trait Ring[X] extends AdditiveGroup[X], DifferenceSemiring[X]:
 
 /**
   * The companion object for [[Ring]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.Ring.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.Ring.{*, given}
+  * ```
   * to receive all necessary syntax for working with rings.
   */
 object Ring extends RingBuilder, RingOps:
 
-  export io.github.sgtswagrid.structures.Ring
+  export com.alecdorrington.scalgebra.Ring
 
   /** The [[Ring]] instance describing the current algebra system. */
   inline def ring[X : Ring as ring]: Ring[X] = ring

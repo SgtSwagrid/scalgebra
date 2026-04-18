@@ -1,8 +1,8 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.ops
 
-import io.github.sgtswagrid.structures.ops.DifferenceMonoidOps
-import io.github.sgtswagrid.structures.ordered.OrderedDifferenceMonoid
+import com.alecdorrington.scalgebra.ops.DifferenceMonoidOps
+import com.alecdorrington.scalgebra.ordered.OrderedDifferenceMonoid
 
 /** Extension methods for [[OrderedDifferenceMonoid]]. */
 trait OrderedDifferenceMonoidOps

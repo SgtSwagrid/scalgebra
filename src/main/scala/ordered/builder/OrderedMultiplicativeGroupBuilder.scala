@@ -1,7 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeGroup
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedMultiplicativeGroup
+import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeGroup
 
 /** Methods for constructing [[OrderedMultiplicativeGroup]] type classes. */
-trait OrderedMultiplicativeGroupBuilder extends OrderedSemifieldBuilder
+trait OrderedMultiplicativeGroupBuilder
+  extends OrderedSemifieldBuilder, TupleIsOrderedMultiplicativeGroup

@@ -1,8 +1,8 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.ops
 
-import io.github.sgtswagrid.structures.ops.MultiplicativeInverseOps
-import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeInverse
+import com.alecdorrington.scalgebra.ops.MultiplicativeInverseOps
+import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeInverse
 
 /** Extension methods for [[OrderedMultiplicativeInverse]]. */
 trait OrderedMultiplicativeInverseOps

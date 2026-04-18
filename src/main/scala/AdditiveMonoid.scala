@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 
-import io.github.sgtswagrid.structures.builder.AdditiveMonoidBuilder
-import io.github.sgtswagrid.structures.ops.AdditiveMonoidOps
+import com.alecdorrington.scalgebra.builder.AdditiveMonoidBuilder
+import com.alecdorrington.scalgebra.ops.AdditiveMonoidOps
 
 /** For algebraic structures with addition and an identity. */
 trait AdditiveMonoid[X] extends AdditiveSemigroup[X], AdditiveIdentity[X]:
@@ -29,14 +29,14 @@ trait AdditiveMonoid[X] extends AdditiveSemigroup[X], AdditiveIdentity[X]:
 
 /**
   * The companion object for [[AdditiveMonoid]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.AdditiveMonoid.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.AdditiveMonoid.{*, given}
+  * ```
   * to receive all necessary syntax for working with additive monoids.
   */
 object AdditiveMonoid extends AdditiveMonoidBuilder, AdditiveMonoidOps:
 
-  export io.github.sgtswagrid.structures.AdditiveMonoid
+  export com.alecdorrington.scalgebra.AdditiveMonoid
 
   /** The [[AdditiveMonoid]] instance describing the current algebra system. */
   inline def additiveMonoid[X : AdditiveMonoid as additiveMonoid]

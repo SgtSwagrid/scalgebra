@@ -1,9 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered
 
-import io.github.sgtswagrid.structures.AdditiveMonoid
-import io.github.sgtswagrid.structures.ordered.builder.OrderedAdditiveMonoidBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedAdditiveMonoidOps
+import com.alecdorrington.scalgebra.AdditiveMonoid
+import com.alecdorrington.scalgebra.ordered.builder.OrderedAdditiveMonoidBuilder
+import com.alecdorrington.scalgebra.ordered.ops.OrderedAdditiveMonoidOps
 
 /** An ordered version of [[AdditiveMonoid]]. */
 trait OrderedAdditiveMonoid[X]
@@ -13,15 +13,15 @@ trait OrderedAdditiveMonoid[X]
 
 /**
   * The companion object for [[OrderedAdditiveMonoid]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedAdditiveMonoid.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.ordered.OrderedAdditiveMonoid.{*, given}
+  * ```
   * to receive all necessary syntax for working with ordered additive monoids.
   */
 object OrderedAdditiveMonoid
   extends OrderedAdditiveMonoidBuilder, OrderedAdditiveMonoidOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedAdditiveMonoid
+  export com.alecdorrington.scalgebra.ordered.OrderedAdditiveMonoid
 
   /**
     * The [[OrderedAdditiveMonoid]] instance describing the current algebra

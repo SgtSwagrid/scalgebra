@@ -1,8 +1,16 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package builder
 
-import io.github.sgtswagrid.structures.Ring
-import io.github.sgtswagrid.structures.ordered.builder.OrderedRingBuilder
+import com.alecdorrington.scalgebra.Ring
+import com.alecdorrington.scalgebra.evidence.function.FunctionIsRing
+import com.alecdorrington.scalgebra.evidence.future.FutureIsRing
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsRing
+import com.alecdorrington.scalgebra.ordered.builder.OrderedRingBuilder
 
 /** Methods for constructing [[Ring]] type classes. */
-trait RingBuilder extends OrderedRingBuilder, EuclideanRingBuilder
+trait RingBuilder
+  extends OrderedRingBuilder,
+          EuclideanRingBuilder,
+          TupleIsRing,
+          FutureIsRing,
+          FunctionIsRing

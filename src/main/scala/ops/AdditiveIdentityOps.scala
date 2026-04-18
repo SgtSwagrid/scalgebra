@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.AdditiveIdentity
+import com.alecdorrington.scalgebra.AdditiveIdentity
 
 /** Extension methods for [[AdditiveIdentity]]. */
 trait AdditiveIdentityOps:

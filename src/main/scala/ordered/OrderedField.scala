@@ -1,9 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered
 
-import io.github.sgtswagrid.structures.Field
-import io.github.sgtswagrid.structures.ordered.builder.OrderedFieldBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedFieldOps
+import com.alecdorrington.scalgebra.Field
+import com.alecdorrington.scalgebra.ordered.builder.OrderedFieldBuilder
+import com.alecdorrington.scalgebra.ordered.ops.OrderedFieldOps
 
 /** An ordered version of [[Field]]. */
 trait OrderedField[X]
@@ -11,14 +11,14 @@ trait OrderedField[X]
 
 /**
   * The companion object for [[OrderedField]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedField.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.ordered.OrderedField.{*, given}
+  * ```
   * to receive all necessary syntax for working with ordered fields.
   */
 object OrderedField extends OrderedFieldBuilder, OrderedFieldOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedField
+  export com.alecdorrington.scalgebra.ordered.OrderedField
 
   /** The [[OrderedField]] instance describing the current algebra system. */
   inline def orderedField[X : OrderedField as orderedField]: OrderedField[X] =

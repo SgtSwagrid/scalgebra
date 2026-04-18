@@ -1,11 +1,17 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package builder
 
-import io.github.sgtswagrid.structures.MultiplicativeMonoid
-import io.github.sgtswagrid.structures.ordered.builder.OrderedMultiplicativeMonoidBuilder
+import com.alecdorrington.scalgebra.MultiplicativeMonoid
+import com.alecdorrington.scalgebra.evidence.function.FunctionIsMultiplicativeMonoid
+import com.alecdorrington.scalgebra.evidence.future.FutureIsMultiplicativeMonoid
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsMultiplicativeMonoid
+import com.alecdorrington.scalgebra.ordered.builder.OrderedMultiplicativeMonoidBuilder
 
 /** Methods for constructing [[MultiplicativeMonoid]] type classes. */
 trait MultiplicativeMonoidBuilder
   extends OrderedMultiplicativeMonoidBuilder,
           EuclideanMonoidBuilder,
-          SemiringBuilder
+          SemiringBuilder,
+          TupleIsMultiplicativeMonoid,
+          FutureIsMultiplicativeMonoid,
+          FunctionIsMultiplicativeMonoid

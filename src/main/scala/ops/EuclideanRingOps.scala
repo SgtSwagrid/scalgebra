@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.EuclideanRing
+import com.alecdorrington.scalgebra.EuclideanRing
 
 /** Extension methods for [[EuclideanRing]]. */
 trait EuclideanRingOps extends RingOps, EuclideanMonoidOps:

@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 
-import io.github.sgtswagrid.structures.builder.AdditiveIdentityBuilder
-import io.github.sgtswagrid.structures.ops.AdditiveIdentityOps
+import com.alecdorrington.scalgebra.builder.AdditiveIdentityBuilder
+import com.alecdorrington.scalgebra.ops.AdditiveIdentityOps
 
 /** For algebraic structures with an additive identity (`zero`). */
 trait AdditiveIdentity[+X]:
@@ -19,14 +19,14 @@ trait AdditiveIdentity[+X]:
 
 /**
   * The companion object for [[AdditiveIdentity]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.Zero.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.Zero.{*, given}
+  * ```
   * to receive all necessary syntax for working with zero.
   */
 object AdditiveIdentity extends AdditiveIdentityBuilder, AdditiveIdentityOps:
 
-  export io.github.sgtswagrid.structures.AdditiveIdentity
+  export com.alecdorrington.scalgebra.AdditiveIdentity
 
   /** The [[AdditiveIdentity]] instance describing the current algebra system. */
   inline def additiveIdentity[X : AdditiveIdentity as zero]

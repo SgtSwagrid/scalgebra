@@ -1,7 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedAdditiveGroup
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedAdditiveGroup
+import com.alecdorrington.scalgebra.ordered.OrderedAdditiveGroup
 
 /** Methods for constructing [[OrderedAdditiveGroup]] type classes. */
-trait OrderedAdditiveGroupBuilder extends OrderedRingBuilder
+trait OrderedAdditiveGroupBuilder
+  extends OrderedRingBuilder, TupleIsOrderedAdditiveGroup

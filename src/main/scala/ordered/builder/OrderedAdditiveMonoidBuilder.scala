@@ -1,8 +1,11 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedAdditiveMonoid
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedAdditiveMonoid
+import com.alecdorrington.scalgebra.ordered.OrderedAdditiveMonoid
 
 /** Methods for constructing [[OrderedAdditiveMonoid]] type classes. */
 trait OrderedAdditiveMonoidBuilder
-  extends OrderedDifferenceMonoidBuilder, OrderedSemiringBuilder
+  extends OrderedDifferenceMonoidBuilder,
+          OrderedSemiringBuilder,
+          TupleIsOrderedAdditiveMonoid

@@ -1,13 +1,24 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.evidence.{
-  DoubleIsOrderedEuclideanRing, FloatIsOrderedField, NothingIsOrderedField,
+import com.alecdorrington.scalgebra.evidence.numeric.{
+  DoubleIsOrderedEuclideanRing, FloatIsOrderedField, FractionalIsOrderedField,
 }
-import io.github.sgtswagrid.structures.ordered.OrderedField
+import com.alecdorrington.scalgebra.evidence.trivial.{
+  EmptyTupleIsOrderedField, NoneIsOrderedField, NothingIsOrderedField,
+  SingletonIsOrderedField, UnitIsOrderedField,
+}
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedField
+import com.alecdorrington.scalgebra.ordered.OrderedField
 
 /** Methods for constructing [[OrderedField]] type classes. */
 trait OrderedFieldBuilder
   extends DoubleIsOrderedEuclideanRing,
+          EmptyTupleIsOrderedField,
           FloatIsOrderedField,
-          NothingIsOrderedField
+          NoneIsOrderedField,
+          NothingIsOrderedField,
+          UnitIsOrderedField,
+          SingletonIsOrderedField,
+          FractionalIsOrderedField,
+          TupleIsOrderedField

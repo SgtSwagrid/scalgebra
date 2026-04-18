@@ -1,9 +1,16 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package builder
 
-import io.github.sgtswagrid.structures.DifferenceSemiring
-import io.github.sgtswagrid.structures.ordered.builder.OrderedDifferenceSemiringBuilder
+import com.alecdorrington.scalgebra.DifferenceSemiring
+import com.alecdorrington.scalgebra.evidence.function.FunctionIsDifferenceSemiring
+import com.alecdorrington.scalgebra.evidence.future.FutureIsDifferenceSemiring
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsDifferenceSemiring
+import com.alecdorrington.scalgebra.ordered.builder.OrderedDifferenceSemiringBuilder
 
 /** Methods for constructing [[DifferenceSemiring]] type classes. */
 trait DifferenceSemiringBuilder
-  extends OrderedDifferenceSemiringBuilder, RingBuilder
+  extends OrderedDifferenceSemiringBuilder,
+          RingBuilder,
+          TupleIsDifferenceSemiring,
+          FutureIsDifferenceSemiring,
+          FunctionIsDifferenceSemiring

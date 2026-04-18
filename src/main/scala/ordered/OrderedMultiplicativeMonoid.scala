@@ -1,9 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered
 
-import io.github.sgtswagrid.structures.MultiplicativeMonoid
-import io.github.sgtswagrid.structures.ordered.builder.OrderedMultiplicativeMonoidBuilder
-import io.github.sgtswagrid.structures.ordered.ops.OrderedMultiplicativeMonoidOps
+import com.alecdorrington.scalgebra.MultiplicativeMonoid
+import com.alecdorrington.scalgebra.ordered.builder.OrderedMultiplicativeMonoidBuilder
+import com.alecdorrington.scalgebra.ordered.ops.OrderedMultiplicativeMonoidOps
 
 /** An ordered version of [[MultiplicativeMonoid]]. */
 trait OrderedMultiplicativeMonoid[X]
@@ -13,16 +13,18 @@ trait OrderedMultiplicativeMonoid[X]
 
 /**
   * The companion object for [[OrderedMultiplicativeMonoid]]. Import as
-  * {{{
-  * import io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeMonoid.{*, given}
-  * }}}
+  * ```scala
+  * import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeMonoid.{
+  *   *, given,
+  * }
+  * ```
   * to receive all necessary syntax for working with ordered multiplicative
   * monoids.
   */
 object OrderedMultiplicativeMonoid
   extends OrderedMultiplicativeMonoidBuilder, OrderedMultiplicativeMonoidOps:
 
-  export io.github.sgtswagrid.structures.ordered.OrderedMultiplicativeMonoid
+  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeMonoid
 
   /**
     * The [[OrderedMultiplicativeMonoid]] instance describing the current

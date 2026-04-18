@@ -1,7 +1,7 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ops
 
-import io.github.sgtswagrid.structures.MultiplicativeSemigroup
+import com.alecdorrington.scalgebra.MultiplicativeSemigroup
 
 /** Extension methods for [[MultiplicativeSemigroup]]. */
 trait MultiplicativeSemigroupOps:

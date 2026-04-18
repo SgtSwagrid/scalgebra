@@ -1,4 +1,4 @@
-## io.github.sgtswagrid.structures
+## com.alecdorrington.scalgebra
 
 This package contains type classes for algebraic structures.
 
@@ -15,7 +15,7 @@ different combinations of operators that are available or required.
 For any structure, e.g. `Ring`, use the following import statement
 to receive all necessary syntax for working with that structure:
 ```scala 3
-import io.github.sgtswagrid.structures.<Structure>.{*, given}
+import com.alecdorrington.scalgebra.<Structure>.{*, given}
 ```
 
 Thereafter, you can freely use `Ring` as a context bound on type parameters,

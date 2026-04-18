@@ -1,8 +1,8 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.ops
 
-import io.github.sgtswagrid.structures.ops.AdditiveSemigroupOps
-import io.github.sgtswagrid.structures.ordered.OrderedAdditiveSemigroup
+import com.alecdorrington.scalgebra.ops.AdditiveSemigroupOps
+import com.alecdorrington.scalgebra.ordered.OrderedAdditiveSemigroup
 
 /** Extension methods for [[OrderedAdditiveSemigroup]]. */
 trait OrderedAdditiveSemigroupOps extends AdditiveSemigroupOps, OrderingOps

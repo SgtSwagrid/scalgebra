@@ -1,9 +1,15 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.evidence.BooleanIsOrderedRing
-import io.github.sgtswagrid.structures.ordered.OrderedRing
+import com.alecdorrington.scalgebra.evidence.numeric.{
+  BooleanIsOrderedRing, NumericIsOrderedRing,
+}
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedRing
+import com.alecdorrington.scalgebra.ordered.OrderedRing
 
 /** Methods for constructing [[OrderedRing]] type classes. */
 trait OrderedRingBuilder
-  extends OrderedEuclideanRingBuilder, BooleanIsOrderedRing
+  extends OrderedEuclideanRingBuilder,
+          BooleanIsOrderedRing,
+          NumericIsOrderedRing,
+          TupleIsOrderedRing

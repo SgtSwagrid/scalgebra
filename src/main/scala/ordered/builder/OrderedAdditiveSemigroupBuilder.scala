@@ -1,7 +1,9 @@
-package io.github.sgtswagrid.structures
+package com.alecdorrington.scalgebra
 package ordered.builder
 
-import io.github.sgtswagrid.structures.ordered.OrderedAdditiveSemigroup
+import com.alecdorrington.scalgebra.evidence.tuple.TupleIsOrderedAdditiveSemigroup
+import com.alecdorrington.scalgebra.ordered.OrderedAdditiveSemigroup
 
 /** Methods for constructing [[OrderedAdditiveSemigroup]] type classes. */
-trait OrderedAdditiveSemigroupBuilder extends OrderedAdditiveMonoidBuilder
+trait OrderedAdditiveSemigroupBuilder
+  extends OrderedAdditiveMonoidBuilder, TupleIsOrderedAdditiveSemigroup
