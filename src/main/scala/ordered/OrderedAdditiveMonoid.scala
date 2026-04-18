@@ -14,9 +14,7 @@ trait OrderedAdditiveMonoid[X]
 /**
   * The companion object for [[OrderedAdditiveMonoid]]. Import as
   * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedAdditiveMonoid.{
-  *   *, given,
-  * }
+  * import com.alecdorrington.scalgebra.ordered.OrderedAdditiveMonoid.{*, given}
   * ```
   * to receive all necessary syntax for working with ordered additive monoids.
   */
