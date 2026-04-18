@@ -6,5 +6,9 @@
   "allow_forking": true,
   "allow_update_branch": true,
   "delete_branch_on_merge": true,
-  "web_commit_signoff_required": false
+  "web_commit_signoff_required": false,
+  "squash_merge_commit_title": "PR_TITLE",
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "merge_commit_message": "PR_TITLE"
 }
