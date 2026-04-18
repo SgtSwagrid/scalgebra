@@ -33,7 +33,7 @@ Your users can then call `dot` on any type for which a `Ring` is in scope, inclu
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.3"
+libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures" % "0.1.4"
 ```
 
 Requires Scala 3.
@@ -97,7 +97,38 @@ def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
 
 The ordered variants go beyond merely combining their unordered counterpart with `Ordering` — they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`. They are also useful in contexts where multiple context bounds cannot be expressed. Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
 
----
+## 🔌 Connectors
+
+_Not Enough Structures_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
+These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
+Conversions are provided in both directions.
+
+### Usage
+
+Each connector is published under the name
+`not-enough-structures-connector-<library-name>`
+and can be installed using:
+```scala
+libraryDependencies += "io.github.sgtswagrid" %% "not-enough-structures-connector-<library-name>" % "0.1.4"
+```
+The version of the connector always matches the version of the core _Not Enough Structures_ library.
+
+The following import statement will then load all relevant conversions:
+```scala
+import io.github.sgtswagrid.structures.connector.<libraryname>.<LibraryName>Conversions.given
+```
+
+This could even be used to convert between algebra systems from multiple foreign libraries,
+with no intention to ever use the intermediates that exist here.
+
+### Supported projects
+
+- [Algebird](https://twitter.github.io/algebird/)
+- [Breeze](https://github.com/scalanlp/breeze)
+- [Cats Algebra](https://typelevel.org/cats/algebra.html)
+- [Scalaz](https://github.com/scalaz/scalaz)
+- [Spire](https://spire-math.org/)
+- [ZIO Prelude](https://zio.dev/zio-prelude/)
 
 ## 📐 Type class reference
 
@@ -172,25 +203,10 @@ Every type class above has a corresponding `Ordered`-prefixed variant in the `or
 
 The ordered variants add the comparison operators `<`, `<=`, `>`, `>=`, `min`, `max`, `clamp`, and `compare` from `Ordering`. They also make `abs` available on `OrderedAdditiveGroup` and `sign` available on `OrderedRing`.
 
----
-
 ## 🔢 Built-in instances
 
-The following `given` instances are provided out of the box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
-
-| Type | Instance |
-|---|---|
-| `Boolean` | `OrderedRing` |
-| `Short` | `OrderedEuclideanRing` |
-| `Int` | `OrderedEuclideanRing` |
-| `Long` | `OrderedEuclideanRing` |
-| `BigInt` | `OrderedEuclideanRing` |
-| `Float` | `OrderedField` |
-| `Double` | `OrderedEuclideanRing` |
-| `Unit` | `OrderedField` |
-| `Nothing` | `OrderedField` |
-
----
+`given` instances for many types from the standard library are provided out-of-the-box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
+Included are all numeric types, tuples of algebraic structures, many collections, functions, etc.
 
 ## ⚖️ Comparison to other libraries
 
@@ -202,6 +218,7 @@ The following `given` instances are provided out of the box. They are available 
 - **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes, not just a convention for pairing a structure with `Ordering`. They expose additional operations (`abs`, `sign`, `clamp`) that require both capabilities simultaneously.
 - **Zero-import evidence.** Instances for in-built types (`Int`, `Double`, etc.) are propagated through the companion object hierarchy, so call sites need no extra imports.
 - **Minimal footprint.** No number types, no approximate data structures, no lattices. Just the structural layer.
+- **Compatibility.** Integrates seamlessly with the competition.
 
 ### Standard library (`Numeric`, `Integral`, `Fractional`)
 
