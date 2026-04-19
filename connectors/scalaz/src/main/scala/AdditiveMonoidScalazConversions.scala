@@ -1,6 +1,6 @@
 package com.alecdorrington.scalgebra.connector.scalaz
 
-import com.alecdorrington.{scalgebra as structures}
+import com.alecdorrington.scalgebra as structures
 
 /**
   * Implicit conversions between [[structures.AdditiveMonoid]] and
