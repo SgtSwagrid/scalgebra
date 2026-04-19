@@ -1,7 +1,7 @@
 package com.alecdorrington.scalgebra.connector.breeze
 
-import com.alecdorrington.{scalgebra as structures}
 import breeze.math
+import com.alecdorrington.scalgebra as structures
 
 /**
   * Implicit conversion from [[math.Field]] to [[structures.Field]].

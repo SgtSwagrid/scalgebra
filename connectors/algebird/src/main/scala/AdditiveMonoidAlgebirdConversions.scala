@@ -1,6 +1,6 @@
 package com.alecdorrington.scalgebra.connector.algebird
 
-import com.alecdorrington.{scalgebra as structures}
+import com.alecdorrington.scalgebra as structures
 import com.twitter.algebird
 
 /**

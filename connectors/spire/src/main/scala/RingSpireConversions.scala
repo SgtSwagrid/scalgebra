@@ -1,6 +1,6 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.{scalgebra as structures}
+import com.alecdorrington.scalgebra as structures
 import spire.algebra
 
 /** Implicit conversions between [[structures.Ring]] and [[spire.algebra.Ring]]. */
