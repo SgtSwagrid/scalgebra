@@ -1,4 +1,4 @@
-pages = [{"l":"index.html#","e":false,"i":"","n":"scalgebra-root","t":"scalgebra-root","d":"","k":"static","x":""},
+pages = [{"l":"index.html#","e":false,"i":"","n":"Scalgebra","t":"Scalgebra","d":"","k":"static","x":""},
 {"l":"com/alecdorrington/scalgebra.html#","e":false,"i":"","n":"com.alecdorrington.scalgebra","t":"com.alecdorrington.scalgebra","d":"","k":"package","x":""},
 {"l":"com/alecdorrington/scalgebra/builder.html#","e":false,"i":"","n":"com.alecdorrington.scalgebra.builder","t":"com.alecdorrington.scalgebra.builder","d":"","k":"package","x":""},
 {"l":"com/alecdorrington/scalgebra/builder/AdditiveGroupBuilder.html#","e":false,"i":"","n":"AdditiveGroupBuilder","t":"AdditiveGroupBuilder extends OrderedAdditiveGroupBuilder, RingBuilder, TupleIsAdditiveGroup, FutureIsAdditiveGroup, FunctionIsAdditiveGroup","d":"com.alecdorrington.scalgebra.builder","k":"trait","x":""},
