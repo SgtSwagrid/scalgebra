@@ -6,6 +6,7 @@
   <span>
     <a href="https://github.com/SgtSwagrid/scalgebra/actions/workflows/build-integrity.yml"><img src="https://github.com/SgtSwagrid/scalgebra/actions/workflows/build-integrity.yml/badge.svg" alt="Build status" /></a>
     <a href="https://search.maven.org/artifact/com.alecdorrington/scalgebra_3"><img src="https://img.shields.io/maven-central/v/com.alecdorrington/scalgebra_3.svg" alt="Maven Central" /></a>
+    <a href="https://alecdorrington.com/scalgebra"><img src="https://img.shields.io/badge/docs-latest-blue.svg" alt="Documentation" /></a>
   </span>
   
 </div>
