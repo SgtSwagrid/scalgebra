@@ -34,7 +34,7 @@ Your users can then call `dot` on any type for which a `Ring` is in scope, inclu
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.2.0"
+libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.2.2"
 ```
 
 Requires Scala 3.
@@ -110,7 +110,7 @@ Each connector is published under the name
 `scalgebra-connector-<library-name>`
 and can be installed using:
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra-connector-<library-name>" % "0.2.0"
+libraryDependencies += "com.alecdorrington" %% "scalgebra-connector-<library-name>" % "<scalgebra-version>"
 ```
 The version of the connector always matches the version of the core _Scalgebra_ library.
 
