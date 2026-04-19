@@ -28,7 +28,8 @@ lazy val `scalgebra-root` = project
     `scalgebra-connector-scalaz`,
     `scalgebra-connector-spire`,
     `scalgebra-connector-zio-prelude`,
-  ).settings(
+  )
+  .settings(
     ScalaUnidoc / unidoc / scalacOptions ++= Seq("-project", "Scalgebra"),
   )
 
