@@ -31,7 +31,7 @@ lazy val `scalgebra-root` = project
   )
 
 lazy val `scalgebra` = project
-  .in(file("."))
+  .in(file("core"))
   .settings(packagePrefix := "com.alecdorrington.scalgebra")
 
 lazy val `scalgebra-connector-algebird` = project
