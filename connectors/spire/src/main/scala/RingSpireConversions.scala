@@ -3,9 +3,7 @@ package com.alecdorrington.scalgebra.connector.spire
 import com.alecdorrington.scalgebra
 import spire.algebra
 
-/**
-  * Implicit conversions between [[structures.Ring]] and [[spire.algebra.Ring]].
-  */
+/** Implicit conversions between [[structures.Ring]] and [[spire.algebra.Ring]]. */
 trait RingSpireConversions:
 
   /** Derives a [[spire.algebra.Ring]] from a [[structures.Ring]]. */
