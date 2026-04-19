@@ -13,8 +13,11 @@
 
 ## 💡 Overview
 
-> Mathematics is the art of giving the same name to different things.
-> — Henri Poincaré
+<br/>
+
+> "Mathematics is the art of giving the same name to different things." — Henri Poincaré.
+
+<br/>
 
 **Scalgebra** provides a hierarchy of type classes for algebraic structures: semigroups, monoids, groups, rings, fields, and more, split cleanly along additive and multiplicative lines.
 
