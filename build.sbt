@@ -1,6 +1,8 @@
 import IdeSettings.packagePrefix
 import sbt._
 import sbt.Keys._
+import sbtunidoc.BaseUnidocPlugin.autoImport.*
+import sbtunidoc.ScalaUnidocPlugin
 
 ThisBuild / scalaVersion := "3.8.3"
 
@@ -14,6 +16,19 @@ ThisBuild / scalacOptions ++= Seq(
   "-language:experimental.strictEqualityPatternMatching",
   "-language:experimental.erasedDefinitions",
 )
+
+lazy val `scalgebra-root` = project
+  .in(file("."))
+  .enablePlugins(ScalaUnidocPlugin)
+  .aggregate(
+    `scalgebra`,
+    `scalgebra-connector-algebird`,
+    `scalgebra-connector-breeze`,
+    `scalgebra-connector-cats`,
+    `scalgebra-connector-scalaz`,
+    `scalgebra-connector-spire`,
+    `scalgebra-connector-zio-prelude`,
+  )
 
 lazy val `scalgebra` = project
   .in(file("."))
