@@ -34,7 +34,7 @@ Your users can then call `dot` on any type for which a `Ring` is in scope, inclu
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.2.2"
+libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.2.3"
 ```
 
 Requires Scala 3.
