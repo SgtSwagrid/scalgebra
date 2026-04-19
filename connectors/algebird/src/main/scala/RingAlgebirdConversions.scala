@@ -1,7 +1,7 @@
 package com.alecdorrington.scalgebra.connector.algebird
 
-import com.twitter.algebird
 import com.alecdorrington.scalgebra
+import com.twitter.algebird
 
 /** Implicit conversions between [[structures.Ring]] and [[algebird.Ring]]. */
 trait RingAlgebirdConversions:

@@ -1,7 +1,7 @@
 package com.alecdorrington.scalgebra.connector.breeze
 
-import com.alecdorrington.scalgebra
 import breeze.math
+import com.alecdorrington.scalgebra
 
 /**
   * Implicit conversion from [[math.Field]] to [[structures.Field]].
@@ -16,6 +16,7 @@ trait FieldBreezeConversions:
 
   /** Derives a [[structures.Field]] from a [[math.Field]]. */
   given fieldFromBreeze[X : math.Field as S]: structures.Field[X] with
+
     def add(x: X, y: X): X      = S.+(x, y)
     def zero: X                 = S.zero
     def negate(x: X): X         = S.negate(x)
