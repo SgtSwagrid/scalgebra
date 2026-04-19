@@ -13,5 +13,4 @@ package com.alecdorrington.scalgebra.connector.scalaz
   *   does not provide group, ring, or field type classes.
   */
 object ScalazConversions
-  extends AdditiveSemigroupScalazConversions,
-          AdditiveMonoidScalazConversions
+  extends AdditiveSemigroupScalazConversions, AdditiveMonoidScalazConversions

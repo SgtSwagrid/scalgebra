@@ -16,6 +16,7 @@ trait FieldBreezeConversions:
 
   /** Derives a [[structures.Field]] from a [[math.Field]]. */
   given fieldFromBreeze[X : math.Field as S]: structures.Field[X] with
+
     def add(x: X, y: X): X      = S.+(x, y)
     def zero: X                 = S.zero
     def negate(x: X): X         = S.negate(x)
