@@ -1,6 +1,6 @@
 package com.alecdorrington.scalgebra.connector.cats
 
-import com.alecdorrington.scalgebra
+import com.alecdorrington.{scalgebra as structures}
 
 /** Implicit conversions between [[structures.Ring]] and [[algebra.ring.Ring]]. */
 trait RingCatsConversions:

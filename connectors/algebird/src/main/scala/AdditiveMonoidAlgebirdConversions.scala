@@ -1,7 +1,7 @@
 package com.alecdorrington.scalgebra.connector.algebird
 
 import com.twitter.algebird
-import com.alecdorrington.scalgebra
+import com.alecdorrington.{scalgebra as structures}
 
 /**
   * Implicit conversions between [[structures.AdditiveMonoid]] and
