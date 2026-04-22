@@ -41,7 +41,7 @@ including all standard numeric types, without any additional imports on their en
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.2.3"
+libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.3.0"
 ```
 
 Requires Scala 3.
@@ -92,7 +92,7 @@ Each trait can be found in the package `com.alecdorrington.scalgebra`.
 
 | Structure | Capabilities |
 | - | - |
-| `AdditiveIndentity` | `0` |
+| `AdditiveIdentity` | `0` |
 | `AdditiveInverse` | `-_` |
 | `AdditiveSemigroup` | `+` |
 | `AdditiveMonoid` | `+`, `0` |
