@@ -7,7 +7,7 @@ import com.alecdorrington.scalgebra.ordered.ops.OrderedFieldOps
 
 /** An ordered version of [[Field]]. */
 trait OrderedField[X]
-  extends Field[X], OrderedEuclideanRing[X], OrderedSemifield[X]
+  extends Field[X], OrderedEuclideanRing[X], OrderedDifferenceSemifield[X]
 
 /**
   * The companion object for [[OrderedField]]. Import as

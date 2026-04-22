@@ -4,4 +4,4 @@ package ops
 import com.alecdorrington.scalgebra.Field
 
 /** Extension methods for [[Field]]. */
-trait FieldOps extends EuclideanRingOps, MultiplicativeGroupOps
+trait FieldOps extends EuclideanRingOps, DifferenceSemifieldOps

@@ -6,4 +6,4 @@ import com.alecdorrington.scalgebra.ordered.OrderedField
 
 /** Extension methods for [[OrderedField]]. */
 trait OrderedFieldOps
-  extends FieldOps, OrderedEuclideanRingOps, OrderedMultiplicativeGroupOps
+  extends FieldOps, OrderedEuclideanRingOps, OrderedDifferenceSemifieldOps

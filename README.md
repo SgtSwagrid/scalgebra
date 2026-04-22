@@ -109,6 +109,7 @@ Each trait can be found in the package `com.alecdorrington.scalgebra`.
 | `Ring` | `+`, `-_`, `*`, `0`, `1` |
 | `EuclideanRing` | `+`, `-_`, `*`, `/`, `0`, `1` |
 | `Semifield` | `+`, `*`, `^-1`, `0`, `1` |
+| `DifferenceSemifield` | `+`, `-`, `*`, `^-1`, `0`, `1` |
 | `Field` | `+`, `-_`, `*`, `^-1`, `0`, `1` |
 
 ### Ordered variants
@@ -180,7 +181,7 @@ Connectors currently exist for the following projects:
 ## ⚖️ What sets this library apart?
 
 - **Scala 3 native.** Built from the ground up with `given`/`using`, new-style context bounds, and significant indentation. No legacy implicit machinery.
-- **Fine-grained hierarchy.** The type class ladder spans from `AdditiveSemigroup` all the way up through `Semiring`, `Ring`, `EuclideanRing`, `Semifield`, and `Field`, with many intermediate structures (e.g. `DifferenceMonoid`, `EuclideanMonoid`) that other libraries skip over. You can express precisely the capabilities you need.
+- **Fine-grained hierarchy.** The type class ladder spans from `AdditiveSemigroup` all the way up through `Semiring`, `Ring`, `EuclideanRing`, `Semifield`, and `Field`, with many intermediate structures (e.g. `DifferenceMonoid`, `DifferenceSemifield`, `EuclideanMonoid`) that other libraries skip over. You can express precisely the capabilities you need.
 - **Additive/multiplicative split.** Addition and multiplication are tracked as distinct capabilities via separate inheritance hierarchies, mirroring standard mathematical convention and enabling constraints like `Semiring` that are inexpressible in libraries with a single abstract binary operation.
 - **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes, not just a convention for pairing a structure with `Ordering`. They expose additional operations (`abs`, `sign`, `clamp`) that require both capabilities simultaneously.
 - **Zero-import evidence.** Instances for in-built types (`Int`, `Double`, etc.) are propagated through the companion object hierarchy, so call sites need no extra imports.

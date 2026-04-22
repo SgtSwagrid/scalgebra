@@ -4,7 +4,7 @@ import com.alecdorrington.scalgebra.builder.FieldBuilder
 import com.alecdorrington.scalgebra.ops.FieldOps
 
 /** For algebraic structures with addition, multiplication, and inverses. */
-trait Field[X] extends EuclideanRing[X], Semifield[X]:
+trait Field[X] extends EuclideanRing[X], DifferenceSemifield[X]:
 
   override inline def mod(x: X, y: X): X = zero
 

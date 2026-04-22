@@ -10,6 +10,7 @@ import com.alecdorrington.scalgebra.ordered.builder.OrderedDifferenceSemiringBui
 /** Methods for constructing [[DifferenceSemiring]] type classes. */
 trait DifferenceSemiringBuilder
   extends OrderedDifferenceSemiringBuilder,
+          DifferenceSemifieldBuilder,
           RingBuilder,
           TupleIsDifferenceSemiring,
           FutureIsDifferenceSemiring,

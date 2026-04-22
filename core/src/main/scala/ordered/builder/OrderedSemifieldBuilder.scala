@@ -6,4 +6,4 @@ import com.alecdorrington.scalgebra.ordered.OrderedSemifield
 
 /** Methods for constructing [[OrderedSemifield]] type classes. */
 trait OrderedSemifieldBuilder
-  extends OrderedFieldBuilder, TupleIsOrderedSemifield
+  extends OrderedDifferenceSemifieldBuilder, TupleIsOrderedSemifield

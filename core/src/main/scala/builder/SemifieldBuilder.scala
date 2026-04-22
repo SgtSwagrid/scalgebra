@@ -10,7 +10,7 @@ import com.alecdorrington.scalgebra.ordered.builder.OrderedSemifieldBuilder
 /** Methods for constructing [[Semifield]] type classes. */
 trait SemifieldBuilder
   extends OrderedSemifieldBuilder,
-          FieldBuilder,
+          DifferenceSemifieldBuilder,
           TupleIsSemifield,
           FutureIsSemifield,
           FunctionIsSemifield
