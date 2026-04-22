@@ -33,7 +33,8 @@ def dot[X : Ring](xs: Seq[X], ys: Seq[X]): X =
   xs.zip(ys).map(_ * _).reduce(_ + _)
 ```
 
-Your users can then call `dot` on any type for which a `Ring` is in scope, including all standard numeric types, without any additional imports on their end.
+Your users can then call `dot` on any type for which a `Ring` is in scope,
+including all standard numeric types, without any additional imports on their end.
 
 ## ⬇️ Installation
 
@@ -49,7 +50,8 @@ Requires Scala 3.
 
 ### Selecting a type class
 
-Choose the weakest type class that covers the operations your code actually uses. The [type class reference](#-type-class-reference) below lists what each one requires.
+Choose the weakest type class that covers the operations your code actually uses.
+The [type class reference](#-type-class-reference) below lists what each one requires/provides.
 
 ```scala 3
 // Too strong: you don't need division or a zero.
@@ -76,6 +78,54 @@ def gcdNorm[X : EuclideanRing as E](xs: Seq[X]): X =
   xs.reduce(E.gcd)  // gcd, +, -, *, /, % all available
 ```
 
+### In-built types
+
+`given` instances for many types from the standard library are provided out-of-the-box.
+They are available automatically; no import is required at call sites,
+as they are placed in the companion objects of the corresponding type class hierarchies.
+Included are all numeric types, tuples of algebraic structures, many collections, functions, etc.
+
+## 📋 Type class reference
+
+The complete zoo of type classes is shown below.
+Each trait can be found in the package `com.alecdorrington.scalgebra`.
+
+| Structure | Capabilities |
+| - | - |
+| `AdditiveIndentity` | `0` |
+| `AdditiveInverse` | `-_` |
+| `AdditiveSemigroup` | `+` |
+| `AdditiveMonoid` | `+`, `0` |
+| `DifferenceMonoid` | `+`, `-`, `0` |
+| `AdditiveGroup` | `+`, `-_`, `0` |
+| `MultiplicativeIdentity` | `1` |
+| `MultiplicativeInverse` | `^-1` |
+| `MultiplicativeSemigroup` | `*` |
+| `MultiplicativeMonoid` | `*`, `1` |
+| `EuclideanMonoid` | `*`, `/`, `1` |
+| `MultiplicativeGroup` | `*`, `^-1`, `1` |
+| `Semiring` | `+`, `*`, `0`, `1` |
+| `DifferenceSemiring` | `+`, `-`, `*`, `0`, `1` |
+| `Ring` | `+`, `-_`, `*`, `0`, `1` |
+| `EuclideanRing` | `+`, `-_`, `*`, `/`, `0`, `1` |
+| `Semifield` | `+`, `*`, `^-1`, `0`, `1` |
+| `Field` | `+`, `-_`, `*`, `^-1`, `0`, `1` |
+
+### Ordered variants
+
+The `ordered` subpackage provides `Ordered`-prefixed variants that combine each type class with `Ordering`.
+Use these when your algorithm needs both algebraic operations and comparisons under a single context bound.
+
+```scala 3
+import com.alecdorrington.scalgebra.ordered.OrderedField.{*, given}
+
+def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
+```
+
+The ordered variants go beyond merely combining their unordered counterpart with `Ordering`,
+they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`.
+Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
+
 ### Providing evidence
 
 To make your own type work with these type classes, provide a `given` instance:
@@ -91,18 +141,6 @@ given AdditiveMonoid[Vec2] with
 ```
 
 For in-built types (`Int`, `Double`, etc.), evidence is already included; see [built-in instances](#-built-in-instances).
-
-### Ordered variants
-
-The `ordered` subpackage provides `Ordered`-prefixed variants that combine each type class with `Ordering[X]`. Use these when your algorithm needs both algebraic operations and comparisons under a single context bound.
-
-```scala 3
-import com.alecdorrington.scalgebra.ordered.OrderedField.{*, given}
-
-def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
-```
-
-The ordered variants go beyond merely combining their unordered counterpart with `Ordering` — they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`. They are also useful in contexts where multiple context bounds cannot be expressed. Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
 
 ## 🔌 Connectors
 
@@ -130,6 +168,8 @@ with no intention to ever use the intermediates that exist here.
 
 ### Supported projects
 
+Connectors currently exist for the following projects:
+
 - [Algebird](https://twitter.github.io/algebird/)
 - [Breeze](https://github.com/scalanlp/breeze)
 - [Cats Algebra](https://typelevel.org/cats/algebra.html)
@@ -137,87 +177,7 @@ with no intention to ever use the intermediates that exist here.
 - [Spire](https://spire-math.org/)
 - [ZIO Prelude](https://zio.dev/zio-prelude/)
 
-## 📐 Type class reference
-
-The complete hierarchy is shown below. Each trait is in the package `com.alecdorrington.scalgebra`.
-
-### Component traits
-
-These are standalone mix-ins for individual capabilities. They are rarely used as context bounds directly, but they are extended by the composite structures below.
-
-| Trait | Abstract members | Syntax |
-|---|---|---|
-| `AdditiveIdentity[+X]` | `zero: X` | `zero[X]`, `x.isZero` |
-| `AdditiveInverse[X]` | `negate(x)` | `-x` |
-| `MultiplicativeIdentity[+X]` | `one: X` | `one[X]`, `x.isOne` |
-| `MultiplicativeInverse[X]` | `reciprocate(x)` | `x.reciprocal` |
-
-### Additive structures
-
-| Trait | Extends | Abstract members | Syntax |
-|---|---|---|---|
-| `AdditiveSemigroup[X]` | - | `add(x, y)` | `x + y`, `n *: x`¹, `x :* n`¹, `sum(x, xs*)`, `sumOption(xs)` |
-| `AdditiveMonoid[X]` | `AdditiveSemigroup`, `AdditiveIdentity` | - | + `n *: x`², `x :* n`², `sum(xs: Iterable)` |
-| `DifferenceMonoid[X]` | `AdditiveMonoid` | `subtract(x, y)` | + `x - y` |
-| `AdditiveGroup[X]` | `DifferenceMonoid`, `AdditiveInverse` | - | + `-x`, `n *: x`³, `x :* n`³, `x.abs`⁴ |
-
-¹ Strictly positive `n` only. &nbsp; ² Non-negative `n` only. &nbsp; ³ Any integer `n`. &nbsp; ⁴ When `Ordering` is also available.
-
-### Multiplicative structures
-
-| Trait | Extends | Abstract members | Syntax |
-|---|---|---|---|
-| `MultiplicativeSemigroup[X]` | - | `multiply(x, y)` | `x * y`, `x pow n`¹, `product(x, xs*)`, `productOption(xs)` |
-| `MultiplicativeMonoid[X]` | `MultiplicativeSemigroup`, `MultiplicativeIdentity` | - | + `x pow n`², `product(xs: Iterable)` |
-| `EuclideanMonoid[X]` | `MultiplicativeMonoid` | `divide(x, y)` | + `x / y` |
-| `MultiplicativeGroup[X]` | `EuclideanMonoid`, `MultiplicativeInverse` | - | + `x pow n`³, `x.reciprocal` |
-
-¹ Strictly positive `n` only. &nbsp; ² Non-negative `n` only. &nbsp; ³ Any integer `n`.
-
-### Combined structures
-
-| Trait | Extends | Key additions |
-|---|---|---|
-| `Semiring[X]` | `AdditiveMonoid`, `MultiplicativeMonoid` | `two` |
-| `DifferenceSemiring[X]` | `Semiring`, `DifferenceMonoid` | - |
-| `Ring[X]` | `AdditiveGroup`, `DifferenceSemiring` | `negativeOne`, `x.sign`¹ |
-| `EuclideanRing[X]` | `Ring`, `EuclideanMonoid` | `x % y`, `E.gcd(x, y)`, `E.lcm(x, y)` |
-| `Semifield[X]` | `Semiring`, `MultiplicativeGroup` | - |
-| `Field[X]` | `EuclideanRing`, `Semifield` | (`mod` is always `zero`) |
-
-¹ When `Ordering` is also available.
-
-### Ordered variants
-
-Every type class above has a corresponding `Ordered`-prefixed variant in the `ordered` subpackage that additionally extends `Ordering[X]`.
-
-| Ordered variant | Extends |
-|---|---|
-| `OrderedAdditiveSemigroup[X]` | `AdditiveSemigroup[X]`, `Ordering[X]` |
-| `OrderedAdditiveMonoid[X]` | `AdditiveMonoid[X]`, `Ordering[X]` |
-| `OrderedDifferenceMonoid[X]` | `DifferenceMonoid[X]`, `Ordering[X]` |
-| `OrderedAdditiveGroup[X]` | `AdditiveGroup[X]`, `Ordering[X]` |
-| `OrderedMultiplicativeSemigroup[X]` | `MultiplicativeSemigroup[X]`, `Ordering[X]` |
-| `OrderedMultiplicativeMonoid[X]` | `MultiplicativeMonoid[X]`, `Ordering[X]` |
-| `OrderedEuclideanMonoid[X]` | `EuclideanMonoid[X]`, `Ordering[X]` |
-| `OrderedMultiplicativeGroup[X]` | `MultiplicativeGroup[X]`, `Ordering[X]` |
-| `OrderedSemiring[X]` | `Semiring[X]`, `Ordering[X]` |
-| `OrderedDifferenceSemiring[X]` | `DifferenceSemiring[X]`, `Ordering[X]` |
-| `OrderedRing[X]` | `Ring[X]`, `Ordering[X]` |
-| `OrderedEuclideanRing[X]` | `EuclideanRing[X]`, `Ordering[X]` |
-| `OrderedSemifield[X]` | `Semifield[X]`, `Ordering[X]` |
-| `OrderedField[X]` | `Field[X]`, `Ordering[X]` |
-
-The ordered variants add the comparison operators `<`, `<=`, `>`, `>=`, `min`, `max`, `clamp`, and `compare` from `Ordering`. They also make `abs` available on `OrderedAdditiveGroup` and `sign` available on `OrderedRing`.
-
-## 🔢 Built-in instances
-
-`given` instances for many types from the standard library are provided out-of-the-box. They are available automatically; no import is required at call sites, as they are placed in the companion objects of the corresponding type class hierarchies.
-Included are all numeric types, tuples of algebraic structures, many collections, functions, etc.
-
-## ⚖️ Comparison to other libraries
-
-### What sets this library apart
+## ⚖️ What sets this library apart?
 
 - **Scala 3 native.** Built from the ground up with `given`/`using`, new-style context bounds, and significant indentation. No legacy implicit machinery.
 - **Fine-grained hierarchy.** The type class ladder spans from `AdditiveSemigroup` all the way up through `Semiring`, `Ring`, `EuclideanRing`, `Semifield`, and `Field`, with many intermediate structures (e.g. `DifferenceMonoid`, `EuclideanMonoid`) that other libraries skip over. You can express precisely the capabilities you need.
@@ -226,26 +186,6 @@ Included are all numeric types, tuples of algebraic structures, many collections
 - **Zero-import evidence.** Instances for in-built types (`Int`, `Double`, etc.) are propagated through the companion object hierarchy, so call sites need no extra imports.
 - **Minimal footprint.** No number types, no approximate data structures, no lattices. Just the structural layer.
 - **Compatibility.** Integrates seamlessly with the competition.
-
-### Standard library (`Numeric`, `Integral`, `Fractional`)
-
-The standard library's numerical type classes are monolithic: `Numeric` bundles addition, subtraction, multiplication, absolute value, sign, and conversions all at once, with no way to express a weaker requirement. `Ordering` is a separate, unrelated type class with no connection to the numeric hierarchy.
-
-### Cats / Cats-kernel (`Semigroup`, `Monoid`, `Group`)
-
-Cats treats addition and multiplication as the same abstract operation, with no syntactic or semantic distinction between `+` and `*`. There is no `Ring`, `Field`, or equivalent, and no way to express a constraint like "has both addition and multiplication with compatible identities". It is a good fit for purely additive aggregation but is not designed for numeric abstractions.
-
-### Algebra (typelevel/algebra / cats-algebra)
-
-Originally a standalone attempt to unify the algebraic type classes from Spire and Algebird, algebra is now maintained as the `algebra-core` subproject of Cats. It provides `Ring`, `Field`, `EuclideanRing`, and an additive/multiplicative split, and depends only on `cats-kernel`. It targets Scala 2 and 3. Scalgebra is a Scala 3-native alternative in the same spirit: a self-contained algebraic-structure layer with no dependencies to speak of.
-
-### Algebird (twitter/algebird)
-
-Algebird provided some of the input to typelevel/algebra. Its own focus is aggregation in distributed and streaming systems, with higher-level combinators like approximate data structures (HyperLogLog, Count-Min Sketch) and MapReduce-friendly accumulators on top of a basic `Semigroup`/`Monoid`/`Group` foundation. It is not designed as a general algebraic-structure layer for numeric code.
-
-### Spire (typelevel/spire)
-
-Spire is a comprehensive numerical library that includes algebraic structures alongside number types (`Rational`, `Complex`), interval arithmetic, polynomial rings, and more. It is the right choice when you need the full numerical stack rather than just the structural layer.
 
 ## 👁️ See also
 
