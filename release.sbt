@@ -2,7 +2,7 @@ ThisBuild / description :=
   "A collection of type classes for algebraic structures in Scala."
 
 ThisBuild / homepage :=
-  Some(url("https://github.com/SgtSwagrid/scalgebra"))
+  Some(url("https://alecdorrington.com/scalgebra"))
 
 ThisBuild / organization         := "com.alecdorrington"
 ThisBuild / organizationName     := "Alec Dorrington"
