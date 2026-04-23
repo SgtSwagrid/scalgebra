@@ -1,0 +1,1425 @@
+<!DOCTYPE html><html data-pathToRoot="../../../../" data-rawLocation="com/alecdorrington/scalgebra/normed/NormedEuclideanRing$$Ops" data-dynamicSideMenu="false"><head><meta charset="utf-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta><title>Ops</title><link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico"></link><script type="text/javascript" src="../../../../scripts/theme.js"></script><script type="text/javascript" src="../../../../scripts/searchData.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/scastieConfiguration.js" defer="true"></script><link rel="stylesheet" href="../../../../styles/theme/bundle.css"></link><link rel="stylesheet" href="../../../../styles/theme/components/bundle.css"></link><link rel="stylesheet" href="../../../../styles/theme/components/button/bundle.css"></link><link rel="stylesheet" href="../../../../styles/theme/layout/bundle.css"></link><link rel="stylesheet" href="../../../../styles/nord-light.css"></link><link rel="stylesheet" href="../../../../styles/dotty-icons.css"></link><link rel="stylesheet" href="../../../../styles/filter-bar.css"></link><link rel="stylesheet" href="../../../../styles/code-snippets.css"></link><link rel="stylesheet" href="../../../../styles/searchbar.css"></link><link rel="stylesheet" href="../../../../styles/social-links.css"></link><link rel="stylesheet" href="../../../../styles/versions-dropdown.css"></link><link rel="stylesheet" href="../../../../styles/content-contributors.css"></link><link rel="stylesheet" href="../../../../styles/fontawesome.css"></link><script type="text/javascript" src="../../../../hljs/highlight.pack.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/hljs-scala3.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/ux.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/common/component.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/common/utils.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/components/FilterBar.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/components/DocumentableList.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/components/Input.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/components/FilterGroup.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/components/Filter.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/scaladoc-scalajs.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/contributors.js" defer="true"></script><script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" defer="true"></script><script type="text/javascript" src="https://d3js.org/d3.v6.min.js" defer="true"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/graphlib-dot@0.6.2/dist/graphlib-dot.min.js" defer="true"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dagre-d3/0.6.1/dagre-d3.min.js" defer="true"></script><script type="text/javascript" src="https://scastie.scala-lang.org/embedded.js" defer="true"></script><script type="text/javascript" src="../../../../scripts/data.js" defer="true"></script><link rel="stylesheet" href="../../../../styles/apistyles.css"></link><script>var pathToRoot = "../../../../";</script></head><body><div id=""><div id="header" class="body-small"><div class="header-container-left"><a href="../../../../" class="logo-container"><span class="project-name h300">Scalgebra</span></a><span onclick="dropdownHandler(event)" class="text-button with-arrow" id="dropdown-trigger"><a></a></span><div id="version-dropdown" class="dropdown-menu"></div></div><div class="header-container-right"><button id="search-toggle" class="icon-button"></button><span id="theme-toggle" class="icon-button"></span><span id="mobile-menu-toggle" class="icon-button hamburger"></span></div></div><div id="mobile-menu"><div class="mobile-menu-header body-small"><span class="mobile-menu-logo"><span class="project-name h300">Scalgebra</span></span><button id="mobile-menu-close" class="icon-button close"></button></div><div class="mobile-menu-container body-medium"><input id="mobile-scaladoc-searchbar-input" class="scaladoc-searchbar-input" type="search" placeholder="Find anything"></input><span id="mobile-theme-toggle" class="mobile-menu-item mode"></span></div></div><span id="mobile-sidebar-toggle" class="floating-button"></span><div id="leftColumn" class="body-small"><div class="switcher-container"><a id="api-nav-button" class="switcher h100 selected" href="../../../../index.html">API</a></div><nav id="api-nav" class="side-menu"><div class="ni n0 expanded"><span class="nh h100 expanded cs"><button class="ar icon-button expanded"></button><a href="../../scalgebra.html"><span class="micon pa"></span><span>com.alecdorrington.scalgebra</span></a></span><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../connector.html"><span class="micon pa"></span><span>connector</span></a></span><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../connector/algebird.html"><span class="micon pa"></span><span>algebird</span></a></span><div class="ni n3 "><span class="nh "><a href="../connector/algebird/AdditiveGroupAlgebirdConversions.html"><span class="micon tr"></span><span>AdditiveGroupAlgebirdConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/algebird/AdditiveMonoidAlgebirdConversions.html"><span class="micon tr"></span><span>AdditiveMonoidAlgebirdConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/algebird/AdditiveSemigroupAlgebirdConversions.html"><span class="micon tr"></span><span>AdditiveSemigroupAlgebirdConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/algebird/AlgebirdConversions$.html"><span class="micon ob"></span><span>AlgebirdConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/algebird/FieldAlgebirdConversions.html"><span class="micon tr"></span><span>FieldAlgebirdConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/algebird/RingAlgebirdConversions.html"><span class="micon tr"></span><span>RingAlgebirdConversions</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../connector/breeze.html"><span class="micon pa"></span><span>breeze</span></a></span><div class="ni n3 "><span class="nh "><a href="../connector/breeze/BreezeConversions$.html"><span class="micon ob"></span><span>BreezeConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/breeze/FieldBreezeConversions.html"><span class="micon tr"></span><span>FieldBreezeConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/breeze/RingBreezeConversions.html"><span class="micon tr"></span><span>RingBreezeConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/breeze/SemiringBreezeConversions.html"><span class="micon tr"></span><span>SemiringBreezeConversions</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../connector/cats.html"><span class="micon pa"></span><span>cats</span></a></span><div class="ni n3 "><span class="nh "><a href="../connector/cats/AdditiveGroupCatsConversions.html"><span class="micon tr"></span><span>AdditiveGroupCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/AdditiveMonoidCatsConversions.html"><span class="micon tr"></span><span>AdditiveMonoidCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/AdditiveSemigroupCatsConversions.html"><span class="micon tr"></span><span>AdditiveSemigroupCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/CatsConversions$.html"><span class="micon ob"></span><span>CatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/EuclideanRingCatsConversions.html"><span class="micon tr"></span><span>EuclideanRingCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/FieldCatsConversions.html"><span class="micon tr"></span><span>FieldCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/MultiplicativeGroupCatsConversions.html"><span class="micon tr"></span><span>MultiplicativeGroupCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/MultiplicativeMonoidCatsConversions.html"><span class="micon tr"></span><span>MultiplicativeMonoidCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/MultiplicativeSemigroupCatsConversions.html"><span class="micon tr"></span><span>MultiplicativeSemigroupCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/PseudoringCatsConversions.html"><span class="micon tr"></span><span>PseudoringCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/RingCatsConversions.html"><span class="micon tr"></span><span>RingCatsConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/cats/SemiringCatsConversions.html"><span class="micon tr"></span><span>SemiringCatsConversions</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../connector/scalaz.html"><span class="micon pa"></span><span>scalaz</span></a></span><div class="ni n3 "><span class="nh "><a href="../connector/scalaz/AdditiveMonoidScalazConversions.html"><span class="micon tr"></span><span>AdditiveMonoidScalazConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/scalaz/AdditiveSemigroupScalazConversions.html"><span class="micon tr"></span><span>AdditiveSemigroupScalazConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/scalaz/ScalazConversions$.html"><span class="micon ob"></span><span>ScalazConversions</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../connector/spire.html"><span class="micon pa"></span><span>spire</span></a></span><div class="ni n3 "><span class="nh "><a href="../connector/spire/AdditiveGroupSpireConversions.html"><span class="micon tr"></span><span>AdditiveGroupSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/AdditiveMonoidSpireConversions.html"><span class="micon tr"></span><span>AdditiveMonoidSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/AdditiveSemigroupSpireConversions.html"><span class="micon tr"></span><span>AdditiveSemigroupSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/EuclideanRingSpireConversions.html"><span class="micon tr"></span><span>EuclideanRingSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/FieldSpireConversions.html"><span class="micon tr"></span><span>FieldSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/MultiplicativeGroupSpireConversions.html"><span class="micon tr"></span><span>MultiplicativeGroupSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/MultiplicativeMonoidSpireConversions.html"><span class="micon tr"></span><span>MultiplicativeMonoidSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/MultiplicativeSemigroupSpireConversions.html"><span class="micon tr"></span><span>MultiplicativeSemigroupSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/PseudoringSpireConversions.html"><span class="micon tr"></span><span>PseudoringSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/RingSpireConversions.html"><span class="micon tr"></span><span>RingSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/SemiringSpireConversions.html"><span class="micon tr"></span><span>SemiringSpireConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/spire/SpireConversions$.html"><span class="micon ob"></span><span>SpireConversions</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../connector/zioprelude.html"><span class="micon pa"></span><span>zioprelude</span></a></span><div class="ni n3 "><span class="nh "><a href="../connector/zioprelude/AdditiveGroupZioPreludeConversions.html"><span class="micon tr"></span><span>AdditiveGroupZioPreludeConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/zioprelude/AdditiveMonoidZioPreludeConversions.html"><span class="micon tr"></span><span>AdditiveMonoidZioPreludeConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/zioprelude/AdditiveSemigroupZioPreludeConversions.html"><span class="micon tr"></span><span>AdditiveSemigroupZioPreludeConversions</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../connector/zioprelude/ZioPreludeConversions$.html"><span class="micon ob"></span><span>ZioPreludeConversions</span></a></span></div></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../evidence.html"><span class="micon pa"></span><span>evidence</span></a></span><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/collection.html"><span class="micon pa"></span><span>collection</span></a></span><div class="ni n3 "><span class="nh "><a href="../evidence/collection/ArrayIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>ArrayIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/ArraySeqIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>ArraySeqIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/EitherIsAdditiveMonoid.html"><span class="micon tr"></span><span>EitherIsAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/IArrayIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>IArrayIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/LazyListIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>LazyListIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/ListIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>ListIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/MapIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>MapIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/OptionIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>OptionIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/OptionIsSemiring.html"><span class="micon tr"></span><span>OptionIsSemiring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/QueueIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>QueueIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/SeqIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>SeqIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/SetIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>SetIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/SortedMapIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>SortedMapIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/SortedSetIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>SortedSetIsNormedAdditiveMonoid</span></a></span></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/collection/StringIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>StringIsNormedAdditiveMonoid</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/collection/StringIsNormedAdditiveMonoid$given_NormedAdditiveMonoid_String_Int$.html"><span class="micon ob"></span><span>given_NormedAdditiveMonoid_String_Int</span></a></span></div></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/TryIsAdditiveMonoid.html"><span class="micon tr"></span><span>TryIsAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/collection/VectorIsNormedAdditiveMonoid.html"><span class="micon tr"></span><span>VectorIsNormedAdditiveMonoid</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/function.html"><span class="micon pa"></span><span>function</span></a></span><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsAdditiveGroup.html"><span class="micon tr"></span><span>FunctionIsAdditiveGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsAdditiveIdentity.html"><span class="micon tr"></span><span>FunctionIsAdditiveIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsAdditiveInverse.html"><span class="micon tr"></span><span>FunctionIsAdditiveInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsAdditiveMonoid.html"><span class="micon tr"></span><span>FunctionIsAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsAdditiveSemigroup.html"><span class="micon tr"></span><span>FunctionIsAdditiveSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsDifference.html"><span class="micon tr"></span><span>FunctionIsDifference</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsDifferenceMonoid.html"><span class="micon tr"></span><span>FunctionIsDifferenceMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsDifferenceSemifield.html"><span class="micon tr"></span><span>FunctionIsDifferenceSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsDifferenceSemigroup.html"><span class="micon tr"></span><span>FunctionIsDifferenceSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsDifferenceSemiring.html"><span class="micon tr"></span><span>FunctionIsDifferenceSemiring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsEuclidean.html"><span class="micon tr"></span><span>FunctionIsEuclidean</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsEuclideanMonoid.html"><span class="micon tr"></span><span>FunctionIsEuclideanMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsEuclideanRing.html"><span class="micon tr"></span><span>FunctionIsEuclideanRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsEuclideanSemigroup.html"><span class="micon tr"></span><span>FunctionIsEuclideanSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsField.html"><span class="micon tr"></span><span>FunctionIsField</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsMultiplicativeGroup.html"><span class="micon tr"></span><span>FunctionIsMultiplicativeGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsMultiplicativeIdentity.html"><span class="micon tr"></span><span>FunctionIsMultiplicativeIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsMultiplicativeInverse.html"><span class="micon tr"></span><span>FunctionIsMultiplicativeInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsMultiplicativeMonoid.html"><span class="micon tr"></span><span>FunctionIsMultiplicativeMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsMultiplicativeSemigroup.html"><span class="micon tr"></span><span>FunctionIsMultiplicativeSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsPseudoring.html"><span class="micon tr"></span><span>FunctionIsPseudoring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsRing.html"><span class="micon tr"></span><span>FunctionIsRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsSemifield.html"><span class="micon tr"></span><span>FunctionIsSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/function/FunctionIsSemiring.html"><span class="micon tr"></span><span>FunctionIsSemiring</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/future.html"><span class="micon pa"></span><span>future</span></a></span><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsAdditiveGroup.html"><span class="micon tr"></span><span>FutureIsAdditiveGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsAdditiveIdentity.html"><span class="micon tr"></span><span>FutureIsAdditiveIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsAdditiveInverse.html"><span class="micon tr"></span><span>FutureIsAdditiveInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsAdditiveMonoid.html"><span class="micon tr"></span><span>FutureIsAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsAdditiveSemigroup.html"><span class="micon tr"></span><span>FutureIsAdditiveSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsDifference.html"><span class="micon tr"></span><span>FutureIsDifference</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsDifferenceMonoid.html"><span class="micon tr"></span><span>FutureIsDifferenceMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsDifferenceSemifield.html"><span class="micon tr"></span><span>FutureIsDifferenceSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsDifferenceSemigroup.html"><span class="micon tr"></span><span>FutureIsDifferenceSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsDifferenceSemiring.html"><span class="micon tr"></span><span>FutureIsDifferenceSemiring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsEuclidean.html"><span class="micon tr"></span><span>FutureIsEuclidean</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsEuclideanMonoid.html"><span class="micon tr"></span><span>FutureIsEuclideanMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsEuclideanRing.html"><span class="micon tr"></span><span>FutureIsEuclideanRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsEuclideanSemigroup.html"><span class="micon tr"></span><span>FutureIsEuclideanSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsField.html"><span class="micon tr"></span><span>FutureIsField</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsMultiplicativeGroup.html"><span class="micon tr"></span><span>FutureIsMultiplicativeGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsMultiplicativeIdentity.html"><span class="micon tr"></span><span>FutureIsMultiplicativeIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsMultiplicativeInverse.html"><span class="micon tr"></span><span>FutureIsMultiplicativeInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsMultiplicativeMonoid.html"><span class="micon tr"></span><span>FutureIsMultiplicativeMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsMultiplicativeSemigroup.html"><span class="micon tr"></span><span>FutureIsMultiplicativeSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsPseudoring.html"><span class="micon tr"></span><span>FutureIsPseudoring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsRing.html"><span class="micon tr"></span><span>FutureIsRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsSemifield.html"><span class="micon tr"></span><span>FutureIsSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/future/FutureIsSemiring.html"><span class="micon tr"></span><span>FutureIsSemiring</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric.html"><span class="micon pa"></span><span>numeric</span></a></span><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/BigIntIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>BigIntIsOrderedEuclideanRing</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/BigIntIsOrderedEuclideanRing$given_OrderedEuclideanRing_BigInt$.html"><span class="micon ob"></span><span>given_OrderedEuclideanRing_BigInt</span></a></span></div></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/BooleanIsOrderedRing.html"><span class="micon tr"></span><span>BooleanIsOrderedRing</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/BooleanIsOrderedRing$given_OrderedRing_Boolean$.html"><span class="micon ob"></span><span>given_OrderedRing_Boolean</span></a></span></div></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/ByteIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>ByteIsOrderedEuclideanRing</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/ByteIsOrderedEuclideanRing$given_OrderedEuclideanRing_Byte$.html"><span class="micon ob"></span><span>given_OrderedEuclideanRing_Byte</span></a></span></div></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/DoubleIsOrderedField.html"><span class="micon tr"></span><span>DoubleIsOrderedField</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/DoubleIsOrderedField$given_OrderedField_Double$.html"><span class="micon ob"></span><span>given_OrderedField_Double</span></a></span></div></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/FloatIsOrderedField.html"><span class="micon tr"></span><span>FloatIsOrderedField</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/FloatIsOrderedField$given_OrderedField_Float$.html"><span class="micon ob"></span><span>given_OrderedField_Float</span></a></span></div></div><div class="ni n3 "><span class="nh "><a href="../evidence/numeric/FractionalIsOrderedField.html"><span class="micon tr"></span><span>FractionalIsOrderedField</span></a></span></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/IntIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>IntIsOrderedEuclideanRing</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/IntIsOrderedEuclideanRing$given_OrderedEuclideanRing_Int$.html"><span class="micon ob"></span><span>given_OrderedEuclideanRing_Int</span></a></span></div></div><div class="ni n3 "><span class="nh "><a href="../evidence/numeric/IntegralIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>IntegralIsOrderedEuclideanRing</span></a></span></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/LongIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>LongIsOrderedEuclideanRing</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/LongIsOrderedEuclideanRing$given_OrderedEuclideanRing_Long$.html"><span class="micon ob"></span><span>given_OrderedEuclideanRing_Long</span></a></span></div></div><div class="ni n3 "><span class="nh "><a href="../evidence/numeric/NumericIsOrderedRing.html"><span class="micon tr"></span><span>NumericIsOrderedRing</span></a></span></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/numeric/ShortIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>ShortIsOrderedEuclideanRing</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/numeric/ShortIsOrderedEuclideanRing$given_OrderedEuclideanRing_Short$.html"><span class="micon ob"></span><span>given_OrderedEuclideanRing_Short</span></a></span></div></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/trivial.html"><span class="micon pa"></span><span>trivial</span></a></span><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/trivial/EmptyTupleIsOrderedField.html"><span class="micon tr"></span><span>EmptyTupleIsOrderedField</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/trivial/EmptyTupleIsOrderedField$given_OrderedField_EmptyTuple$.html"><span class="micon ob"></span><span>given_OrderedField_EmptyTuple</span></a></span></div></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/trivial/NoneIsOrderedField.html"><span class="micon tr"></span><span>NoneIsOrderedField</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/trivial/NoneIsOrderedField$given_OrderedField_None_type$.html"><span class="micon ob"></span><span>given_OrderedField_None_type</span></a></span></div></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/trivial/NothingIsOrderedField.html"><span class="micon tr"></span><span>NothingIsOrderedField</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/trivial/NothingIsOrderedField$given_OrderedField_Nothing$.html"><span class="micon ob"></span><span>given_OrderedField_Nothing</span></a></span></div></div><div class="ni n3 "><span class="nh "><a href="../evidence/trivial/SingletonIsOrderedField.html"><span class="micon tr"></span><span>SingletonIsOrderedField</span></a></span></div><div class="ni n3"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/trivial/UnitIsOrderedField.html"><span class="micon tr"></span><span>UnitIsOrderedField</span></a></span><div class="ni n4 "><span class="nh "><a href="../evidence/trivial/UnitIsOrderedField$given_OrderedField_Unit$.html"><span class="micon ob"></span><span>given_OrderedField_Unit</span></a></span></div></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../evidence/tuple.html"><span class="micon pa"></span><span>tuple</span></a></span><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsAdditiveGroup.html"><span class="micon tr"></span><span>TupleIsAdditiveGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsAdditiveIdentity.html"><span class="micon tr"></span><span>TupleIsAdditiveIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsAdditiveInverse.html"><span class="micon tr"></span><span>TupleIsAdditiveInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsAdditiveMonoid.html"><span class="micon tr"></span><span>TupleIsAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsAdditiveSemigroup.html"><span class="micon tr"></span><span>TupleIsAdditiveSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsDifference.html"><span class="micon tr"></span><span>TupleIsDifference</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsDifferenceMonoid.html"><span class="micon tr"></span><span>TupleIsDifferenceMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsDifferenceSemifield.html"><span class="micon tr"></span><span>TupleIsDifferenceSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsDifferenceSemigroup.html"><span class="micon tr"></span><span>TupleIsDifferenceSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsDifferenceSemiring.html"><span class="micon tr"></span><span>TupleIsDifferenceSemiring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsEuclidean.html"><span class="micon tr"></span><span>TupleIsEuclidean</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsEuclideanMonoid.html"><span class="micon tr"></span><span>TupleIsEuclideanMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsEuclideanRing.html"><span class="micon tr"></span><span>TupleIsEuclideanRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsEuclideanSemigroup.html"><span class="micon tr"></span><span>TupleIsEuclideanSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsField.html"><span class="micon tr"></span><span>TupleIsField</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsMultiplicativeGroup.html"><span class="micon tr"></span><span>TupleIsMultiplicativeGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsMultiplicativeIdentity.html"><span class="micon tr"></span><span>TupleIsMultiplicativeIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsMultiplicativeInverse.html"><span class="micon tr"></span><span>TupleIsMultiplicativeInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsMultiplicativeMonoid.html"><span class="micon tr"></span><span>TupleIsMultiplicativeMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsMultiplicativeSemigroup.html"><span class="micon tr"></span><span>TupleIsMultiplicativeSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedAdditiveGroup.html"><span class="micon tr"></span><span>TupleIsOrderedAdditiveGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedAdditiveIdentity.html"><span class="micon tr"></span><span>TupleIsOrderedAdditiveIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedAdditiveInverse.html"><span class="micon tr"></span><span>TupleIsOrderedAdditiveInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedAdditiveMonoid.html"><span class="micon tr"></span><span>TupleIsOrderedAdditiveMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedAdditiveSemigroup.html"><span class="micon tr"></span><span>TupleIsOrderedAdditiveSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedDifference.html"><span class="micon tr"></span><span>TupleIsOrderedDifference</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedDifferenceMonoid.html"><span class="micon tr"></span><span>TupleIsOrderedDifferenceMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedDifferenceSemifield.html"><span class="micon tr"></span><span>TupleIsOrderedDifferenceSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedDifferenceSemigroup.html"><span class="micon tr"></span><span>TupleIsOrderedDifferenceSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedDifferenceSemiring.html"><span class="micon tr"></span><span>TupleIsOrderedDifferenceSemiring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedEuclidean.html"><span class="micon tr"></span><span>TupleIsOrderedEuclidean</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedEuclideanMonoid.html"><span class="micon tr"></span><span>TupleIsOrderedEuclideanMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedEuclideanRing.html"><span class="micon tr"></span><span>TupleIsOrderedEuclideanRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedEuclideanSemigroup.html"><span class="micon tr"></span><span>TupleIsOrderedEuclideanSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedField.html"><span class="micon tr"></span><span>TupleIsOrderedField</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedMultiplicativeGroup.html"><span class="micon tr"></span><span>TupleIsOrderedMultiplicativeGroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedMultiplicativeIdentity.html"><span class="micon tr"></span><span>TupleIsOrderedMultiplicativeIdentity</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedMultiplicativeInverse.html"><span class="micon tr"></span><span>TupleIsOrderedMultiplicativeInverse</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedMultiplicativeMonoid.html"><span class="micon tr"></span><span>TupleIsOrderedMultiplicativeMonoid</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedMultiplicativeSemigroup.html"><span class="micon tr"></span><span>TupleIsOrderedMultiplicativeSemigroup</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedPseudoring.html"><span class="micon tr"></span><span>TupleIsOrderedPseudoring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedRing.html"><span class="micon tr"></span><span>TupleIsOrderedRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedSemifield.html"><span class="micon tr"></span><span>TupleIsOrderedSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsOrderedSemiring.html"><span class="micon tr"></span><span>TupleIsOrderedSemiring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsPseudoring.html"><span class="micon tr"></span><span>TupleIsPseudoring</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsRing.html"><span class="micon tr"></span><span>TupleIsRing</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsSemifield.html"><span class="micon tr"></span><span>TupleIsSemifield</span></a></span></div><div class="ni n3 "><span class="nh "><a href="../evidence/tuple/TupleIsSemiring.html"><span class="micon tr"></span><span>TupleIsSemiring</span></a></span></div></div></div><div class="ni n1 expanded"><span class="nh h100 expanded cs"><button class="ar icon-button expanded"></button><a href="../normed.html"><span class="micon pa"></span><span>normed</span></a></span><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="Normed$.html"><span class="micon ob"></span><span>Normed</span></a></span><div class="ni n3 "><span class="nh "><a href="Normed$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="Normed.html"><span class="micon tr"></span><span>Normed</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedAdditiveGroup.html"><span class="micon tr"></span><span>NormedAdditiveGroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedAdditiveGroup$.html"><span class="micon ob"></span><span>NormedAdditiveGroup</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedAdditiveGroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedAdditiveIdentity.html"><span class="micon tr"></span><span>NormedAdditiveIdentity</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedAdditiveIdentity$.html"><span class="micon ob"></span><span>NormedAdditiveIdentity</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedAdditiveIdentity$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedAdditiveInverse$.html"><span class="micon ob"></span><span>NormedAdditiveInverse</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedAdditiveInverse$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedAdditiveInverse.html"><span class="micon tr"></span><span>NormedAdditiveInverse</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedAdditiveMonoid.html"><span class="micon tr"></span><span>NormedAdditiveMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedAdditiveMonoid$.html"><span class="micon ob"></span><span>NormedAdditiveMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedAdditiveMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedAdditiveSemigroup.html"><span class="micon tr"></span><span>NormedAdditiveSemigroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedAdditiveSemigroup$.html"><span class="micon ob"></span><span>NormedAdditiveSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedAdditiveSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedDifference.html"><span class="micon tr"></span><span>NormedDifference</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedDifference$.html"><span class="micon ob"></span><span>NormedDifference</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedDifference$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedDifferenceMonoid.html"><span class="micon tr"></span><span>NormedDifferenceMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedDifferenceMonoid$.html"><span class="micon ob"></span><span>NormedDifferenceMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedDifferenceMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedDifferenceSemifield$.html"><span class="micon ob"></span><span>NormedDifferenceSemifield</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedDifferenceSemifield$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedDifferenceSemifield.html"><span class="micon tr"></span><span>NormedDifferenceSemifield</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedDifferenceSemigroup.html"><span class="micon tr"></span><span>NormedDifferenceSemigroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedDifferenceSemigroup$.html"><span class="micon ob"></span><span>NormedDifferenceSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedDifferenceSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedDifferenceSemiring$.html"><span class="micon ob"></span><span>NormedDifferenceSemiring</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedDifferenceSemiring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedDifferenceSemiring.html"><span class="micon tr"></span><span>NormedDifferenceSemiring</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedEuclidean.html"><span class="micon tr"></span><span>NormedEuclidean</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedEuclidean$.html"><span class="micon ob"></span><span>NormedEuclidean</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedEuclidean$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedEuclideanMonoid$.html"><span class="micon ob"></span><span>NormedEuclideanMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedEuclideanMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedEuclideanMonoid.html"><span class="micon tr"></span><span>NormedEuclideanMonoid</span></a></span></div><div class="ni n2 expanded"><span class="nh h100 expanded cs"><button class="ar icon-button expanded"></button><a href="NormedEuclideanRing$.html"><span class="micon ob"></span><span>NormedEuclideanRing</span></a></span><div class="ni n3 expanded"><span class="nh h100 selected"><a href="#"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedEuclideanRing.html"><span class="micon tr"></span><span>NormedEuclideanRing</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedEuclideanSemigroup.html"><span class="micon tr"></span><span>NormedEuclideanSemigroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedEuclideanSemigroup$.html"><span class="micon ob"></span><span>NormedEuclideanSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedEuclideanSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedField$.html"><span class="micon ob"></span><span>NormedField</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedField$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedField.html"><span class="micon tr"></span><span>NormedField</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedMultiplicativeGroup$.html"><span class="micon ob"></span><span>NormedMultiplicativeGroup</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedMultiplicativeGroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedMultiplicativeGroup.html"><span class="micon tr"></span><span>NormedMultiplicativeGroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedMultiplicativeIdentity$.html"><span class="micon ob"></span><span>NormedMultiplicativeIdentity</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedMultiplicativeIdentity$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedMultiplicativeIdentity.html"><span class="micon tr"></span><span>NormedMultiplicativeIdentity</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedMultiplicativeInverse.html"><span class="micon tr"></span><span>NormedMultiplicativeInverse</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedMultiplicativeInverse$.html"><span class="micon ob"></span><span>NormedMultiplicativeInverse</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedMultiplicativeInverse$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedMultiplicativeMonoid$.html"><span class="micon ob"></span><span>NormedMultiplicativeMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedMultiplicativeMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedMultiplicativeMonoid.html"><span class="micon tr"></span><span>NormedMultiplicativeMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedMultiplicativeSemigroup$.html"><span class="micon ob"></span><span>NormedMultiplicativeSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedMultiplicativeSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedMultiplicativeSemigroup.html"><span class="micon tr"></span><span>NormedMultiplicativeSemigroup</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedPseudoring.html"><span class="micon tr"></span><span>NormedPseudoring</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedPseudoring$.html"><span class="micon ob"></span><span>NormedPseudoring</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedPseudoring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedRing$.html"><span class="micon ob"></span><span>NormedRing</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedRing$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedRing.html"><span class="micon tr"></span><span>NormedRing</span></a></span></div><div class="ni n2 "><span class="nh "><a href="NormedSemifield.html"><span class="micon tr"></span><span>NormedSemifield</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedSemifield$.html"><span class="micon ob"></span><span>NormedSemifield</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedSemifield$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="NormedSemiring$.html"><span class="micon ob"></span><span>NormedSemiring</span></a></span><div class="ni n3 "><span class="nh "><a href="NormedSemiring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="NormedSemiring.html"><span class="micon tr"></span><span>NormedSemiring</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../ordered.html"><span class="micon pa"></span><span>ordered</span></a></span><div class="ni n2 "><span class="nh "><a href="../ordered/Order.html"><span class="micon tr"></span><span>Order</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/Order$.html"><span class="micon ob"></span><span>Order</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/Order$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedAdditiveGroup.html"><span class="micon tr"></span><span>OrderedAdditiveGroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedAdditiveGroup$.html"><span class="micon ob"></span><span>OrderedAdditiveGroup</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedAdditiveGroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedAdditiveIdentity.html"><span class="micon tr"></span><span>OrderedAdditiveIdentity</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedAdditiveIdentity$.html"><span class="micon ob"></span><span>OrderedAdditiveIdentity</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedAdditiveIdentity$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedAdditiveInverse.html"><span class="micon tr"></span><span>OrderedAdditiveInverse</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedAdditiveInverse$.html"><span class="micon ob"></span><span>OrderedAdditiveInverse</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedAdditiveInverse$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedAdditiveMonoid.html"><span class="micon tr"></span><span>OrderedAdditiveMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedAdditiveMonoid$.html"><span class="micon ob"></span><span>OrderedAdditiveMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedAdditiveMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedAdditiveSemigroup$.html"><span class="micon ob"></span><span>OrderedAdditiveSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedAdditiveSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedAdditiveSemigroup.html"><span class="micon tr"></span><span>OrderedAdditiveSemigroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedDifference$.html"><span class="micon ob"></span><span>OrderedDifference</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedDifference$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedDifference.html"><span class="micon tr"></span><span>OrderedDifference</span></a></span></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedDifferenceMonoid.html"><span class="micon tr"></span><span>OrderedDifferenceMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedDifferenceMonoid$.html"><span class="micon ob"></span><span>OrderedDifferenceMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedDifferenceMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedDifferenceSemifield.html"><span class="micon tr"></span><span>OrderedDifferenceSemifield</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedDifferenceSemifield$.html"><span class="micon ob"></span><span>OrderedDifferenceSemifield</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedDifferenceSemifield$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedDifferenceSemigroup.html"><span class="micon tr"></span><span>OrderedDifferenceSemigroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedDifferenceSemigroup$.html"><span class="micon ob"></span><span>OrderedDifferenceSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedDifferenceSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedDifferenceSemiring$.html"><span class="micon ob"></span><span>OrderedDifferenceSemiring</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedDifferenceSemiring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedDifferenceSemiring.html"><span class="micon tr"></span><span>OrderedDifferenceSemiring</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedEuclidean$.html"><span class="micon ob"></span><span>OrderedEuclidean</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedEuclidean$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedEuclidean.html"><span class="micon tr"></span><span>OrderedEuclidean</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedEuclideanMonoid$.html"><span class="micon ob"></span><span>OrderedEuclideanMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedEuclideanMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedEuclideanMonoid.html"><span class="micon tr"></span><span>OrderedEuclideanMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedEuclideanRing$.html"><span class="micon ob"></span><span>OrderedEuclideanRing</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedEuclideanRing$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedEuclideanRing.html"><span class="micon tr"></span><span>OrderedEuclideanRing</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedEuclideanSemigroup$.html"><span class="micon ob"></span><span>OrderedEuclideanSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedEuclideanSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedEuclideanSemigroup.html"><span class="micon tr"></span><span>OrderedEuclideanSemigroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedField$.html"><span class="micon ob"></span><span>OrderedField</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedField$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedField.html"><span class="micon tr"></span><span>OrderedField</span></a></span></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedMultiplicativeGroup.html"><span class="micon tr"></span><span>OrderedMultiplicativeGroup</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedMultiplicativeGroup$.html"><span class="micon ob"></span><span>OrderedMultiplicativeGroup</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedMultiplicativeGroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedMultiplicativeIdentity$.html"><span class="micon ob"></span><span>OrderedMultiplicativeIdentity</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedMultiplicativeIdentity$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedMultiplicativeIdentity.html"><span class="micon tr"></span><span>OrderedMultiplicativeIdentity</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedMultiplicativeInverse$.html"><span class="micon ob"></span><span>OrderedMultiplicativeInverse</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedMultiplicativeInverse$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedMultiplicativeInverse.html"><span class="micon tr"></span><span>OrderedMultiplicativeInverse</span></a></span></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedMultiplicativeMonoid.html"><span class="micon tr"></span><span>OrderedMultiplicativeMonoid</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedMultiplicativeMonoid$.html"><span class="micon ob"></span><span>OrderedMultiplicativeMonoid</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedMultiplicativeMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedMultiplicativeSemigroup$.html"><span class="micon ob"></span><span>OrderedMultiplicativeSemigroup</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedMultiplicativeSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedMultiplicativeSemigroup.html"><span class="micon tr"></span><span>OrderedMultiplicativeSemigroup</span></a></span></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedPseudoring.html"><span class="micon tr"></span><span>OrderedPseudoring</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedPseudoring$.html"><span class="micon ob"></span><span>OrderedPseudoring</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedPseudoring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedRing$.html"><span class="micon ob"></span><span>OrderedRing</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedRing$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedRing.html"><span class="micon tr"></span><span>OrderedRing</span></a></span></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedSemifield.html"><span class="micon tr"></span><span>OrderedSemifield</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedSemifield$.html"><span class="micon ob"></span><span>OrderedSemifield</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedSemifield$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n2 "><span class="nh "><a href="../ordered/OrderedSemiring.html"><span class="micon tr"></span><span>OrderedSemiring</span></a></span></div><div class="ni n2"><span class="nh "><button class="ar icon-button "></button><a href="../ordered/OrderedSemiring$.html"><span class="micon ob"></span><span>OrderedSemiring</span></a></span><div class="ni n3 "><span class="nh "><a href="../ordered/OrderedSemiring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div></div><div class="ni n1 "><span class="nh "><a href="../AdditiveGroup.html"><span class="micon tr"></span><span>AdditiveGroup</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../AdditiveGroup$.html"><span class="micon ob"></span><span>AdditiveGroup</span></a></span><div class="ni n2 "><span class="nh "><a href="../AdditiveGroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../AdditiveIdentity$.html"><span class="micon ob"></span><span>AdditiveIdentity</span></a></span><div class="ni n2 "><span class="nh "><a href="../AdditiveIdentity$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../AdditiveIdentity.html"><span class="micon tr"></span><span>AdditiveIdentity</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../AdditiveInverse.html"><span class="micon tr"></span><span>AdditiveInverse</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../AdditiveInverse$.html"><span class="micon ob"></span><span>AdditiveInverse</span></a></span><div class="ni n2 "><span class="nh "><a href="../AdditiveInverse$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../AdditiveMonoid$.html"><span class="micon ob"></span><span>AdditiveMonoid</span></a></span><div class="ni n2 "><span class="nh "><a href="../AdditiveMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../AdditiveMonoid.html"><span class="micon tr"></span><span>AdditiveMonoid</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../AdditiveSemigroup$.html"><span class="micon ob"></span><span>AdditiveSemigroup</span></a></span><div class="ni n2 "><span class="nh "><a href="../AdditiveSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../AdditiveSemigroup.html"><span class="micon tr"></span><span>AdditiveSemigroup</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../Difference.html"><span class="micon tr"></span><span>Difference</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Difference$.html"><span class="micon ob"></span><span>Difference</span></a></span><div class="ni n2 "><span class="nh "><a href="../Difference$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../DifferenceMonoid.html"><span class="micon tr"></span><span>DifferenceMonoid</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../DifferenceMonoid$.html"><span class="micon ob"></span><span>DifferenceMonoid</span></a></span><div class="ni n2 "><span class="nh "><a href="../DifferenceMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../DifferenceSemifield$.html"><span class="micon ob"></span><span>DifferenceSemifield</span></a></span><div class="ni n2 "><span class="nh "><a href="../DifferenceSemifield$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../DifferenceSemifield.html"><span class="micon tr"></span><span>DifferenceSemifield</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../DifferenceSemigroup$.html"><span class="micon ob"></span><span>DifferenceSemigroup</span></a></span><div class="ni n2 "><span class="nh "><a href="../DifferenceSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../DifferenceSemigroup.html"><span class="micon tr"></span><span>DifferenceSemigroup</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../DifferenceSemiring.html"><span class="micon tr"></span><span>DifferenceSemiring</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../DifferenceSemiring$.html"><span class="micon ob"></span><span>DifferenceSemiring</span></a></span><div class="ni n2 "><span class="nh "><a href="../DifferenceSemiring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Euclidean$.html"><span class="micon ob"></span><span>Euclidean</span></a></span><div class="ni n2 "><span class="nh "><a href="../Euclidean$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../Euclidean.html"><span class="micon tr"></span><span>Euclidean</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../EuclideanMonoid.html"><span class="micon tr"></span><span>EuclideanMonoid</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../EuclideanMonoid$.html"><span class="micon ob"></span><span>EuclideanMonoid</span></a></span><div class="ni n2 "><span class="nh "><a href="../EuclideanMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../EuclideanRing$.html"><span class="micon ob"></span><span>EuclideanRing</span></a></span><div class="ni n2 "><span class="nh "><a href="../EuclideanRing$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../EuclideanRing.html"><span class="micon tr"></span><span>EuclideanRing</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../EuclideanSemigroup$.html"><span class="micon ob"></span><span>EuclideanSemigroup</span></a></span><div class="ni n2 "><span class="nh "><a href="../EuclideanSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../EuclideanSemigroup.html"><span class="micon tr"></span><span>EuclideanSemigroup</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Field$.html"><span class="micon ob"></span><span>Field</span></a></span><div class="ni n2 "><span class="nh "><a href="../Field$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../Field.html"><span class="micon tr"></span><span>Field</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../MultiplicativeGroup.html"><span class="micon tr"></span><span>MultiplicativeGroup</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../MultiplicativeGroup$.html"><span class="micon ob"></span><span>MultiplicativeGroup</span></a></span><div class="ni n2 "><span class="nh "><a href="../MultiplicativeGroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../MultiplicativeIdentity$.html"><span class="micon ob"></span><span>MultiplicativeIdentity</span></a></span><div class="ni n2 "><span class="nh "><a href="../MultiplicativeIdentity$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../MultiplicativeIdentity.html"><span class="micon tr"></span><span>MultiplicativeIdentity</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../MultiplicativeInverse$.html"><span class="micon ob"></span><span>MultiplicativeInverse</span></a></span><div class="ni n2 "><span class="nh "><a href="../MultiplicativeInverse$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../MultiplicativeInverse.html"><span class="micon tr"></span><span>MultiplicativeInverse</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../MultiplicativeMonoid$.html"><span class="micon ob"></span><span>MultiplicativeMonoid</span></a></span><div class="ni n2 "><span class="nh "><a href="../MultiplicativeMonoid$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../MultiplicativeMonoid.html"><span class="micon tr"></span><span>MultiplicativeMonoid</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../MultiplicativeSemigroup$.html"><span class="micon ob"></span><span>MultiplicativeSemigroup</span></a></span><div class="ni n2 "><span class="nh "><a href="../MultiplicativeSemigroup$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../MultiplicativeSemigroup.html"><span class="micon tr"></span><span>MultiplicativeSemigroup</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Pseudoring$.html"><span class="micon ob"></span><span>Pseudoring</span></a></span><div class="ni n2 "><span class="nh "><a href="../Pseudoring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../Pseudoring.html"><span class="micon tr"></span><span>Pseudoring</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../Ring.html"><span class="micon tr"></span><span>Ring</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Ring$.html"><span class="micon ob"></span><span>Ring</span></a></span><div class="ni n2 "><span class="nh "><a href="../Ring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Root$.html"><span class="micon ob"></span><span>Root</span></a></span><div class="ni n2 "><span class="nh "><a href="../Root$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../Root.html"><span class="micon tr"></span><span>Root</span></a></span></div><div class="ni n1 "><span class="nh "><a href="../Semifield.html"><span class="micon tr"></span><span>Semifield</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Semifield$.html"><span class="micon ob"></span><span>Semifield</span></a></span><div class="ni n2 "><span class="nh "><a href="../Semifield$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../Semiring.html"><span class="micon tr"></span><span>Semiring</span></a></span></div><div class="ni n1"><span class="nh "><button class="ar icon-button "></button><a href="../Semiring$.html"><span class="micon ob"></span><span>Semiring</span></a></span><div class="ni n2 "><span class="nh "><a href="../Semiring$$Ops.html"><span class="micon tr"></span><span>Ops</span></a></span></div></div><div class="ni n1 "><span class="nh "><a href="../Thing.html"><span class="micon tr"></span><span>Thing</span></a></span></div></div></nav></div><div id="footer" class="body-small"><div class="left-container">Generated with</div><div class="right-container"><div class="text"></div></div><div class="text-mobile"></div></div><div id="scaladoc-searchBar"></div><div id="main"><div class="breadcrumbs container"><a href="../../../../index.html">Scalgebra</a>/<a href="../../scalgebra.html">com.alecdorrington.scalgebra</a>/<a href="../normed.html">com.alecdorrington.scalgebra.normed</a>/<a href="NormedEuclideanRing$.html">NormedEuclideanRing</a>/<a href="NormedEuclideanRing$$Ops.html">Ops</a></div><div id="content" class="body-medium"><div><div class="cover-header">
+ <span class="icon"><span class="micon tr"></span></span>
+ <h1 class="h600 single">Ops</h1>
+</div>
+<div class="fqname body-large">
+ <span>com.alecdorrington.scalgebra.normed.NormedEuclideanRing.Ops</span>
+</div>
+<div class="main-signature mono-small-block">
+ <div class="signature">
+  <span class="signature-short"><span class="modifiers"></span><span class="kind"><span t="k">trait </span></span><a href="NormedEuclideanRing$$Ops.html" t="n" class="documentableName ">Ops</a><span t="k"> extends </span><a href="../EuclideanRing$$Ops.html" t="t">Ops</a><span t="k">, </span></span><span class="signature-long"><a href="NormedRing$$Ops.html" t="t">Ops</a><span t="k">, </span><a href="NormedEuclideanMonoid$$Ops.html" t="t">Ops</a></span>
+ </div>
+</div>
+<div class="cover">
+ <div class="doc"></div>
+ <section id="attributes">
+  <h2 class="h500">Attributes</h2>
+  <dl class="attributes">
+   <dt class="body-small">
+    Graph
+   </dt>
+   <dd class="body-medium">
+    <div id="inheritance-diagram" class="diagram-class showGraph">
+     <button type="button" class="label-only-button" onclick="zoomOut()">Reset zoom</button><button type="button" class="label-only-button" onclick="hideGraph()">Hide graph</button><button type="button" class="label-only-button" onclick="showGraph()">Show graph</button>
+     <svg id="graph"></svg>
+     <script type="text/dot" id="dot"> digraph g {
+ node0 [id=node0, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedEuclideanRing$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node1 [id=node1, label="<span style=\"color: #FFFFFF;\">class <span data-unresolved-link=\"\" t=\"n\">Object</span></span>", class="class vertex"];
+node2 [id=node2, label="<span style=\"color: #FFFFFF;\">class <span data-unresolved-link=\"\" t=\"n\">Any</span></span>", class="class vertex"];
+node3 [id=node3, label="<span style=\"color: #FFFFFF;\">trait <span data-unresolved-link=\"\" t=\"n\">Matchable</span></span>", class="trait vertex"];
+node4 [id=node4, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../EuclideanRing$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node5 [id=node5, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../Ring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node6 [id=node6, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../Pseudoring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node7 [id=node7, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../AdditiveGroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node8 [id=node8, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../DifferenceMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node9 [id=node9, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../DifferenceSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node10 [id=node10, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../AdditiveSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node11 [id=node11, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../Difference$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node12 [id=node12, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../AdditiveMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node13 [id=node13, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../AdditiveIdentity$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node14 [id=node14, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../AdditiveInverse$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node15 [id=node15, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../MultiplicativeSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node16 [id=node16, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../DifferenceSemiring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node17 [id=node17, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../Semiring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node18 [id=node18, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../MultiplicativeMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node19 [id=node19, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../MultiplicativeIdentity$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node20 [id=node20, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../EuclideanMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node21 [id=node21, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../EuclideanSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node22 [id=node22, label="<span style=\"color: #FFFFFF;\">trait <a href=\"../Euclidean$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node23 [id=node23, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedRing$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node24 [id=node24, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedPseudoring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node25 [id=node25, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedAdditiveGroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node26 [id=node26, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedDifferenceMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node27 [id=node27, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedDifferenceSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node28 [id=node28, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedAdditiveSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node29 [id=node29, label="<span style=\"color: #FFFFFF;\">trait <a href=\"Normed$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node30 [id=node30, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedDifference$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node31 [id=node31, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedAdditiveMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node32 [id=node32, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedAdditiveIdentity$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node33 [id=node33, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedAdditiveInverse$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node34 [id=node34, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedMultiplicativeSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node35 [id=node35, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedDifferenceSemiring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node36 [id=node36, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedSemiring$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node37 [id=node37, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedMultiplicativeMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node38 [id=node38, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedMultiplicativeIdentity$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node39 [id=node39, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedEuclideanMonoid$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node40 [id=node40, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedEuclideanSemigroup$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node41 [id=node41, label="<span style=\"color: #FFFFFF;\">object <a href=\"NormedEuclideanRing$.html\" t=\"n\">NormedEuclideanRing</a></span>", class="object vertex"];
+node42 [id=node42, label="<span style=\"color: #FFFFFF;\">trait <a href=\"NormedField$$Ops.html\" t=\"n\">Ops</a></span>", class="trait vertex"];
+node43 [id=node43, label="<span style=\"color: #FFFFFF;\">object <a href=\"NormedField$.html\" t=\"n\">NormedField</a></span>", class="object vertex"];
+
+
+ node0 -> node1;
+node1 -> node2;
+node1 -> node3;
+node3 -> node2;
+node0 -> node4;
+node4 -> node1;
+node4 -> node5;
+node5 -> node1;
+node5 -> node6;
+node6 -> node1;
+node6 -> node7;
+node7 -> node1;
+node7 -> node8;
+node8 -> node1;
+node8 -> node9;
+node9 -> node1;
+node9 -> node10;
+node10 -> node1;
+node9 -> node11;
+node11 -> node1;
+node8 -> node12;
+node12 -> node1;
+node12 -> node10;
+node12 -> node13;
+node13 -> node1;
+node7 -> node14;
+node14 -> node1;
+node6 -> node15;
+node15 -> node1;
+node5 -> node16;
+node16 -> node1;
+node16 -> node17;
+node17 -> node1;
+node17 -> node12;
+node17 -> node18;
+node18 -> node1;
+node18 -> node15;
+node18 -> node19;
+node19 -> node1;
+node16 -> node8;
+node4 -> node20;
+node20 -> node1;
+node20 -> node21;
+node21 -> node1;
+node21 -> node15;
+node21 -> node22;
+node22 -> node1;
+node20 -> node18;
+node0 -> node23;
+node23 -> node1;
+node23 -> node5;
+node23 -> node24;
+node24 -> node1;
+node24 -> node6;
+node24 -> node25;
+node25 -> node1;
+node25 -> node7;
+node25 -> node26;
+node26 -> node1;
+node26 -> node8;
+node26 -> node27;
+node27 -> node1;
+node27 -> node9;
+node27 -> node28;
+node28 -> node1;
+node28 -> node10;
+node28 -> node29;
+node29 -> node1;
+node27 -> node30;
+node30 -> node1;
+node30 -> node11;
+node30 -> node29;
+node26 -> node31;
+node31 -> node1;
+node31 -> node12;
+node31 -> node28;
+node31 -> node32;
+node32 -> node1;
+node32 -> node13;
+node32 -> node29;
+node25 -> node33;
+node33 -> node1;
+node33 -> node14;
+node33 -> node29;
+node24 -> node34;
+node34 -> node1;
+node34 -> node15;
+node34 -> node29;
+node23 -> node35;
+node35 -> node1;
+node35 -> node16;
+node35 -> node36;
+node36 -> node1;
+node36 -> node17;
+node36 -> node31;
+node36 -> node37;
+node37 -> node1;
+node37 -> node18;
+node37 -> node34;
+node37 -> node38;
+node38 -> node1;
+node38 -> node19;
+node38 -> node29;
+node35 -> node26;
+node0 -> node39;
+node39 -> node1;
+node39 -> node20;
+node39 -> node40;
+node40 -> node1;
+node40 -> node21;
+node40 -> node34;
+node39 -> node37;
+node41 -> node0;
+node42 -> node0;
+node43 -> node42;
+
+}
+</script>
+    </div>
+   </dd>
+   <dt class="body-small">
+    Supertypes
+   </dt>
+   <dd class="body-medium">
+    <div class="mono-small-block supertypes">
+     <div>
+      trait <a href="NormedEuclideanMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedEuclideanSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedRing$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedDifferenceSemiring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedSemiring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedMultiplicativeMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedMultiplicativeIdentity$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedPseudoring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedMultiplicativeSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedAdditiveGroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedAdditiveInverse$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedDifferenceMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedAdditiveMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedAdditiveIdentity$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedDifferenceSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedDifference$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="NormedAdditiveSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="Normed$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../EuclideanRing$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../EuclideanMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../EuclideanSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../Euclidean$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../Ring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../DifferenceSemiring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../Semiring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../MultiplicativeMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../MultiplicativeIdentity$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../Pseudoring$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../MultiplicativeSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../AdditiveGroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../AdditiveInverse$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../DifferenceMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../AdditiveMonoid$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../AdditiveIdentity$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../DifferenceSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../Difference$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      trait <a href="../AdditiveSemigroup$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      class <span data-unresolved-link="" t="n">Object</span>
+     </div>
+     <div>
+      trait <span data-unresolved-link="" t="n">Matchable</span>
+     </div>
+     <div>
+      class <span data-unresolved-link="" t="n">Any</span>
+     </div><span class="show-all-code show-content text-button h100">Show all</span>
+    </div>
+   </dd>
+   <dt class="body-small">
+    Known subtypes
+   </dt>
+   <dd class="body-medium">
+    <div class="mono-small-block subtypes">
+     <div>
+      object <a href="NormedEuclideanRing$.html" t="n">NormedEuclideanRing</a>
+     </div>
+     <div>
+      trait <a href="NormedField$$Ops.html" t="n">Ops</a>
+     </div>
+     <div>
+      object <a href="NormedField$.html" t="n">NormedField</a>
+     </div><span></span>
+    </div>
+   </dd>
+  </dl>
+ </section>
+</div>
+<section id="members-list">
+ <h2 class="h500">Members list</h2>
+ <div class="documentableFilter">
+  <div class="filtersContainer"></div><input class="filterableInput" placeholder="Filter by any phrase" data-test-id="filterBarInput" type="search"><button class="clearButton label-only-button" data-test-id="filterBarClearButton">Clear all</button>
+ </div>
+ <div class="membersList expand">
+  <div class="tabs">
+   <div class="contents">
+    <section id="Value-members">
+     <div data-togglable="Value members" class="tab expand">
+      <div class="member-group-header">
+       <h3 data-togglable="Value members" class="h400">Value members</h3>
+      </div>
+      <section id="Inherited-methods">
+       <div class="documentableList expand">
+        <div class="documentableList-expander">
+         <button class="icon-button show-content expand"></button>
+         <h4 class="groupHeader h200">Inherited methods</h4>
+        </div>
+        <div class="documentableElement" id="add-fffffb3d" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#add-fffffb3d" t="n" class="documentableName ">add</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveSemigroup.html" t="t">AdditiveSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the sum of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x + y</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the sum of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x + y</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Note
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p>All implementations must be associative, i.e. <code>(x + y) + z == x + (y + z)</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveSemigroup$$Ops.html#add-fffffb3d">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="distance-b04" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#distance-b04" t="n" class="documentableName ">distance</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="t">S</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">ev</span>: <a href="NormedDifference.html" t="t">NormedDifference</a>[<span data-unresolved-link="" t="t">X</span>, <span data-unresolved-link="" t="t">S</span>]): <span data-unresolved-link="" t="t">S</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the distance between <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>‖x − y‖</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the distance between <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>‖x − y‖</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="NormedDifference$$Ops.html#distance-b04">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="divide-fffff3b6" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#divide-fffff3b6" t="n" class="documentableName ">divide</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../Euclidean.html" t="t">Euclidean</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the quotient between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x / y</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the quotient between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x / y</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../Euclidean$$Ops.html#divide-fffff3b6">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="gcd-fffff886" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#gcd-fffff886" t="n" class="documentableName ">gcd</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../EuclideanRing.html" t="t">EuclideanRing</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the greatest common divisor of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the greatest common divisor of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../EuclideanRing$$Ops.html#gcd-fffff886">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="isOne-41e" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#isOne-41e" t="n" class="documentableName ">isOne</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeIdentity.html" t="t">MultiplicativeIdentity</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">Boolean</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Returns
+              </dt>
+              <dd class="body-medium">
+               <p><code>true</code> if <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> equals <a href="../MultiplicativeIdentity$$Ops.html#one-888">one</a>.</p>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeIdentity$$Ops.html#isOne-41e">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="isZero-fffff3e8" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#isZero-fffff3e8" t="n" class="documentableName ">isZero</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveIdentity.html" t="t">AdditiveIdentity</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">Boolean</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Returns
+              </dt>
+              <dd class="body-medium">
+               <p><code>true</code> if <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> equals <a href="../AdditiveIdentity$$Ops.html#zero-fffffebe">zero</a>.</p>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveIdentity$$Ops.html#isZero-fffff3e8">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="lcm-fffff886" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#lcm-fffff886" t="n" class="documentableName ">lcm</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../EuclideanRing.html" t="t">EuclideanRing</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the least common multiple of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the least common multiple of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../EuclideanRing$$Ops.html#lcm-fffff886">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="length-fffffad4" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#length-fffffad4" t="n" class="documentableName ">length</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="t">S</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">ev</span>: <a href="Normed.html" t="t">Normed</a>[<span data-unresolved-link="" t="t">X</span>, <span data-unresolved-link="" t="t">S</span>]): <span data-unresolved-link="" t="t">S</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="Normed$$Ops.html#length-fffffad4">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="mod-fffff886" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#mod-fffff886" t="n" class="documentableName ">mod</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../EuclideanRing.html" t="t">EuclideanRing</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the signed remainder between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the signed remainder between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../EuclideanRing$$Ops.html#mod-fffff886">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="multiply-fffff633" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#multiply-fffff633" t="n" class="documentableName ">multiply</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeSemigroup.html" t="t">MultiplicativeSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the product of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x × y</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the product of two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x × y</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Note
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p>All implementations must be associative, i.e. <code>(x × y) × z == x × (y × z)</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeSemigroup$$Ops.html#multiply-fffff633">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="negate-fffff3c9" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#negate-fffff3c9" t="n" class="documentableName ">negate</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveInverse.html" t="t">AdditiveInverse</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the additive inverse (negative) of a value <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span>, i.e. <code>-x</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the additive inverse (negative) of a value <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span>, i.e. <code>-x</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Note
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p>All implementations must be involutions, i.e. <code>negate(negate(x)) == x</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveInverse$$Ops.html#negate-fffff3c9">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="negativeOne-1c4" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#negativeOne-1c4" t="n" class="documentableName ">negativeOne</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../Ring.html" t="t">Ring</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../Ring$$Ops.html#negativeOne-1c4">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="one-888" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#one-888" t="n" class="documentableName ">one</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeIdentity.html" t="t">MultiplicativeIdentity</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>The unique representation of the multiplicative identity (<code>1</code>) in this algebra system. Typically corresponds to values such as <code>1</code> or <code>1.0F</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>The unique representation of the multiplicative identity (<code>1</code>) in this algebra system. Typically corresponds to values such as <code>1</code> or <code>1.0F</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Note
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p>All implementations must obey the identity property, i.e. <code>x × one == one × x == x</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeIdentity$$Ops.html#one-888">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="pow-abf" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#pow-abf" t="n" class="documentableName ">pow</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeSemigroup.html" t="t">MultiplicativeSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> raised to the power <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any strictly positive <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> raised to the power <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any strictly positive <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Throws
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <span data-unresolved-link="">IllegalArgumentException</span>
+                 <p>if <code>n ≤ 0</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeSemigroup$$Ops.html#pow-abf">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="pow-fffff756" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#pow-fffff756" t="n" class="documentableName ">pow</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeMonoid.html" t="t">MultiplicativeMonoid</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> raised to the power <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any non-negative <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> raised to the power <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any non-negative <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Throws
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <span data-unresolved-link="">IllegalArgumentException</span>
+                 <p>if <code>n &lt; 0</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeMonoid$$Ops.html#pow-fffff756">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="product-3cb" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#product-3cb" t="n" class="documentableName ">product</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">X</span>*)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeSemigroup.html" t="t">MultiplicativeSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the product of <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>s, i.e. <code>x × xs₁ × xs₂ × …</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the product of <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>s, i.e. <code>x × xs₁ × xs₂ × …</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeSemigroup$$Ops.html#product-3cb">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="product-dd0" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#product-dd0" t="n" class="documentableName ">product</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Iterable</span>[<span data-unresolved-link="" t="t">X</span>])(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeMonoid.html" t="t">MultiplicativeMonoid</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the product of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ × xs₂ × …</code>, or else <a href="../MultiplicativeMonoid$$Ops.html#one-888">one</a> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the product of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ × xs₂ × …</code>, or else <a href="../MultiplicativeMonoid$$Ops.html#one-888">one</a> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeMonoid$$Ops.html#product-dd0">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="productOption-faf" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#productOption-faf" t="n" class="documentableName ">productOption</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Iterable</span>[<span data-unresolved-link="" t="t">X</span>])(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../MultiplicativeSemigroup.html" t="t">MultiplicativeSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">Option</span>[<span data-unresolved-link="" t="t">X</span>]
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the product of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ × xs₂ × …</code>, or else <span data-unresolved-link="">None</span> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the product of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ × xs₂ × …</code>, or else <span data-unresolved-link="">None</span> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../MultiplicativeSemigroup$$Ops.html#productOption-faf">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="scale-fffff8c9" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#scale-fffff8c9" t="n" class="documentableName ">scale</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveSemigroup.html" t="t">AdditiveSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> multiplied by <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any strictly positive <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> multiplied by <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any strictly positive <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Throws
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <span data-unresolved-link="">IllegalArgumentException</span>
+                 <p>if <code>n ≤ 0</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveSemigroup$$Ops.html#scale-fffff8c9">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="scale-58c" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#scale-58c" t="n" class="documentableName ">scale</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveMonoid.html" t="t">AdditiveMonoid</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> multiplied by <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any non-negative <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> multiplied by <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any non-negative <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Throws
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <span data-unresolved-link="">IllegalArgumentException</span>
+                 <p>if <code>n &lt; 0</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveMonoid$$Ops.html#scale-58c">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="scale-1f7" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#scale-1f7" t="n" class="documentableName ">scale</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">n</span>: <span data-unresolved-link="" t="t">Int</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveGroup.html" t="t">AdditiveGroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> multiplied by <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any integer <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> multiplied by <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>, for any integer <span data-unresolved-link="" title="Problem linking n: Couldn't resolve a member for the given link query">n</span>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveGroup$$Ops.html#scale-1f7">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="subtract-22b" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#subtract-22b" t="n" class="documentableName ">subtract</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../Difference.html" t="t">Difference</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the difference between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x - y</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the difference between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x - y</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../Difference$$Ops.html#subtract-22b">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="subtract-fffffe6b" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#subtract-fffffe6b" t="n" class="documentableName ">subtract</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">y</span>: <span data-unresolved-link="" t="t">X</span>)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveGroup.html" t="t">AdditiveGroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the difference between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x - y</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the difference between two values <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and <span data-unresolved-link="" title="Problem linking y: Couldn't resolve a member for the given link query">y</span>, i.e. <code>x - y</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveGroup$$Ops.html#subtract-fffffe6b">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="sum-ad5" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#sum-ad5" t="n" class="documentableName ">sum</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">x</span>: <span data-unresolved-link="" t="t">X</span>, <span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">X</span>*)(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveSemigroup.html" t="t">AdditiveSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the sum of <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>x + xs₁ + xs₂ + …</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the sum of <span data-unresolved-link="" title="Problem linking x: Couldn't resolve a member for the given link query">x</span> and all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>x + xs₁ + xs₂ + …</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveSemigroup$$Ops.html#sum-ad5">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="sum-f86" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#sum-f86" t="n" class="documentableName ">sum</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Iterable</span>[<span data-unresolved-link="" t="t">X</span>])(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveMonoid.html" t="t">AdditiveMonoid</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the sum of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ + xs₂ + …</code>, or else <a href="../AdditiveMonoid$$Ops.html#zero-fffffebe">zero</a> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the sum of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ + xs₂ + …</code>, or else <a href="../AdditiveMonoid$$Ops.html#zero-fffffebe">zero</a> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveMonoid$$Ops.html#sum-f86">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="sumOption-f39" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#sumOption-f39" t="n" class="documentableName ">sumOption</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k"></span><span t="k"></span><span data-unresolved-link="" t="n">xs</span>: <span data-unresolved-link="" t="t">Iterable</span>[<span data-unresolved-link="" t="t">X</span>])(<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveSemigroup.html" t="t">AdditiveSemigroup</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">Option</span>[<span data-unresolved-link="" t="t">X</span>]
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>Computes the sum of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ + xs₂ + …</code>, or else <span data-unresolved-link="">None</span> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>Computes the sum of all values in <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span>, i.e. <code>xs₁ + xs₂ + …</code>, or else <span data-unresolved-link="">None</span> if <span data-unresolved-link="" title="Problem linking xs: Couldn't resolve a member for the given link query">xs</span> is empty.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveSemigroup$$Ops.html#sumOption-f39">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="two-fffff5b2" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#two-fffff5b2" t="n" class="documentableName ">two</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../Semiring.html" t="t">Semiring</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="cover">
+             <div class="doc"></div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../Semiring$$Ops.html#two-fffff5b2">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="documentableElement" id="zero-fffffebe" data-f-keywords="inline" data-f-inherited="Ops">
+         <div class="documentableElement-expander">
+          <button class="icon-button ar show-content"></button>
+          <div class="header monospace mono-medium">
+           <div class="signature">
+            <span class="modifiers"><span t="k">inline </span></span><span class="kind"><span t="k">def </span></span><a href="NormedEuclideanRing$$Ops.html#zero-fffffebe" t="n" class="documentableName ">zero</a>[<span t="k"></span><span data-unresolved-link="" t="t">X</span>](<span t="k">using </span><span t="k"></span><span data-unresolved-link="" t="n">X</span>: <a href="../AdditiveIdentity.html" t="t">AdditiveIdentity</a>[<span data-unresolved-link="" t="t">X</span>]): <span data-unresolved-link="" t="t">X</span>
+           </div>
+          </div>
+         </div>
+         <div class="docs">
+          <span class="modifiers"></span>
+          <div>
+           <div class="originInfo"></div>
+           <div class="memberDocumentation">
+            <div class="documentableBrief doc">
+             <p>The unique representation of the additive identity (<code>0</code>) in this algebra system. Typically corresponds to values such as <code>0</code>, <code>0.0F</code>, or <code>Seq.empty</code>.</p>
+            </div>
+            <div class="cover">
+             <div class="doc">
+              <p>The unique representation of the additive identity (<code>0</code>) in this algebra system. Typically corresponds to values such as <code>0</code>, <code>0.0F</code>, or <code>Seq.empty</code>.</p>
+             </div>
+             <h2 class="h200">Attributes</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">
+               Note
+              </dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p>All implementations must obey the identity property, i.e. <code>x + zero == zero + x == x</code>.</p>
+                </div>
+               </div>
+              </dd>
+              <dt class="body-small">
+               Inherited from:
+              </dt>
+              <dd class="body-medium">
+               <a href="../AdditiveIdentity$$Ops.html#zero-fffffebe">Ops</a>
+              </dd>
+             </dl>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+     </div>
+    </section>
+   </div>
+  </div>
+ </div>
+</section></div><div id="toc" class="body-small"><div id="toc-container"><span class="toc-title h200">In this article</span><nav class="toc-nav"><ul class="toc-list"><li><a href="#attributes">Attributes</a></li><li><a href="#members-list">Members list</a><ul><li><a href="#Value-members">Value members</a><ul><li><a href="#Inherited-methods">Inherited methods</a></li></ul></li></ul></li></ul></nav></div></div></div><div id="footer" class="body-small mobile-footer"><div class="left-container">Generated with</div><div class="right-container"><div class="text"></div></div><div class="text-mobile"></div></div></div></div></body></html>
