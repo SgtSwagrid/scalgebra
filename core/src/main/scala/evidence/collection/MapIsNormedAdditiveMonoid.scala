@@ -4,13 +4,14 @@ package collection
 
 import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 
-/** Evidence that [[Map]] forms a [[NormedAdditiveMonoid]] under pointwise
+/**
+  * Evidence that [[Map]] forms a [[NormedAdditiveMonoid]] under pointwise
   * addition, with norm given by the number of keys.
   */
 trait MapIsNormedAdditiveMonoid:
 
   given [X, Y : AdditiveSemigroup as Y]: NormedAdditiveMonoid[Map[X, Y], Int]
-    with
+  with
 
     override def zero: Map[X, Y] = Map.empty
 

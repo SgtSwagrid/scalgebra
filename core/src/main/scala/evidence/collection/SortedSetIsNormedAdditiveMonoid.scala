@@ -2,11 +2,11 @@ package com.alecdorrington.scalgebra
 package evidence
 package collection
 
+import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 import scala.collection.immutable.SortedSet
 
-import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
-
-/** Evidence that [[SortedSet]] forms a [[NormedAdditiveMonoid]] under set
+/**
+  * Evidence that [[SortedSet]] forms a [[NormedAdditiveMonoid]] under set
   * union, with norm given by the set size.
   */
 trait SortedSetIsNormedAdditiveMonoid:

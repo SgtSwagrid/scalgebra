@@ -8,7 +8,10 @@ trait Difference[X] extends Root[X]:
 
   extension (x: X)
 
-    /** Computes the difference between two values [[x]] and [[y]], i.e. `x - y`. */
+    /**
+      * Computes the difference between two values [[x]] and [[y]], i.e.
+      * `x - y`.
+      */
     inline infix def - (y: X): X = subtract(x, y)
 
 /** The companion object for [[Difference]]. */

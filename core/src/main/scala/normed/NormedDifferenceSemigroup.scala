@@ -10,7 +10,10 @@ trait NormedDifferenceSemigroup[X, S]
 /** The companion object for [[NormedDifferenceSemigroup]]. */
 object NormedDifferenceSemigroup extends NormedDifferenceSemigroup.Ops:
 
-  trait Ops extends DifferenceSemigroup.Ops, NormedAdditiveSemigroup.Ops, NormedDifference.Ops
+  trait Ops
+    extends DifferenceSemigroup.Ops,
+            NormedAdditiveSemigroup.Ops,
+            NormedDifference.Ops
 
   type Over[S] = [X] =>> NormedDifferenceSemigroup[X, S]
 

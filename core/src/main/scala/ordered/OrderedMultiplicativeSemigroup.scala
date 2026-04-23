@@ -6,7 +6,8 @@ trait OrderedMultiplicativeSemigroup[X]
   extends MultiplicativeSemigroup[X], Order[X]
 
 /** The companion object for [[OrderedMultiplicativeSemigroup]]. */
-object OrderedMultiplicativeSemigroup extends OrderedMultiplicativeSemigroup.Ops:
+object OrderedMultiplicativeSemigroup
+  extends OrderedMultiplicativeSemigroup.Ops:
 
   trait Ops extends MultiplicativeSemigroup.Ops
 

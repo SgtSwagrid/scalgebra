@@ -2,11 +2,11 @@ package com.alecdorrington.scalgebra
 package evidence
 package collection
 
+import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 import scala.reflect.ClassTag
 
-import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
-
-/** Evidence that [[Array]] forms a [[NormedAdditiveMonoid]] under
+/**
+  * Evidence that [[Array]] forms a [[NormedAdditiveMonoid]] under
   * concatenation, with norm given by the array length.
   */
 trait ArrayIsNormedAdditiveMonoid:
@@ -15,4 +15,4 @@ trait ArrayIsNormedAdditiveMonoid:
 
     override def zero: Array[X]                                 = Array.empty
     override inline def add(x: Array[X], y: Array[X]): Array[X] = x ++ y
-    override inline def norm(x: Array[X]): Int                   = x.length
+    override inline def norm(x: Array[X]): Int                  = x.length

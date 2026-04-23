@@ -4,7 +4,8 @@ package collection
 
 import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 
-/** Evidence that [[LazyList]] forms a [[NormedAdditiveMonoid]] under
+/**
+  * Evidence that [[LazyList]] forms a [[NormedAdditiveMonoid]] under
   * concatenation, with norm given by the list length.
   */
 trait LazyListIsNormedAdditiveMonoid:
@@ -13,7 +14,7 @@ trait LazyListIsNormedAdditiveMonoid:
 
     override def zero: LazyList[X] = LazyList.empty
 
-    override inline def add(x: LazyList[X], y: LazyList[X]): LazyList[X] =
-      x ++ y
+    override inline def add(x: LazyList[X], y: LazyList[X]): LazyList[X] = x ++
+      y
 
     override inline def norm(x: LazyList[X]): Int = x.length

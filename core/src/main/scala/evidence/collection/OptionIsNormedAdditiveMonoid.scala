@@ -4,7 +4,8 @@ package collection
 
 import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 
-/** Evidence that [[Option]] forms a [[NormedAdditiveMonoid]] by lifting an
+/**
+  * Evidence that [[Option]] forms a [[NormedAdditiveMonoid]] by lifting an
   * [[AdditiveSemigroup]], with norm given by the number of elements (`0` for
   * [[None]], `1` for [[Some]]).
   */

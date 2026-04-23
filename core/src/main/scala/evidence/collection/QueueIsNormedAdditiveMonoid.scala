@@ -2,11 +2,11 @@ package com.alecdorrington.scalgebra
 package evidence
 package collection
 
+import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 import scala.collection.immutable.Queue
 
-import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
-
-/** Evidence that [[Queue]] forms a [[NormedAdditiveMonoid]] under
+/**
+  * Evidence that [[Queue]] forms a [[NormedAdditiveMonoid]] under
   * concatenation, with norm given by the queue length.
   */
 trait QueueIsNormedAdditiveMonoid:
