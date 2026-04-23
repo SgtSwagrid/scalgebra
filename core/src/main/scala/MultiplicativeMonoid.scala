@@ -1,8 +1,5 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.MultiplicativeMonoidBuilder
-import com.alecdorrington.scalgebra.ops.MultiplicativeMonoidOps
-
 /** For algebraic structures with multiplication and an identity. */
 trait MultiplicativeMonoid[X]
   extends MultiplicativeSemigroup[X], MultiplicativeIdentity[X]:
@@ -29,15 +26,25 @@ trait MultiplicativeMonoid[X]
 
     if n == 0 then one else super.pow(x, n)
 
-/**
-  * The companion object for [[MultiplicativeMonoid]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.MultiplicativeMonoid.{*, given}
-  * ```
-  * to receive all necessary syntax for working with multiplicative monoids.
-  */
-object MultiplicativeMonoid
-  extends MultiplicativeMonoidBuilder, MultiplicativeMonoidOps:
+/** The companion object for [[MultiplicativeMonoid]]. */
+object MultiplicativeMonoid extends MultiplicativeMonoid.Ops:
+
+  trait Ops extends MultiplicativeSemigroup.Ops, MultiplicativeIdentity.Ops:
+
+    /**
+      * Computes the product of all values in [[xs]], i.e. `xs₁ × xs₂ × …`, or
+      * else [[one]] if [[xs]] is empty.
+      */
+    inline def product[X : MultiplicativeMonoid as X](xs: Iterable[X]): X = X
+      .product(xs)
+
+    /**
+      * Computes [[x]] raised to the power [[n]], for any non-negative [[n]].
+      *
+      * @throws IllegalArgumentException
+      *   if `n < 0`.
+      */
+    inline def pow[X : MultiplicativeMonoid as X](x: X, n: Int): X = X.pow(x, n)
 
   export com.alecdorrington.scalgebra.MultiplicativeMonoid
 

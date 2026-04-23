@@ -2,13 +2,13 @@
 
   <h1>🌀 Scalgebra</h1>
   <p>Fine-grained algebraic type classes for Scala 3 library authors. </p>
-  
+
   <span>
     <a href="https://github.com/SgtSwagrid/scalgebra/actions/workflows/build-integrity.yml"><img src="https://github.com/SgtSwagrid/scalgebra/actions/workflows/build-integrity.yml/badge.svg" alt="Build status" /></a>
     <a href="https://search.maven.org/artifact/com.alecdorrington/scalgebra_3"><img src="https://img.shields.io/maven-central/v/com.alecdorrington/scalgebra_3.svg" alt="Maven Central" /></a>
     <a href="https://alecdorrington.com/scalgebra"><img src="https://img.shields.io/badge/docs-latest-blue.svg" alt="Documentation" /></a>
   </span>
-  
+
 </div>
 
 ## 💡 Overview
@@ -90,27 +90,32 @@ Included are all numeric types, tuples of algebraic structures, many collections
 The complete zoo of type classes is shown below.
 Each trait can be found in the package `com.alecdorrington.scalgebra`.
 
-| Structure | Capabilities |
-| - | - |
-| `AdditiveIdentity` | `0` |
-| `AdditiveInverse` | `-_` |
-| `AdditiveSemigroup` | `+` |
-| `AdditiveMonoid` | `+`, `0` |
-| `DifferenceMonoid` | `+`, `-`, `0` |
-| `AdditiveGroup` | `+`, `-_`, `0` |
-| `MultiplicativeIdentity` | `1` |
-| `MultiplicativeInverse` | `^-1` |
-| `MultiplicativeSemigroup` | `*` |
-| `MultiplicativeMonoid` | `*`, `1` |
-| `EuclideanMonoid` | `*`, `/`, `1` |
-| `MultiplicativeGroup` | `*`, `^-1`, `1` |
-| `Semiring` | `+`, `*`, `0`, `1` |
-| `DifferenceSemiring` | `+`, `-`, `*`, `0`, `1` |
-| `Ring` | `+`, `-_`, `*`, `0`, `1` |
-| `EuclideanRing` | `+`, `-_`, `*`, `/`, `0`, `1` |
-| `Semifield` | `+`, `*`, `^-1`, `0`, `1` |
-| `DifferenceSemifield` | `+`, `-`, `*`, `^-1`, `0`, `1` |
-| `Field` | `+`, `-_`, `*`, `^-1`, `0`, `1` |
+| Structure                 | Capabilities                    |
+|---------------------------|---------------------------------|
+| `AdditiveIdentity`        | `0`                             |
+| `AdditiveInverse`         | `-_`                            |
+| `Difference`              | `-`                             |
+| `AdditiveSemigroup`       | `+`                             |
+| `DifferenceSemigroup`     | `+`, `-`                        |
+| `AdditiveMonoid`          | `+`, `0`                        |
+| `DifferenceMonoid`        | `+`, `-`, `0`                   |
+| `AdditiveGroup`           | `+`, `-_`, `0`                  |
+| `MultiplicativeIdentity`  | `1`                             |
+| `MultiplicativeInverse`   | `^-1`                           |
+| `Euclidean`               | `/`                             |
+| `MultiplicativeSemigroup` | `*`                             |
+| `EuclideanSemigroup`      | `*`, `/`                        |
+| `MultiplicativeMonoid`    | `*`, `1`                        |
+| `EuclideanMonoid`         | `*`, `/`, `1`                   |
+| `MultiplicativeGroup`     | `*`, `^-1`, `1`                 |
+| `Semiring`                | `+`, `*`, `0`, `1`              |
+| `DifferenceSemiring`      | `+`, `-`, `*`, `0`, `1`         |
+| `Pseudoring`              | `+`, `-_`, `*`, `0`             |
+| `Ring`                    | `+`, `-_`, `*`, `0`, `1`        |
+| `EuclideanRing`           | `+`, `-_`, `*`, `/`, `0`, `1`   |
+| `Semifield`               | `+`, `*`, `^-1`, `0`, `1`       |
+| `DifferenceSemifield`     | `+`, `-`, `*`, `^-1`, `0`, `1`  |
+| `Field`                   | `+`, `-_`, `*`, `^-1`, `0`, `1` |
 
 ### Ordered variants
 
@@ -126,6 +131,22 @@ def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
 The ordered variants go beyond merely combining their unordered counterpart with `Ordering`,
 they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`.
 Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
+
+### Normed variants
+
+The `normed` subpackage provides `Normed`-prefixed variants that combine each type class with `Normed[X, S]`,
+where `S` is the scalar type that the norm maps into.
+Use these when your algorithm needs both algebraic operations and a norm under a single context bound.
+
+```scala 3
+import com.alecdorrington.scalgebra.normed.NormedField.{*, given}
+
+def normalize[X : NormedField.Over[X]](x: X): X = x / x.length
+```
+
+The `Over[S]` type alias on each companion (e.g. `NormedField.Over[Double]`) allows them to be used as
+single-parameter context bounds.
+Note that a `NormedField[X, S]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Normed[X, S]`.
 
 ### Providing evidence
 

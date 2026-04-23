@@ -1,9 +1,5 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.AdditiveGroupBuilder
-import com.alecdorrington.scalgebra.ops.AdditiveGroupOps
-import scala.reflect.ClassTag
-
 /** For algebraic structures with addition and negation. */
 trait AdditiveGroup[X] extends DifferenceMonoid[X], AdditiveInverse[X]:
 
@@ -13,14 +9,20 @@ trait AdditiveGroup[X] extends DifferenceMonoid[X], AdditiveInverse[X]:
   override def scale(x: X, n: Int): X =
     super.scale(if n >= 0 then x else negate(x), n.abs)
 
-/**
-  * The companion object for [[AdditiveGroup]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.AdditiveGroup.{*, given}
-  * ```
-  * to receive all necessary syntax for working with additive groups.
-  */
-object AdditiveGroup extends AdditiveGroupBuilder, AdditiveGroupOps:
+/** The companion object for [[AdditiveGroup]]. */
+object AdditiveGroup extends AdditiveGroup.Ops:
+
+  trait Ops extends DifferenceMonoid.Ops, AdditiveInverse.Ops:
+
+    /**
+      * Computes the difference between two values [[x]] and [[y]], i.e.
+      * `x - y`.
+      */
+    inline def subtract[X : AdditiveGroup as X](x: X, y: X): X =
+      X.subtract(x, y)
+
+    /** Computes [[x]] multiplied by [[n]], for any integer [[n]]. */
+    inline def scale[X : AdditiveGroup as X](x: X, n: Int): X = X.scale(x, n)
 
   export com.alecdorrington.scalgebra.AdditiveGroup
 

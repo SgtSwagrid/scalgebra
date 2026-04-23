@@ -1,28 +1,19 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.MultiplicativeGroup
-import com.alecdorrington.scalgebra.ordered.builder.OrderedMultiplicativeGroupBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedMultiplicativeGroupOps
-
 /** An ordered version of [[MultiplicativeGroup]]. */
 trait OrderedMultiplicativeGroup[X]
   extends MultiplicativeGroup[X],
           OrderedEuclideanMonoid[X],
           OrderedMultiplicativeInverse[X]
 
-/**
-  * The companion object for [[OrderedMultiplicativeGroup]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeGroup.{
-  *   *, given,
-  * }
-  * ```
-  * to receive all necessary syntax for working with ordered multiplicative
-  * groups.
-  */
-object OrderedMultiplicativeGroup
-  extends OrderedMultiplicativeGroupBuilder, OrderedMultiplicativeGroupOps:
+/** The companion object for [[OrderedMultiplicativeGroup]]. */
+object OrderedMultiplicativeGroup extends OrderedMultiplicativeGroup.Ops:
+
+  trait Ops
+    extends MultiplicativeGroup.Ops,
+            OrderedEuclideanMonoid.Ops,
+            OrderedMultiplicativeInverse.Ops
 
   export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeGroup
 

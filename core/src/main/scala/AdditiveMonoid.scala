@@ -1,8 +1,5 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.AdditiveMonoidBuilder
-import com.alecdorrington.scalgebra.ops.AdditiveMonoidOps
-
 /** For algebraic structures with addition and an identity. */
 trait AdditiveMonoid[X] extends AdditiveSemigroup[X], AdditiveIdentity[X]:
 
@@ -27,14 +24,24 @@ trait AdditiveMonoid[X] extends AdditiveSemigroup[X], AdditiveIdentity[X]:
 
     if n == 0 then zero else super.scale(x, n)
 
-/**
-  * The companion object for [[AdditiveMonoid]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.AdditiveMonoid.{*, given}
-  * ```
-  * to receive all necessary syntax for working with additive monoids.
-  */
-object AdditiveMonoid extends AdditiveMonoidBuilder, AdditiveMonoidOps:
+/** The companion object for [[AdditiveMonoid]]. */
+object AdditiveMonoid extends AdditiveMonoid.Ops:
+
+  trait Ops extends AdditiveSemigroup.Ops, AdditiveIdentity.Ops:
+
+    /**
+      * Computes the sum of all values in [[xs]], i.e. `xs₁ + xs₂ + …`, or else
+      * [[zero]] if [[xs]] is empty.
+      */
+    inline def sum[X : AdditiveMonoid as X](xs: Iterable[X]): X = X.sum(xs)
+
+    /**
+      * Computes [[x]] multiplied by [[n]], for any non-negative [[n]].
+      *
+      * @throws IllegalArgumentException
+      *   if `n < 0`.
+      */
+    inline def scale[X : AdditiveMonoid as X](x: X, n: Int): X = X.scale(x, n)
 
   export com.alecdorrington.scalgebra.AdditiveMonoid
 

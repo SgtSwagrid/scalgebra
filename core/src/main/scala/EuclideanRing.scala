@@ -1,7 +1,5 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.EuclideanRingBuilder
-import com.alecdorrington.scalgebra.ops.EuclideanRingOps
 import scala.annotation.tailrec
 
 /** For algebraic structures with addition, multiplication, and division. */
@@ -19,14 +17,24 @@ trait EuclideanRing[X] extends Ring[X], EuclideanMonoid[X]:
     val g = gcd(x, y)
     if g == zero then g else multiply(divide(x, g), y)
 
-/**
-  * The companion object for [[EuclideanRing]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.EuclideanRing.{*, given}
-  * ```
-  * to receive all necessary syntax for working with Euclidean rings.
-  */
-object EuclideanRing extends EuclideanRingBuilder, EuclideanRingOps:
+  extension (x: X)
+
+    /** Computes the signed remainder between [[x]] and [[y]]. */
+    inline infix def % (y: X): X = mod(x, y)
+
+/** The companion object for [[EuclideanRing]]. */
+object EuclideanRing extends EuclideanRing.Ops:
+
+  trait Ops extends Ring.Ops, EuclideanMonoid.Ops:
+
+    /** Computes the signed remainder between two values [[x]] and [[y]]. */
+    inline def mod[X : EuclideanRing as X](x: X, y: X): X = X.mod(x, y)
+
+    /** Computes the greatest common divisor of two values [[x]] and [[y]]. */
+    inline def gcd[X : EuclideanRing as X](x: X, y: X): X = X.gcd(x, y)
+
+    /** Computes the least common multiple of two values [[x]] and [[y]]. */
+    inline def lcm[X : EuclideanRing as X](x: X, y: X): X = X.lcm(x, y)
 
   export com.alecdorrington.scalgebra.EuclideanRing
 

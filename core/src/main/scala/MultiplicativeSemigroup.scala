@@ -1,10 +1,7 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.MultiplicativeSemigroupBuilder
-import com.alecdorrington.scalgebra.ops.MultiplicativeSemigroupOps
-
 /** For algebraic structures with an associative multiplication operator. */
-trait MultiplicativeSemigroup[X]:
+trait MultiplicativeSemigroup[X] extends Root[X]:
 
   /**
     * Computes the product of two values [[x]] and [[y]], i.e. `x × y`.
@@ -48,15 +45,53 @@ trait MultiplicativeSemigroup[X]:
 
     recurse(x, n)
 
-/**
-  * The companion object for [[MultiplicativeSemigroup]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.MultiplicativeSemigroup.{*, given}
-  * ```
-  * to receive all necessary syntax for working with multiplicative semigroups.
-  */
-object MultiplicativeSemigroup
-  extends MultiplicativeSemigroupBuilder, MultiplicativeSemigroupOps:
+  extension (x: X)
+
+    /** Computes the product of two values [[x]] and [[y]], i.e. `x × y`. */
+    inline infix def * (y: X): X = multiply(x, y)
+
+    /** Alias of [[pow]], with the exponent on the right. */
+    inline infix def ** (n: Int): X = pow(x, n)
+
+/** The companion object for [[MultiplicativeSemigroup]]. */
+object MultiplicativeSemigroup extends MultiplicativeSemigroup.Ops:
+
+  trait Ops:
+
+    /**
+      * Computes the product of two values [[x]] and [[y]], i.e. `x × y`.
+      *
+      * @note
+      *   All implementations must be associative, i.e.
+      *   `(x × y) × z == x × (y × z)`.
+      */
+    inline def multiply[X : MultiplicativeSemigroup as X](x: X, y: X): X = X
+      .multiply(x, y)
+
+    /**
+      * Computes the product of all values in [[xs]], i.e. `xs₁ × xs₂ × …`, or
+      * else [[None]] if [[xs]] is empty.
+      */
+    inline def productOption[X : MultiplicativeSemigroup as X]
+      (xs: Iterable[X])
+      : Option[X] = X.productOption(xs)
+
+    /**
+      * Computes the product of [[x]] and all values in [[xs]]s, i.e.
+      * `x × xs₁ × xs₂ × …`.
+      */
+    inline def product[X : MultiplicativeSemigroup as X](x: X, xs: X*): X = X
+      .product(x, xs*)
+
+    /**
+      * Computes [[x]] raised to the power [[n]], for any strictly positive
+      * [[n]].
+      *
+      * @throws IllegalArgumentException
+      *   if `n ≤ 0`.
+      */
+    inline def pow[X : MultiplicativeSemigroup as X](x: X, n: Int): X =
+      X.pow(x, n)
 
   export com.alecdorrington.scalgebra.MultiplicativeSemigroup
 

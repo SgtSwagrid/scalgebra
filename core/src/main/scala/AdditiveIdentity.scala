@@ -1,10 +1,9 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.AdditiveIdentityBuilder
-import com.alecdorrington.scalgebra.ops.AdditiveIdentityOps
+import scala.annotation.targetName
 
 /** For algebraic structures with an additive identity (`zero`). */
-trait AdditiveIdentity[+X]:
+trait AdditiveIdentity[X] extends Root[X]:
 
   /**
     * The unique representation of the additive identity (`0`) in this algebra
@@ -17,14 +16,33 @@ trait AdditiveIdentity[+X]:
     */
   def zero: X
 
-/**
-  * The companion object for [[AdditiveIdentity]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.Zero.{*, given}
-  * ```
-  * to receive all necessary syntax for working with zero.
-  */
-object AdditiveIdentity extends AdditiveIdentityBuilder, AdditiveIdentityOps:
+  /** @return `true` if [[x]] equals [[zero]]. */
+  inline def isZero(x: X): Boolean = x == zero
+
+  extension (x: X)
+
+    /** @return `true` if [[x]] equals [[zero]]. */
+    @targetName("isZero_postfix")
+    inline def isZero: Boolean = AdditiveIdentity.this.isZero(x)
+
+/** The companion object for [[AdditiveIdentity]]. */
+object AdditiveIdentity extends AdditiveIdentity.Ops:
+
+  trait Ops:
+
+    /**
+      * The unique representation of the additive identity (`0`) in this algebra
+      * system. Typically corresponds to values such as `0`, `0.0F`, or
+      * `Seq.empty`.
+      *
+      * @note
+      *   All implementations must obey the identity property, i.e.
+      *   `x + zero == zero + x == x`.
+      */
+    inline def zero[X : AdditiveIdentity as X]: X = X.zero
+
+    /** @return `true` if [[x]] equals [[zero]]. */
+    inline def isZero[X : AdditiveIdentity as X](x: X): Boolean = X.isZero(x)
 
   export com.alecdorrington.scalgebra.AdditiveIdentity
 

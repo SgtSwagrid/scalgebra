@@ -1,19 +1,12 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.SemifieldBuilder
-import com.alecdorrington.scalgebra.ops.SemifieldOps
-
 /** For algebraic structures with addition, multiplication, and reciprocation. */
 trait Semifield[X] extends Semiring[X], MultiplicativeGroup[X]
 
-/**
-  * The companion object for [[Semifield]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.Semifield.{*, given}
-  * ```
-  * to receive all necessary syntax for working with semifields.
-  */
-object Semifield extends SemifieldBuilder, SemifieldOps:
+/** The companion object for [[Semifield]]. */
+object Semifield extends Semifield.Ops:
+
+  trait Ops extends Semiring.Ops, MultiplicativeGroup.Ops
 
   export com.alecdorrington.scalgebra.Semifield
 

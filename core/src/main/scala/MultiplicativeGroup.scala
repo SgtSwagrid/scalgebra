@@ -1,8 +1,5 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.MultiplicativeGroupBuilder
-import com.alecdorrington.scalgebra.ops.MultiplicativeGroupOps
-
 /** For algebraic structures with multiplication and reciprocation. */
 trait MultiplicativeGroup[X]
   extends EuclideanMonoid[X], MultiplicativeInverse[X]:
@@ -13,15 +10,17 @@ trait MultiplicativeGroup[X]
   override def pow(x: X, n: Int): X =
     super.pow(if n >= 0 then x else reciprocate(x), n.abs)
 
-/**
-  * The companion object for [[MultiplicativeGroup]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.MultiplicativeGroup.{*, given}
-  * ```
-  * to receive all necessary syntax for working with multiplicative groups.
-  */
-object MultiplicativeGroup
-  extends MultiplicativeGroupBuilder, MultiplicativeGroupOps:
+/** The companion object for [[MultiplicativeGroup]]. */
+object MultiplicativeGroup extends MultiplicativeGroup.Ops:
+
+  trait Ops extends EuclideanMonoid.Ops, MultiplicativeInverse.Ops:
+
+    /** Computes the quotient between two values [[x]] and [[y]], i.e. `x / y`. */
+    inline def divide[X : MultiplicativeGroup as X](x: X, y: X): X =
+      X.divide(x, y)
+
+    /** Computes [[x]] raised to the power [[n]], for any integer [[n]]. */
+    inline def pow[X : MultiplicativeGroup as X](x: X, n: Int): X = X.pow(x, n)
 
   export com.alecdorrington.scalgebra.MultiplicativeGroup
 

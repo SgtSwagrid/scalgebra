@@ -1,9 +1,7 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.AdditiveGroup
-import com.alecdorrington.scalgebra.ordered.builder.OrderedAdditiveGroupBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedAdditiveGroupOps
+import scala.annotation.targetName
 
 /** An ordered version of [[AdditiveGroup]]. */
 trait OrderedAdditiveGroup[X]
@@ -11,18 +9,25 @@ trait OrderedAdditiveGroup[X]
           OrderedDifferenceMonoid[X],
           OrderedAdditiveInverse[X]:
 
-  /** Computes the absolute value of a value [[x]]. */
-  def abs(x: X): X = if isNegative(x) then negate(x) else x
+  /** Computes the absolute value of a value [[x]], i.e. `|x|`. */
+  inline def abs(x: X): X = if lt(x, zero) then negate(x) else x
 
-/**
-  * The companion object for [[OrderedAdditiveGroup]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedAdditiveGroup.{*, given}
-  * ```
-  * to receive all necessary syntax for working with ordered additive groups.
-  */
-object OrderedAdditiveGroup
-  extends OrderedAdditiveGroupBuilder, OrderedAdditiveGroupOps:
+  extension (x: X)
+
+    /** Computes the absolute value of [[x]], i.e. `|x|`. */
+    @targetName("abs_postfix")
+    inline def abs: X = OrderedAdditiveGroup.this.abs(x)
+
+/** The companion object for [[OrderedAdditiveGroup]]. */
+object OrderedAdditiveGroup extends OrderedAdditiveGroup.Ops:
+
+  trait Ops
+    extends AdditiveGroup.Ops,
+            OrderedDifferenceMonoid.Ops,
+            OrderedAdditiveInverse.Ops:
+
+    /** Computes the absolute value of a value [[x]], i.e. `|x|`. */
+    inline def abs[X : OrderedAdditiveGroup as X](x: X): X = X.abs(x)
 
   export com.alecdorrington.scalgebra.ordered.OrderedAdditiveGroup
 

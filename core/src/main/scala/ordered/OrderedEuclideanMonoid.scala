@@ -1,25 +1,19 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.EuclideanMonoid
-import com.alecdorrington.scalgebra.ordered.builder.OrderedEuclideanMonoidBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedEuclideanMonoidOps
-
 /** An ordered version of [[EuclideanMonoid]]. */
 trait OrderedEuclideanMonoid[X]
-  extends EuclideanMonoid[X], OrderedMultiplicativeMonoid[X]
+  extends EuclideanMonoid[X],
+          OrderedEuclideanSemigroup[X],
+          OrderedMultiplicativeMonoid[X]
 
-/**
-  * The companion object for [[OrderedEuclideanMonoid]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedEuclideanMonoid.{
-  *   *, given,
-  * }
-  * ```
-  * to receive all necessary syntax for working with ordered Euclidean monoids.
-  */
-object OrderedEuclideanMonoid
-  extends OrderedEuclideanMonoidBuilder, OrderedEuclideanMonoidOps:
+/** The companion object for [[OrderedEuclideanMonoid]]. */
+object OrderedEuclideanMonoid extends OrderedEuclideanMonoid.Ops:
+
+  trait Ops
+    extends EuclideanMonoid.Ops,
+            OrderedEuclideanSemigroup.Ops,
+            OrderedMultiplicativeMonoid.Ops
 
   export com.alecdorrington.scalgebra.ordered.OrderedEuclideanMonoid
 

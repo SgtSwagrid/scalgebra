@@ -1,27 +1,14 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.MultiplicativeSemigroup
-import com.alecdorrington.scalgebra.ordered.builder.OrderedMultiplicativeSemigroupBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedMultiplicativeSemigroupOps
-
 /** An ordered version of [[MultiplicativeSemigroup]]. */
 trait OrderedMultiplicativeSemigroup[X]
-  extends MultiplicativeSemigroup[X], Ordering[X]
+  extends MultiplicativeSemigroup[X], Order[X]
 
-/**
-  * The companion object for [[OrderedMultiplicativeSemigroup]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeSemigroup.{
-  *   *, given,
-  * }
-  * ```
-  * to receive all necessary syntax for working with ordered multiplicative
-  * semigroups.
-  */
-object OrderedMultiplicativeSemigroup
-  extends OrderedMultiplicativeSemigroupBuilder,
-          OrderedMultiplicativeSemigroupOps:
+/** The companion object for [[OrderedMultiplicativeSemigroup]]. */
+object OrderedMultiplicativeSemigroup extends OrderedMultiplicativeSemigroup.Ops:
+
+  trait Ops extends MultiplicativeSemigroup.Ops
 
   export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeSemigroup
 

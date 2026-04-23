@@ -1,29 +1,39 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.Ring
-import com.alecdorrington.scalgebra.ordered.builder.OrderedRingBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedRingOps
+import scala.annotation.targetName
 
 /** An ordered version of [[Ring]]. */
 trait OrderedRing[X]
-  extends Ring[X], OrderedAdditiveGroup[X], OrderedDifferenceSemiring[X]:
+  extends Ring[X], OrderedPseudoring[X], OrderedDifferenceSemiring[X]:
 
   /**
     * Computes the sign of a value [[x]], represented by [[one]] for positive,
     * [[negativeOne]] for negative, or [[zero]] for itself.
     */
-  final inline def sign(x: X): X =
-    if isNegative(x) then negativeOne else if isPositive(x) then one else zero
+  inline def sign(x: X): X =
+    if lt(x, zero) then negativeOne else if gt(x, zero) then one else zero
 
-/**
-  * The companion object for [[OrderedRing]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedRing.{*, given}
-  * ```
-  * to receive all necessary syntax for working with ordered rings.
-  */
-object OrderedRing extends OrderedRingBuilder, OrderedRingOps:
+  extension (x: X)
+
+    /**
+      * Computes the sign of [[x]], represented by [[one]] for positive,
+      * [[negativeOne]] for negative, or [[zero]] for itself.
+      */
+    @targetName("sign_postfix")
+    inline def sign: X = OrderedRing.this.sign(x)
+
+/** The companion object for [[OrderedRing]]. */
+object OrderedRing extends OrderedRing.Ops:
+
+  trait Ops
+    extends Ring.Ops, OrderedPseudoring.Ops, OrderedDifferenceSemiring.Ops:
+
+    /**
+      * Computes the sign of a value [[x]], represented by [[one]] for positive,
+      * [[negativeOne]] for negative, or [[zero]] for itself.
+      */
+    inline def sign[X : OrderedRing as X](x: X): X = X.sign(x)
 
   export com.alecdorrington.scalgebra.ordered.OrderedRing
 

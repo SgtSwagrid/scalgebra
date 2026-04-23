@@ -1,26 +1,17 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.DifferenceSemiring
-import com.alecdorrington.scalgebra.ordered.builder.OrderedDifferenceSemiringBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedDifferenceSemiringOps
-
 /** An ordered version of [[DifferenceSemiring]]. */
 trait OrderedDifferenceSemiring[X]
   extends DifferenceSemiring[X], OrderedSemiring[X], OrderedDifferenceMonoid[X]
 
-/**
-  * The companion object for [[OrderedDifferenceSemiring]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemiring.{
-  *   *, given,
-  * }
-  * ```
-  * to receive all necessary syntax for working with ordered difference
-  * semirings.
-  */
-object OrderedDifferenceSemiring
-  extends OrderedDifferenceSemiringBuilder, OrderedDifferenceSemiringOps:
+/** The companion object for [[OrderedDifferenceSemiring]]. */
+object OrderedDifferenceSemiring extends OrderedDifferenceSemiring.Ops:
+
+  trait Ops
+    extends DifferenceSemiring.Ops,
+            OrderedSemiring.Ops,
+            OrderedDifferenceMonoid.Ops
 
   export com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemiring
 

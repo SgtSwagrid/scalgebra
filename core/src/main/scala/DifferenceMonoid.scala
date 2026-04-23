@@ -1,22 +1,12 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.DifferenceMonoidBuilder
-import com.alecdorrington.scalgebra.ops.DifferenceMonoidOps
+/** For algebraic structures with addition, subtraction, and an identity. */
+trait DifferenceMonoid[X] extends DifferenceSemigroup[X], AdditiveMonoid[X]
 
-/** For algebraic structures with addition and subtraction. */
-trait DifferenceMonoid[X] extends AdditiveMonoid[X]:
+/** The companion object for [[DifferenceMonoid]]. */
+object DifferenceMonoid extends DifferenceMonoid.Ops:
 
-  /** Computes the difference between two values [[x]] and [[y]], i.e. `x - y`. */
-  def subtract(x: X, y: X): X
-
-/**
-  * The companion object for [[DifferenceMonoid]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.DifferenceMonoid.{*, given}
-  * ```
-  * to receive all necessary syntax for working with difference monoids.
-  */
-object DifferenceMonoid extends DifferenceMonoidBuilder, DifferenceMonoidOps:
+  trait Ops extends DifferenceSemigroup.Ops, AdditiveMonoid.Ops
 
   export com.alecdorrington.scalgebra.DifferenceMonoid
 

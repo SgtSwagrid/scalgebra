@@ -1,10 +1,7 @@
 package com.alecdorrington.scalgebra
 
-import com.alecdorrington.scalgebra.builder.MultiplicativeInverseBuilder
-import com.alecdorrington.scalgebra.ops.MultiplicativeInverseOps
-
 /** For algebraic structures with a multiplicative inverse. */
-trait MultiplicativeInverse[X]:
+trait MultiplicativeInverse[X] extends Root[X]:
 
   /**
     * Computes the multiplicative inverse (reciprocal) of a value [[x]], i.e.
@@ -16,15 +13,26 @@ trait MultiplicativeInverse[X]:
     */
   def reciprocate(x: X): X
 
-/**
-  * The companion object for [[MultiplicativeInverse]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.MultiplicativeInverse.{*, given}
-  * ```
-  * to receive all necessary syntax for working with multiplicative inverses.
-  */
-object MultiplicativeInverse
-  extends MultiplicativeInverseBuilder, MultiplicativeInverseOps:
+  extension (x: X)
+
+    /** Computes the multiplicative inverse (reciprocal) of this value. */
+    inline def reciprocal: X = reciprocate(x)
+
+/** The companion object for [[MultiplicativeInverse]]. */
+object MultiplicativeInverse extends MultiplicativeInverse.Ops:
+
+  trait Ops:
+
+    /**
+      * Computes the multiplicative inverse (reciprocal) of a value [[x]], i.e.
+      * `1 / x`.
+      *
+      * @note
+      *   All implementations must be involutions, i.e.
+      *   `reciprocate(reciprocate(x)) == x`.
+      */
+    inline def reciprocate[X : MultiplicativeInverse as X](x: X): X = X
+      .reciprocate(x)
 
   export com.alecdorrington.scalgebra.MultiplicativeInverse
 

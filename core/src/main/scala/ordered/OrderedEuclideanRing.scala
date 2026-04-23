@@ -1,23 +1,15 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-import com.alecdorrington.scalgebra.EuclideanRing
-import com.alecdorrington.scalgebra.ordered.builder.OrderedEuclideanRingBuilder
-import com.alecdorrington.scalgebra.ordered.ops.OrderedEuclideanRingOps
-
 /** An ordered version of [[EuclideanRing]]. */
 trait OrderedEuclideanRing[X]
   extends EuclideanRing[X], OrderedRing[X], OrderedEuclideanMonoid[X]
 
-/**
-  * The companion object for [[OrderedEuclideanRing]]. Import as
-  * ```scala
-  * import com.alecdorrington.scalgebra.ordered.OrderedEuclideanRing.{*, given}
-  * ```
-  * to receive all necessary syntax for working with ordered Euclidean rings.
-  */
-object OrderedEuclideanRing
-  extends OrderedEuclideanRingBuilder, OrderedEuclideanRingOps:
+/** The companion object for [[OrderedEuclideanRing]]. */
+object OrderedEuclideanRing extends OrderedEuclideanRing.Ops:
+
+  trait Ops
+    extends EuclideanRing.Ops, OrderedRing.Ops, OrderedEuclideanMonoid.Ops
 
   export com.alecdorrington.scalgebra.ordered.OrderedEuclideanRing
 

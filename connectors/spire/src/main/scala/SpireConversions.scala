@@ -16,6 +16,7 @@ object SpireConversions
           MultiplicativeMonoidSpireConversions,
           MultiplicativeGroupSpireConversions,
           SemiringSpireConversions,
+          PseudoringSpireConversions,
           RingSpireConversions,
           EuclideanRingSpireConversions,
           FieldSpireConversions

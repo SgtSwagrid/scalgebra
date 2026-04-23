@@ -16,6 +16,7 @@ object CatsConversions
           MultiplicativeMonoidCatsConversions,
           MultiplicativeGroupCatsConversions,
           SemiringCatsConversions,
+          PseudoringCatsConversions,
           RingCatsConversions,
           EuclideanRingCatsConversions,
           FieldCatsConversions
