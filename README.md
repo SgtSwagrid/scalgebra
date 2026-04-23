@@ -41,7 +41,7 @@ including all standard numeric types, without any additional imports on their en
 Add the following dependency to your `build.sbt`:
 
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.3.0"
+libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.4.1"
 ```
 
 Requires Scala 3.
