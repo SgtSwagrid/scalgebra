@@ -8,4 +8,6 @@ object Test:
   @main
   def main(): Unit = println(g(4))
 
+
+
   def g[X : EuclideanMonoid](x: X): X = x ** 3
