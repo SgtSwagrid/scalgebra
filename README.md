@@ -26,7 +26,7 @@ It is aimed at **library designers** rather than end users. If you are writing a
 ### Example
 
 ```scala 3
-import com.alecdorrington.scalgebra.Ring.{*, given}
+import com.alecdorrington.scalgebra.Ring
 
 // Only requires addition, negation, and multiplication (not division).
 def dot[X : Ring](xs: Seq[X], ys: Seq[X]): X =
@@ -59,23 +59,6 @@ def double[X : Field](x: X): X = x + x
 
 // Just right.
 def double[X : AdditiveSemigroup](x: X): X = x + x
-```
-
-### Importing
-
-Each type class exposes all necessary syntax through its companion object. Import it with:
-
-```scala 3
-import com.alecdorrington.scalgebra.<TypeClass>.{*, given}
-```
-
-You only need one import regardless of how many capabilities the type class bundles.
-
-```scala 3
-import com.alecdorrington.scalgebra.EuclideanRing.{*, given}
-
-def gcdNorm[X : EuclideanRing as E](xs: Seq[X]): X =
-  xs.reduce(E.gcd)  // gcd, +, -, *, /, % all available
 ```
 
 ### In-built types
@@ -123,7 +106,7 @@ The `ordered` subpackage provides `Ordered`-prefixed variants that combine each 
 Use these when your algorithm needs both algebraic operations and comparisons under a single context bound.
 
 ```scala 3
-import com.alecdorrington.scalgebra.ordered.OrderedField.{*, given}
+import com.alecdorrington.scalgebra.ordered.OrderedField
 
 def clamp[X : OrderedField](x: X, lb: X, ub: X): X = x.clamp(lb, ub)
 ```
@@ -139,7 +122,7 @@ where `S` is the scalar type that the norm maps into.
 Use these when your algorithm needs both algebraic operations and a norm under a single context bound.
 
 ```scala 3
-import com.alecdorrington.scalgebra.normed.NormedField.{*, given}
+import com.alecdorrington.scalgebra.normed.NormedField
 
 def normalize[X : NormedField.Over[X]](x: X): X = x / x.length
 ```
