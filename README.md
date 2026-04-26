@@ -145,7 +145,7 @@ given AdditiveMonoid[Vec2] with
   def zero: Vec2 = Vec2(0, 0)
 ```
 
-For in-built types (`Int`, `Double`, etc.), evidence is already included; see [built-in instances](#-built-in-instances).
+For in-built types (`Int`, `Double`, etc.), evidence is already included.
 
 ## 🔌 Connectors
 
