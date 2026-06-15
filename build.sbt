@@ -63,7 +63,7 @@ lazy val `scalgebra-connector-scalaz` = project
   .dependsOn(`scalgebra`)
   .settings(
     packagePrefix := "com.alecdorrington.scalgebra.connector.scalaz",
-    libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.3.8",
+    libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.3.9",
   )
 
 lazy val `scalgebra-connector-spire` = project
