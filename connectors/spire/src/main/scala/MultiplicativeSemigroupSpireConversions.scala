@@ -1,28 +1,29 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 import spire.algebra
 
 /**
-  * Implicit conversions between [[structures.MultiplicativeSemigroup]] and
+  * Implicit conversions between
+  * [[scalgebra.arithmetic.MultiplicativeSemigroup]] and
   * [[spire.algebra.MultiplicativeSemigroup]].
   */
 trait MultiplicativeSemigroupSpireConversions:
 
   /**
     * Derives a [[spire.algebra.MultiplicativeSemigroup]] from a
-    * [[structures.MultiplicativeSemigroup]].
+    * [[scalgebra.arithmetic.MultiplicativeSemigroup]].
     */
-  given multiplicativeSemigroupToSpire[
-    X : structures.MultiplicativeSemigroup as S,
-  ]: algebra.MultiplicativeSemigroup[X] with
-    def times(x: X, y: X): X = S.multiply(x, y)
+  given multiplicativeSemigroupToSpire
+    : [X : scalgebra.arithmetic.MultiplicativeSemigroup as S]
+      => algebra.MultiplicativeSemigroup[X]:
+    def times(x: X, y: X): X = x * y
 
   /**
-    * Derives a [[structures.MultiplicativeSemigroup]] from a
+    * Derives a [[scalgebra.arithmetic.MultiplicativeSemigroup]] from a
     * [[spire.algebra.MultiplicativeSemigroup]].
     */
-  given multiplicativeSemigroupFromSpire[
-    X : algebra.MultiplicativeSemigroup as S,
-  ]: structures.MultiplicativeSemigroup[X] with
-    def multiply(x: X, y: X): X = S.times(x, y)
+  given multiplicativeSemigroupFromSpire
+    : [X : algebra.MultiplicativeSemigroup as S]
+      => scalgebra.arithmetic.MultiplicativeSemigroup[X]:
+    extension (x: X) override def mul(y: X): X = S.times(x, y)

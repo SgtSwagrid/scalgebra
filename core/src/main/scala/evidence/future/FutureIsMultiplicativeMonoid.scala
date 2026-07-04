@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeMonoid
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,12 +12,10 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsMultiplicativeMonoid:
 
-  given [X : MultiplicativeMonoid as X]
-    (using ExecutionContext)
-    : MultiplicativeMonoid[Future[X]] with
+  given [X : MultiplicativeMonoid as X] => ExecutionContext
+    => MultiplicativeMonoid[Future[X]]:
 
     override def one: Future[X] = Future.successful(X.one)
 
-    override def multiply(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.multiply(a, b))
+    extension (x: Future[X])
+      override def mul(y: Future[X]): Future[X] = x.zip(y).map(_ * _)

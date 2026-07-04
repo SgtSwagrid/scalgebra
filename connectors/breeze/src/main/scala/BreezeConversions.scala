@@ -10,5 +10,5 @@ package com.alecdorrington.scalgebra.connector.breeze
   */
 object BreezeConversions
   extends SemiringBreezeConversions,
-          RingBreezeConversions,
-          FieldBreezeConversions
+          NormedRingBreezeConversions,
+          NormedFieldBreezeConversions

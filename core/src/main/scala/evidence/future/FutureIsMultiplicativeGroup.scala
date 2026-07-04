@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeGroup
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,14 +12,12 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsMultiplicativeGroup:
 
-  given [X : MultiplicativeGroup as X]
-    (using ExecutionContext)
-    : MultiplicativeGroup[Future[X]] with
+  given [X : MultiplicativeGroup as X] => ExecutionContext
+    => MultiplicativeGroup[Future[X]]:
 
     override def one: Future[X] = Future.successful(X.one)
 
-    override def multiply(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.multiply(a, b))
+    extension (x: Future[X])
 
-    override def reciprocate(x: Future[X]): Future[X] = x.map(X.reciprocate)
+      override def mul(y: Future[X]): Future[X] = x.zip(y).map(_ * _)
+      override def reciprocal: Future[X]        = x.map(_.reciprocal)

@@ -13,5 +13,6 @@ This primarily includes numeric types (e.g. `Int`, `Long`, `Float`, `Double`).
 
 ### Intended usage
 
-You don't need to import these types directly.
-Instead, all givens are made available on the companion objects of the corresponding type classes.
+You don't need to import these givens directly.
+Instead, they are always in implicit scope automatically, as they are all
+provided by the companion object of the root type class (`Algebra`).

@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.DifferenceMonoid
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,16 +12,12 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsDifferenceMonoid:
 
-  given [X : DifferenceMonoid as X]
-    (using ExecutionContext)
-    : DifferenceMonoid[Future[X]] with
+  given [X : DifferenceMonoid as X] => ExecutionContext
+    => DifferenceMonoid[Future[X]]:
 
     override def zero: Future[X] = Future.successful(X.zero)
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
+    extension (x: Future[X])
 
-    override def subtract(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.subtract(a, b))
+      override def add(y: Future[X]): Future[X]      = x.zip(y).map(_ + _)
+      override def subtract(y: Future[X]): Future[X] = x.zip(y).map(_ - _)

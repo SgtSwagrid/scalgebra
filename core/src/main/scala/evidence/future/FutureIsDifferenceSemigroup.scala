@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.DifferenceSemigroup
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,14 +12,10 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsDifferenceSemigroup:
 
-  given [X : DifferenceSemigroup as X]
-    (using ExecutionContext)
-    : DifferenceSemigroup[Future[X]] with
+  given [X : DifferenceSemigroup as X] => ExecutionContext
+    => DifferenceSemigroup[Future[X]]:
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
+    extension (x: Future[X])
 
-    override def subtract(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.subtract(a, b))
+      override def add(y: Future[X]): Future[X]      = x.zip(y).map(_ + _)
+      override def subtract(y: Future[X]): Future[X] = x.zip(y).map(_ - _)

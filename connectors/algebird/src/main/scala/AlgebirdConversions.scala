@@ -5,7 +5,7 @@ package com.alecdorrington.scalgebra.connector.algebird
   *
   * Import as:
   * ```scala
-  * import com.alecdorrington.scalgebra.connector.cats.CatsConversions.given
+  * import com.alecdorrington.scalgebra.connector.algebird.AlgebirdConversions.given
   * ```
   */
 object AlgebirdConversions

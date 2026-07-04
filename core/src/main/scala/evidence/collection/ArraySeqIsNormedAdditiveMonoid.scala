@@ -12,11 +12,11 @@ import scala.reflect.ClassTag
   */
 trait ArraySeqIsNormedAdditiveMonoid:
 
-  given [X : ClassTag]: NormedAdditiveMonoid[ArraySeq[X], Int] with
+  given [X : ClassTag] => NormedAdditiveMonoid[ArraySeq[X], Int]:
 
     override def zero: ArraySeq[X] = ArraySeq.empty
 
-    override inline def add(x: ArraySeq[X], y: ArraySeq[X]): ArraySeq[X] = x ++
-      y
+    extension (x: ArraySeq[X])
 
-    override inline def norm(x: ArraySeq[X]): Int = x.length
+      override def add(y: ArraySeq[X]): ArraySeq[X] = x ++ y
+      override def length: Int                      = x.length

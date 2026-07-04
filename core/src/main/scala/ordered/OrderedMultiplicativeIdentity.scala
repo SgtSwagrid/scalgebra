@@ -1,19 +1,12 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-/** An ordered version of [[MultiplicativeIdentity]]. */
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeIdentity
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Multiplicative identity (`1`)
+  *   - Total order
+  */
 trait OrderedMultiplicativeIdentity[X]
-  extends MultiplicativeIdentity[X], Order[X]
-
-/** The companion object for [[OrderedMultiplicativeIdentity]]. */
-object OrderedMultiplicativeIdentity extends OrderedMultiplicativeIdentity.Ops:
-
-  trait Ops extends MultiplicativeIdentity.Ops
-
-  /**
-    * The [[OrderedMultiplicativeIdentity]] instance describing the current
-    * algebra system.
-    */
-  inline def orderedMultiplicativeIdentity[
-    X : OrderedMultiplicativeIdentity as orderedMultiplicativeIdentity,
-  ]: OrderedMultiplicativeIdentity[X] = orderedMultiplicativeIdentity
+  extends MultiplicativeIdentity[X], Ordered[X]

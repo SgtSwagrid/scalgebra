@@ -1,26 +1,23 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.Field
+
 /**
   * Evidence that single-argument functions form a [[Field]] under pointwise
-  * addition, negation, multiplication, division, and reciprocation, provided
-  * the return type has a [[Field]] instance.
+  * addition, negation, multiplication, and reciprocation, provided the return
+  * type has a [[Field]] instance.
   */
 trait FunctionIsField:
 
-  given [X, Y : Field as Y]: Field[X => Y] with
+  given [X, Y : Field as Y] => Field[X => Y]:
 
     override def zero: X => Y = _ => Y.zero
+    override def one: X => Y  = _ => Y.one
 
-    override def one: X => Y = _ => Y.one
+    extension (f: X => Y)
 
-    override inline def add(f: X => Y, g: X => Y): X => Y =
-      x => Y.add(f(x), g(x))
-
-    override inline def negate(f: X => Y): X => Y = x => Y.negate(f(x))
-
-    override inline def multiply(f: X => Y, g: X => Y): X => Y =
-      x => Y.multiply(f(x), g(x))
-
-    override inline def reciprocate(f: X => Y): X => Y =
-      x => Y.reciprocate(f(x))
+      override def add(g: X => Y): X => Y = x => f(x) + g(x)
+      override def negate: X => Y         = x => f(x).negate
+      override def mul(g: X => Y): X => Y = x => f(x) * g(x)
+      override def reciprocal: X => Y     = x => f(x).reciprocal

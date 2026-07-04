@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveMonoid
+
 /**
   * Evidence that single-argument functions form an [[AdditiveMonoid]] under
   * pointwise addition, provided the return type has an [[AdditiveMonoid]]
@@ -8,9 +10,7 @@ package evidence.function
   */
 trait FunctionIsAdditiveMonoid:
 
-  given [X, Y : AdditiveMonoid as Y]: AdditiveMonoid[X => Y] with
+  given [X, Y : AdditiveMonoid as Y] => AdditiveMonoid[X => Y]:
 
-    override def zero: X => Y = _ => Y.zero
-
-    override inline def add(f: X => Y, g: X => Y): X => Y =
-      x => Y.add(f(x), g(x))
+    override def zero: X => Y                                 = _ => Y.zero
+    extension (f: X => Y) override def add(g: X => Y): X => Y = x => f(x) + g(x)

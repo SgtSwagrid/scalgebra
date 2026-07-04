@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.Pseudoring
+
 /**
   * Evidence that single-argument functions form a [[Pseudoring]] under
   * pointwise negation, addition, and multiplication, provided the return type
@@ -8,14 +10,12 @@ package evidence.function
   */
 trait FunctionIsPseudoring:
 
-  given [X, Y : Pseudoring as Y]: Pseudoring[X => Y] with
+  given [X, Y : Pseudoring as Y] => Pseudoring[X => Y]:
 
     override def zero: X => Y = _ => Y.zero
 
-    override inline def add(f: X => Y, g: X => Y): X => Y =
-      x => Y.add(f(x), g(x))
+    extension (f: X => Y)
 
-    override inline def multiply(f: X => Y, g: X => Y): X => Y =
-      x => Y.multiply(f(x), g(x))
-
-    override inline def negate(f: X => Y): X => Y = x => Y.negate(f(x))
+      override def add(g: X => Y): X => Y = x => f(x) + g(x)
+      override def mul(g: X => Y): X => Y = x => f(x) * g(x)
+      override def negate: X => Y         = x => f(x).negate

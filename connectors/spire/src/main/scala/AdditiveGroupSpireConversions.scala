@@ -1,32 +1,35 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 import spire.algebra
 
 /**
-  * Implicit conversions between [[structures.AdditiveGroup]] and
+  * Implicit conversions between [[scalgebra.arithmetic.AdditiveGroup]] and
   * [[spire.algebra.AdditiveGroup]].
   */
 trait AdditiveGroupSpireConversions:
 
   /**
     * Derives a [[spire.algebra.AdditiveGroup]] from an
-    * [[structures.AdditiveGroup]].
+    * [[scalgebra.arithmetic.AdditiveGroup]].
     */
-  given additiveGroupToSpire[X : structures.AdditiveGroup as S]
-    : algebra.AdditiveGroup[X] with
+  given additiveGroupToSpire
+    : [X : scalgebra.arithmetic.AdditiveGroup as S] => algebra.AdditiveGroup[X]:
 
-    def plus(x: X, y: X): X = S.add(x, y)
+    def plus(x: X, y: X): X = x + y
     def zero: X             = S.zero
-    def negate(x: X): X     = S.negate(x)
+    def negate(x: X): X     = x.negate
 
   /**
-    * Derives an [[structures.AdditiveGroup]] from a
+    * Derives an [[scalgebra.arithmetic.AdditiveGroup]] from a
     * [[spire.algebra.AdditiveGroup]].
     */
-  given additiveGroupFromSpire[X : algebra.AdditiveGroup as S]
-    : structures.AdditiveGroup[X] with
+  given additiveGroupFromSpire
+    : [X : algebra.AdditiveGroup as S] => scalgebra.arithmetic.AdditiveGroup[X]:
 
-    def add(x: X, y: X): X = S.plus(x, y)
-    def zero: X            = S.zero
-    def negate(x: X): X    = S.negate(x)
+    override def zero: X = S.zero
+
+    extension (x: X)
+
+      override def add(y: X): X = S.plus(x, y)
+      override def negate: X    = S.negate(x)

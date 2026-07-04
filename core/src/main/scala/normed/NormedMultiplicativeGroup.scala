@@ -1,26 +1,20 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[MultiplicativeGroup]]. */
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeGroup
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Multiplicative inverse (reciprocation)
+  *   - Norm (length)
+  */
 trait NormedMultiplicativeGroup[X, S]
   extends MultiplicativeGroup[X],
-          NormedEuclideanMonoid[X, S],
+          NormedQuotientMonoid[X, S],
           NormedMultiplicativeInverse[X, S]
 
-/** The companion object for [[NormedMultiplicativeGroup]]. */
-object NormedMultiplicativeGroup extends NormedMultiplicativeGroup.Ops:
-
-  trait Ops
-    extends MultiplicativeGroup.Ops,
-            NormedEuclideanMonoid.Ops,
-            NormedMultiplicativeInverse.Ops
+object NormedMultiplicativeGroup:
 
   type Over[S] = [X] =>> NormedMultiplicativeGroup[X, S]
-
-  /**
-    * The [[NormedMultiplicativeGroup]] instance describing the current algebra
-    * system.
-    */
-  inline def normedMultiplicativeGroup[X, S]
-    (using ev: NormedMultiplicativeGroup[X, S])
-    : NormedMultiplicativeGroup[X, S] = ev

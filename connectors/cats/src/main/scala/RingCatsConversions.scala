@@ -1,24 +1,32 @@
 package com.alecdorrington.scalgebra.connector.cats
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 
-/** Implicit conversions between [[structures.Ring]] and [[algebra.ring.Ring]]. */
+/**
+  * Implicit conversions between [[scalgebra.arithmetic.Ring]] and
+  * [[algebra.ring.Ring]].
+  */
 trait RingCatsConversions:
 
-  /** Derives an [[algebra.ring.Ring]] from a [[structures.Ring]]. */
-  given ringToCats[X : structures.Ring as S]: algebra.ring.Ring[X] with
+  /** Derives an [[algebra.ring.Ring]] from a [[scalgebra.arithmetic.Ring]]. */
+  given ringToCats
+    : [X : scalgebra.arithmetic.Ring as S] => algebra.ring.Ring[X]:
 
-    def plus(x: X, y: X): X  = S.add(x, y)
+    def plus(x: X, y: X): X  = x + y
     def zero: X              = S.zero
-    def negate(x: X): X      = S.negate(x)
-    def times(x: X, y: X): X = S.multiply(x, y)
+    def negate(x: X): X      = x.negate
+    def times(x: X, y: X): X = x * y
     def one: X               = S.one
 
-  /** Derives a [[structures.Ring]] from an [[algebra.ring.Ring]]. */
-  given ringFromCats[X : algebra.ring.Ring as S]: structures.Ring[X] with
+  /** Derives a [[scalgebra.arithmetic.Ring]] from an [[algebra.ring.Ring]]. */
+  given ringFromCats
+    : [X : algebra.ring.Ring as S] => scalgebra.arithmetic.Ring[X]:
 
-    def add(x: X, y: X): X      = S.plus(x, y)
-    def zero: X                 = S.zero
-    def negate(x: X): X         = S.negate(x)
-    def multiply(x: X, y: X): X = S.times(x, y)
-    def one: X                  = S.one
+    override def zero: X = S.zero
+    override def one: X  = S.one
+
+    extension (x: X)
+
+      override def add(y: X): X = S.plus(x, y)
+      override def negate: X    = S.negate(x)
+      override def mul(y: X): X = S.times(x, y)

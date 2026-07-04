@@ -1,29 +1,31 @@
 package com.alecdorrington.scalgebra.connector.cats
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 
 /**
-  * Implicit conversions between [[structures.AdditiveMonoid]] and
+  * Implicit conversions between [[scalgebra.arithmetic.AdditiveMonoid]] and
   * [[algebra.ring.AdditiveMonoid]].
   */
 trait AdditiveMonoidCatsConversions:
 
   /**
     * Derives an [[algebra.ring.AdditiveMonoid]] from an
-    * [[structures.AdditiveMonoid]].
+    * [[scalgebra.arithmetic.AdditiveMonoid]].
     */
-  given additiveMonoidToCats[X : structures.AdditiveMonoid as S]
-    : algebra.ring.AdditiveMonoid[X] with
+  given additiveMonoidToCats
+    : [X : scalgebra.arithmetic.AdditiveMonoid as S]
+      => algebra.ring.AdditiveMonoid[X]:
 
-    def plus(x: X, y: X): X = S.add(x, y)
+    def plus(x: X, y: X): X = x + y
     def zero: X             = S.zero
 
   /**
-    * Derives an [[structures.AdditiveMonoid]] from an
+    * Derives an [[scalgebra.arithmetic.AdditiveMonoid]] from an
     * [[algebra.ring.AdditiveMonoid]].
     */
-  given additiveMonoidFromCats[X : algebra.ring.AdditiveMonoid as S]
-    : structures.AdditiveMonoid[X] with
+  given additiveMonoidFromCats
+    : [X : algebra.ring.AdditiveMonoid as S]
+      => scalgebra.arithmetic.AdditiveMonoid[X]:
 
-    def add(x: X, y: X): X = S.plus(x, y)
-    def zero: X            = S.zero
+    override def zero: X                       = S.zero
+    extension (x: X) override def add(y: X): X = S.plus(x, y)

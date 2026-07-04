@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveMonoid
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -9,17 +10,14 @@ import scala.concurrent.{ExecutionContext, Future}
   * addition, provided the result type has an [[AdditiveMonoid]] instance.
   *
   * The two futures are awaited concurrently and their results combined; `zero`
-  * is an already-completed future wrapping [[AdditiveMonoid.zero]]. Requires an
-  * implicit [[ExecutionContext]] for scheduling the combination.
+  * is an already-completed future wrapping [[AdditiveMonoid.zero]].
   */
 trait FutureIsAdditiveMonoid:
 
-  given [X : AdditiveMonoid as X]
-    (using ExecutionContext)
-    : AdditiveMonoid[Future[X]] with
+  given [X : AdditiveMonoid as X] => ExecutionContext
+    => AdditiveMonoid[Future[X]]:
 
     override def zero: Future[X] = Future.successful(X.zero)
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
+    extension (x: Future[X])
+      override def add(y: Future[X]): Future[X] = x.zip(y).map(_ + _)

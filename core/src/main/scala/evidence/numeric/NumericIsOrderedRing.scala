@@ -10,11 +10,14 @@ import com.alecdorrington.scalgebra.ordered.OrderedRing
   */
 trait NumericIsOrderedRing:
 
-  given [A : Numeric as num]: OrderedRing[A] with
+  given [A : Numeric as num] => OrderedRing[A]:
 
-    override inline def add(x: A, y: A): A      = num.plus(x, y)
-    override inline def negate(x: A): A         = num.negate(x)
-    override inline def multiply(x: A, y: A): A = num.times(x, y)
-    override def one: A                         = num.one
-    override def zero: A                        = num.zero
-    override def compare(x: A, y: A): Int       = num.compare(x, y)
+    override def zero: A                  = num.zero
+    override def one: A                   = num.one
+    override def compare(x: A, y: A): Int = num.compare(x, y)
+
+    extension (x: A)
+
+      override def add(y: A): A = num.plus(x, y)
+      override def negate: A    = num.negate(x)
+      override def mul(y: A): A = num.times(x, y)

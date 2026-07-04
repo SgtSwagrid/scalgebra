@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.Difference
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -10,10 +11,7 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsDifference:
 
-  given [X : Difference as X]
-    (using ExecutionContext)
-    : Difference[Future[X]] with
+  given [X : Difference as X] => ExecutionContext => Difference[Future[X]]:
 
-    override def subtract(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.subtract(a, b))
+    extension (x: Future[X])
+      override def subtract(y: Future[X]): Future[X] = x.zip(y).map(_ - _)

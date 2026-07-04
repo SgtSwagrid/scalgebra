@@ -11,21 +11,21 @@ import com.alecdorrington.scalgebra.ordered.OrderedAdditiveIdentity
 trait TupleIsOrderedAdditiveIdentity:
 
   given [X : OrderedAdditiveIdentity as X]
-    : OrderedAdditiveIdentity[X *: EmptyTuple] with
+    => OrderedAdditiveIdentity[X *: EmptyTuple]:
 
     override def zero: X *: EmptyTuple = X.zero *: EmptyTuple
 
-    override inline def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
+    override def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
       .compare(x.head, y.head)
 
   given [
     X : OrderedAdditiveIdentity as X,
     Y : OrderedAdditiveIdentity as Y,
-  ]: OrderedAdditiveIdentity[(X, Y)] with
+  ] => OrderedAdditiveIdentity[(X, Y)]:
 
     override def zero: (X, Y) = (X.zero, Y.zero)
 
-    override inline def compare(x: (X, Y), y: (X, Y)): Int =
+    override def compare(x: (X, Y), y: (X, Y)): Int =
       val c = X.compare(x(0), y(0))
       if c != 0 then c else Y.compare(x(1), y(1))
 
@@ -33,11 +33,11 @@ trait TupleIsOrderedAdditiveIdentity:
     X : OrderedAdditiveIdentity as X,
     Y : OrderedAdditiveIdentity as Y,
     Z : OrderedAdditiveIdentity as Z,
-  ]: OrderedAdditiveIdentity[(X, Y, Z)] with
+  ] => OrderedAdditiveIdentity[(X, Y, Z)]:
 
     override def zero: (X, Y, Z) = (X.zero, Y.zero, Z.zero)
 
-    override inline def compare(x: (X, Y, Z), y: (X, Y, Z)): Int =
+    override def compare(x: (X, Y, Z), y: (X, Y, Z)): Int =
       val c = X.compare(x(0), y(0))
       if c != 0 then c
       else
@@ -49,11 +49,11 @@ trait TupleIsOrderedAdditiveIdentity:
     X2 : OrderedAdditiveIdentity as X2,
     X3 : OrderedAdditiveIdentity as X3,
     X4 : OrderedAdditiveIdentity as X4,
-  ]: OrderedAdditiveIdentity[(X1, X2, X3, X4)] with
+  ] => OrderedAdditiveIdentity[(X1, X2, X3, X4)]:
 
     override def zero: (X1, X2, X3, X4) = (X1.zero, X2.zero, X3.zero, X4.zero)
 
-    override inline def compare(x: (X1, X2, X3, X4), y: (X1, X2, X3, X4)): Int =
+    override def compare(x: (X1, X2, X3, X4), y: (X1, X2, X3, X4)): Int =
       val c1 = X1.compare(x(0), y(0))
       if c1 != 0 then c1
       else
@@ -69,12 +69,12 @@ trait TupleIsOrderedAdditiveIdentity:
     X3 : OrderedAdditiveIdentity as X3,
     X4 : OrderedAdditiveIdentity as X4,
     X5 : OrderedAdditiveIdentity as X5,
-  ]: OrderedAdditiveIdentity[(X1, X2, X3, X4, X5)] with
+  ] => OrderedAdditiveIdentity[(X1, X2, X3, X4, X5)]:
 
     override def zero: (X1, X2, X3, X4, X5) =
       (X1.zero, X2.zero, X3.zero, X4.zero, X5.zero)
 
-    override inline def compare
+    override def compare
       (x: (X1, X2, X3, X4, X5), y: (X1, X2, X3, X4, X5))
       : Int =
       val c1 = X1.compare(x(0), y(0))
@@ -96,12 +96,12 @@ trait TupleIsOrderedAdditiveIdentity:
     X4 : OrderedAdditiveIdentity as X4,
     X5 : OrderedAdditiveIdentity as X5,
     X6 : OrderedAdditiveIdentity as X6,
-  ]: OrderedAdditiveIdentity[(X1, X2, X3, X4, X5, X6)] with
+  ] => OrderedAdditiveIdentity[(X1, X2, X3, X4, X5, X6)]:
 
     override def zero: (X1, X2, X3, X4, X5, X6) =
       (X1.zero, X2.zero, X3.zero, X4.zero, X5.zero, X6.zero)
 
-    override inline def compare
+    override def compare
       (
         x: (X1, X2, X3, X4, X5, X6),
         y: (X1, X2, X3, X4, X5, X6),

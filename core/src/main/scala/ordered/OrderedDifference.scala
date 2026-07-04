@@ -1,14 +1,11 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-/** An ordered version of [[Difference]]. */
-trait OrderedDifference[X] extends Difference[X], Order[X]
+import com.alecdorrington.scalgebra.arithmetic.Difference
 
-/** The companion object for [[OrderedDifference]]. */
-object OrderedDifference extends OrderedDifference.Ops:
-
-  trait Ops extends Difference.Ops
-
-  /** The [[OrderedDifference]] instance describing the current algebra system. */
-  inline def orderedDifference[X : OrderedDifference as orderedDifference]
-    : OrderedDifference[X] = orderedDifference
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Subtraction
+  *   - Total order
+  */
+trait OrderedDifference[X] extends Difference[X], Ordered[X]

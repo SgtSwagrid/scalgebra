@@ -1,26 +1,19 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[MultiplicativeMonoid]]. */
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeMonoid
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Norm (length)
+  */
 trait NormedMultiplicativeMonoid[X, S]
   extends MultiplicativeMonoid[X],
           NormedMultiplicativeSemigroup[X, S],
           NormedMultiplicativeIdentity[X, S]
 
-/** The companion object for [[NormedMultiplicativeMonoid]]. */
-object NormedMultiplicativeMonoid extends NormedMultiplicativeMonoid.Ops:
-
-  trait Ops
-    extends MultiplicativeMonoid.Ops,
-            NormedMultiplicativeSemigroup.Ops,
-            NormedMultiplicativeIdentity.Ops
+object NormedMultiplicativeMonoid:
 
   type Over[S] = [X] =>> NormedMultiplicativeMonoid[X, S]
-
-  /**
-    * The [[NormedMultiplicativeMonoid]] instance describing the current algebra
-    * system.
-    */
-  inline def normedMultiplicativeMonoid[X, S]
-    (using ev: NormedMultiplicativeMonoid[X, S])
-    : NormedMultiplicativeMonoid[X, S] = ev

@@ -1,18 +1,21 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[Field]]. */
+import com.alecdorrington.scalgebra.arithmetic.Field
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Additive identity (`0`)
+  *   - Additive inverse (negation)
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Multiplicative inverse (reciprocation)
+  *   - Norm (length)
+  */
 trait NormedField[X, S]
-  extends Field[X], NormedEuclideanRing[X, S], NormedDifferenceSemifield[X, S]
+  extends Field[X], NormedQuotientRing[X, S], NormedDifferenceSemifield[X, S]
 
-/** The companion object for [[NormedField]]. */
-object NormedField extends NormedField.Ops:
-
-  trait Ops
-    extends Field.Ops, NormedEuclideanRing.Ops, NormedDifferenceSemifield.Ops
+object NormedField:
 
   type Over[S] = [X] =>> NormedField[X, S]
-
-  /** The [[NormedField]] instance describing the current algebra system. */
-  inline def normedField[X, S](using ev: NormedField[X, S]): NormedField[X, S] =
-    ev

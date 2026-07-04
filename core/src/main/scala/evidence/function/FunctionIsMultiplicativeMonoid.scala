@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeMonoid
+
 /**
   * Evidence that single-argument functions form a [[MultiplicativeMonoid]]
   * under pointwise multiplication, provided the return type has a
@@ -8,9 +10,8 @@ package evidence.function
   */
 trait FunctionIsMultiplicativeMonoid:
 
-  given [X, Y : MultiplicativeMonoid as Y]: MultiplicativeMonoid[X => Y] with
+  given [X, Y : MultiplicativeMonoid as Y] => MultiplicativeMonoid[X => Y]:
 
     override def one: X => Y = _ => Y.one
 
-    override inline def multiply(f: X => Y, g: X => Y): X => Y =
-      x => Y.multiply(f(x), g(x))
+    extension (f: X => Y) override def mul(g: X => Y): X => Y = x => f(x) * g(x)

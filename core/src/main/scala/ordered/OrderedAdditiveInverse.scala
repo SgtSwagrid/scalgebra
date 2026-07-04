@@ -1,18 +1,15 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-/** An ordered version of [[AdditiveInverse]]. */
-trait OrderedAdditiveInverse[X] extends AdditiveInverse[X], Order[X]
+import com.alecdorrington.scalgebra.arithmetic.AdditiveInverse
 
-/** The companion object for [[OrderedAdditiveInverse]]. */
-object OrderedAdditiveInverse extends OrderedAdditiveInverse.Ops:
-
-  trait Ops extends AdditiveInverse.Ops
-
-  /**
-    * The [[OrderedAdditiveInverse]] instance describing the current algebra
-    * system.
-    */
-  inline def orderedAdditiveInverse[
-    X : OrderedAdditiveInverse as orderedAdditiveInverse,
-  ]: OrderedAdditiveInverse[X] = orderedAdditiveInverse
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Additive inverse (negation)
+  *   - Total order
+  *
+  * @note
+  *   Laws, in addition to those inherited:
+  *   - Antitonicity: if `x <= y`, then `-y <= -x`.
+  */
+trait OrderedAdditiveInverse[X] extends AdditiveInverse[X], Ordered[X]

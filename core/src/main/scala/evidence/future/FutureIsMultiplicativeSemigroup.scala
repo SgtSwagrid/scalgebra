@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeSemigroup
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,10 +12,8 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsMultiplicativeSemigroup:
 
-  given [X : MultiplicativeSemigroup as X]
-    (using ExecutionContext)
-    : MultiplicativeSemigroup[Future[X]] with
+  given [X : MultiplicativeSemigroup as X] => ExecutionContext
+    => MultiplicativeSemigroup[Future[X]]:
 
-    override def multiply(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.multiply(a, b))
+    extension (x: Future[X])
+      override def mul(y: Future[X]): Future[X] = x.zip(y).map(_ * _)

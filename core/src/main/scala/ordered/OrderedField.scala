@@ -1,16 +1,17 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-/** An ordered version of [[Field]]. */
+import com.alecdorrington.scalgebra.arithmetic.Field
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Additive identity (`0`)
+  *   - Additive inverse (negation)
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Multiplicative inverse (reciprocation)
+  *   - Total order
+  */
 trait OrderedField[X]
-  extends Field[X], OrderedEuclideanRing[X], OrderedDifferenceSemifield[X]
-
-/** The companion object for [[OrderedField]]. */
-object OrderedField extends OrderedField.Ops:
-
-  trait Ops
-    extends Field.Ops, OrderedEuclideanRing.Ops, OrderedDifferenceSemifield.Ops
-
-  /** The [[OrderedField]] instance describing the current algebra system. */
-  inline def orderedField[X : OrderedField as orderedField]: OrderedField[X] =
-    orderedField
+  extends Field[X], OrderedQuotientRing[X], OrderedDifferenceSemifield[X]

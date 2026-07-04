@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.Ring
+
 /**
   * Evidence that single-argument functions form a [[Ring]] under pointwise
   * negation, addition, and multiplication, provided the return type has a
@@ -8,16 +10,13 @@ package evidence.function
   */
 trait FunctionIsRing:
 
-  given [X, Y : Ring as Y]: Ring[X => Y] with
+  given [X, Y : Ring as Y] => Ring[X => Y]:
 
     override def zero: X => Y = _ => Y.zero
+    override def one: X => Y  = _ => Y.one
 
-    override def one: X => Y = _ => Y.one
+    extension (f: X => Y)
 
-    override inline def add(f: X => Y, g: X => Y): X => Y =
-      x => Y.add(f(x), g(x))
-
-    override inline def multiply(f: X => Y, g: X => Y): X => Y =
-      x => Y.multiply(f(x), g(x))
-
-    override inline def negate(f: X => Y): X => Y = x => Y.negate(f(x))
+      override def add(g: X => Y): X => Y = x => f(x) + g(x)
+      override def mul(g: X => Y): X => Y = x => f(x) * g(x)
+      override def negate: X => Y         = x => f(x).negate

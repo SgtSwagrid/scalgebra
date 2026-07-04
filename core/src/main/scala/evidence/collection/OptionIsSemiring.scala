@@ -2,9 +2,11 @@ package com.alecdorrington.scalgebra
 package evidence
 package collection
 
+import com.alecdorrington.scalgebra.arithmetic.Semiring
+
 /**
   * Evidence that [[Option]] forms a [[Semiring]] by lifting a [[Semiring]],
-  * with [[None]] as zero and `Some([[one]])` as one.
+  * with [[None]] as zero and `Some(one)` as one.
   *
   * Adding two [[Some]] values combines their contents; [[None]] is the additive
   * identity. Multiplying two [[Some]] values multiplies their contents;
@@ -12,18 +14,19 @@ package collection
   */
 trait OptionIsSemiring:
 
-  given [X : Semiring as X]: Semiring[Option[X]] with
+  given [X : Semiring as X] => Semiring[Option[X]]:
 
     override def zero: Option[X] = None
+    override def one: Option[X]  = Some(X.one)
 
-    override def one: Option[X] = Some(X.one)
+    extension (x: Option[X])
 
-    override def add(x: Option[X], y: Option[X]): Option[X] = (x, y) match
-      case (None, _)          => y
-      case (_, None)          => x
-      case (Some(a), Some(b)) => Some(X.add(a, b))
+      override def add(y: Option[X]): Option[X] = (x, y) match
+        case (None, _)          => y
+        case (_, None)          => x
+        case (Some(a), Some(b)) => Some(a + b)
 
-    override def multiply(x: Option[X], y: Option[X]): Option[X] = (x, y) match
-      case (None, _)          => None
-      case (_, None)          => None
-      case (Some(a), Some(b)) => Some(X.multiply(a, b))
+      override def mul(y: Option[X]): Option[X] = (x, y) match
+        case (None, _)          => None
+        case (_, None)          => None
+        case (Some(a), Some(b)) => Some(a * b)

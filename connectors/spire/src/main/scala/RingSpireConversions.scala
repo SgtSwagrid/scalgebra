@@ -1,25 +1,31 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 import spire.algebra
 
-/** Implicit conversions between [[structures.Ring]] and [[spire.algebra.Ring]]. */
+/**
+  * Implicit conversions between [[scalgebra.arithmetic.Ring]] and
+  * [[spire.algebra.Ring]].
+  */
 trait RingSpireConversions:
 
-  /** Derives a [[spire.algebra.Ring]] from a [[structures.Ring]]. */
-  given ringToSpire[X : structures.Ring as S]: algebra.Ring[X] with
+  /** Derives a [[spire.algebra.Ring]] from a [[scalgebra.arithmetic.Ring]]. */
+  given ringToSpire: [X : scalgebra.arithmetic.Ring as S] => algebra.Ring[X]:
 
-    def plus(x: X, y: X): X  = S.add(x, y)
+    def plus(x: X, y: X): X  = x + y
     def zero: X              = S.zero
-    def negate(x: X): X      = S.negate(x)
-    def times(x: X, y: X): X = S.multiply(x, y)
+    def negate(x: X): X      = x.negate
+    def times(x: X, y: X): X = x * y
     def one: X               = S.one
 
-  /** Derives a [[structures.Ring]] from a [[spire.algebra.Ring]]. */
-  given ringFromSpire[X : algebra.Ring as S]: structures.Ring[X] with
+  /** Derives a [[scalgebra.arithmetic.Ring]] from a [[spire.algebra.Ring]]. */
+  given ringFromSpire: [X : algebra.Ring as S] => scalgebra.arithmetic.Ring[X]:
 
-    def add(x: X, y: X): X      = S.plus(x, y)
-    def zero: X                 = S.zero
-    def negate(x: X): X         = S.negate(x)
-    def multiply(x: X, y: X): X = S.times(x, y)
-    def one: X                  = S.one
+    override def zero: X = S.zero
+    override def one: X  = S.one
+
+    extension (x: X)
+
+      override def add(y: X): X = S.plus(x, y)
+      override def negate: X    = S.negate(x)
+      override def mul(y: X): X = S.times(x, y)

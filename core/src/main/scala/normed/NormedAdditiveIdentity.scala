@@ -1,20 +1,20 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[AdditiveIdentity]]. */
+import com.alecdorrington.scalgebra.arithmetic.AdditiveIdentity
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Additive identity (`0`)
+  *   - Norm (length)
+  *
+  * @note
+  *   Laws, in addition to those inherited, whenever [[S]] carries the
+  *   corresponding structure:
+  *   - Definiteness: `‖x‖ == 0` if and only if `x == zero`.
+  */
 trait NormedAdditiveIdentity[X, S] extends AdditiveIdentity[X], Normed[X, S]
 
-/** The companion object for [[NormedAdditiveIdentity]]. */
-object NormedAdditiveIdentity extends NormedAdditiveIdentity.Ops:
-
-  trait Ops extends AdditiveIdentity.Ops, Normed.Ops
+object NormedAdditiveIdentity:
 
   type Over[S] = [X] =>> NormedAdditiveIdentity[X, S]
-
-  /**
-    * The [[NormedAdditiveIdentity]] instance describing the current algebra
-    * system.
-    */
-  inline def normedAdditiveIdentity[X, S]
-    (using ev: NormedAdditiveIdentity[X, S])
-    : NormedAdditiveIdentity[X, S] = ev

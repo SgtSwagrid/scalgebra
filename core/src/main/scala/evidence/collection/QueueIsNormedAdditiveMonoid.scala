@@ -11,10 +11,11 @@ import scala.collection.immutable.Queue
   */
 trait QueueIsNormedAdditiveMonoid:
 
-  given [X]: NormedAdditiveMonoid[Queue[X], Int] with
+  given [X] => NormedAdditiveMonoid[Queue[X], Int]:
 
     override def zero: Queue[X] = Queue.empty
 
-    override inline def add(x: Queue[X], y: Queue[X]): Queue[X] = x ++ y
+    extension (x: Queue[X])
 
-    override inline def norm(x: Queue[X]): Int = x.length
+      override def add(y: Queue[X]): Queue[X] = x ++ y
+      override def length: Int                = x.length

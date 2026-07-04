@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeSemigroup
+
 /**
   * Evidence that single-argument functions form a [[MultiplicativeSemigroup]]
   * under pointwise multiplication, provided the return type has a
@@ -8,8 +10,7 @@ package evidence.function
   */
 trait FunctionIsMultiplicativeSemigroup:
 
-  given [X, Y : MultiplicativeSemigroup as Y]: MultiplicativeSemigroup[X => Y]
-  with
+  given [X, Y : MultiplicativeSemigroup as Y]
+    => MultiplicativeSemigroup[X => Y]:
 
-    override inline def multiply(f: X => Y, g: X => Y): X => Y =
-      x => Y.multiply(f(x), g(x))
+    extension (f: X => Y) override def mul(g: X => Y): X => Y = x => f(x) * g(x)

@@ -12,21 +12,21 @@ import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeIdentity
 trait TupleIsOrderedMultiplicativeIdentity:
 
   given [X : OrderedMultiplicativeIdentity as X]
-    : OrderedMultiplicativeIdentity[X *: EmptyTuple] with
+    => OrderedMultiplicativeIdentity[X *: EmptyTuple]:
 
     override def one: X *: EmptyTuple = X.one *: EmptyTuple
 
-    override inline def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
+    override def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
       .compare(x.head, y.head)
 
   given [
     X : OrderedMultiplicativeIdentity as X,
     Y : OrderedMultiplicativeIdentity as Y,
-  ]: OrderedMultiplicativeIdentity[(X, Y)] with
+  ] => OrderedMultiplicativeIdentity[(X, Y)]:
 
     override def one: (X, Y) = (X.one, Y.one)
 
-    override inline def compare(x: (X, Y), y: (X, Y)): Int =
+    override def compare(x: (X, Y), y: (X, Y)): Int =
       val c = X.compare(x(0), y(0))
       if c != 0 then c else Y.compare(x(1), y(1))
 
@@ -34,11 +34,11 @@ trait TupleIsOrderedMultiplicativeIdentity:
     X : OrderedMultiplicativeIdentity as X,
     Y : OrderedMultiplicativeIdentity as Y,
     Z : OrderedMultiplicativeIdentity as Z,
-  ]: OrderedMultiplicativeIdentity[(X, Y, Z)] with
+  ] => OrderedMultiplicativeIdentity[(X, Y, Z)]:
 
     override def one: (X, Y, Z) = (X.one, Y.one, Z.one)
 
-    override inline def compare(x: (X, Y, Z), y: (X, Y, Z)): Int =
+    override def compare(x: (X, Y, Z), y: (X, Y, Z)): Int =
       val c = X.compare(x(0), y(0))
       if c != 0 then c
       else
@@ -50,11 +50,11 @@ trait TupleIsOrderedMultiplicativeIdentity:
     X2 : OrderedMultiplicativeIdentity as X2,
     X3 : OrderedMultiplicativeIdentity as X3,
     X4 : OrderedMultiplicativeIdentity as X4,
-  ]: OrderedMultiplicativeIdentity[(X1, X2, X3, X4)] with
+  ] => OrderedMultiplicativeIdentity[(X1, X2, X3, X4)]:
 
     override def one: (X1, X2, X3, X4) = (X1.one, X2.one, X3.one, X4.one)
 
-    override inline def compare(x: (X1, X2, X3, X4), y: (X1, X2, X3, X4)): Int =
+    override def compare(x: (X1, X2, X3, X4), y: (X1, X2, X3, X4)): Int =
       val c1 = X1.compare(x(0), y(0))
       if c1 != 0 then c1
       else
@@ -70,12 +70,12 @@ trait TupleIsOrderedMultiplicativeIdentity:
     X3 : OrderedMultiplicativeIdentity as X3,
     X4 : OrderedMultiplicativeIdentity as X4,
     X5 : OrderedMultiplicativeIdentity as X5,
-  ]: OrderedMultiplicativeIdentity[(X1, X2, X3, X4, X5)] with
+  ] => OrderedMultiplicativeIdentity[(X1, X2, X3, X4, X5)]:
 
     override def one: (X1, X2, X3, X4, X5) =
       (X1.one, X2.one, X3.one, X4.one, X5.one)
 
-    override inline def compare
+    override def compare
       (x: (X1, X2, X3, X4, X5), y: (X1, X2, X3, X4, X5))
       : Int =
       val c1 = X1.compare(x(0), y(0))
@@ -97,12 +97,12 @@ trait TupleIsOrderedMultiplicativeIdentity:
     X4 : OrderedMultiplicativeIdentity as X4,
     X5 : OrderedMultiplicativeIdentity as X5,
     X6 : OrderedMultiplicativeIdentity as X6,
-  ]: OrderedMultiplicativeIdentity[(X1, X2, X3, X4, X5, X6)] with
+  ] => OrderedMultiplicativeIdentity[(X1, X2, X3, X4, X5, X6)]:
 
     override def one: (X1, X2, X3, X4, X5, X6) =
       (X1.one, X2.one, X3.one, X4.one, X5.one, X6.one)
 
-    override inline def compare
+    override def compare
       (
         x: (X1, X2, X3, X4, X5, X6),
         y: (X1, X2, X3, X4, X5, X6),

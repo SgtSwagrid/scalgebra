@@ -1,32 +1,37 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 import spire.algebra
 
 /**
-  * Implicit conversions between [[structures.MultiplicativeGroup]] and
-  * [[spire.algebra.MultiplicativeGroup]].
+  * Implicit conversions between [[scalgebra.arithmetic.MultiplicativeGroup]]
+  * and [[spire.algebra.MultiplicativeGroup]].
   */
 trait MultiplicativeGroupSpireConversions:
 
   /**
     * Derives a [[spire.algebra.MultiplicativeGroup]] from a
-    * [[structures.MultiplicativeGroup]].
+    * [[scalgebra.arithmetic.MultiplicativeGroup]].
     */
-  given multiplicativeGroupToSpire[X : structures.MultiplicativeGroup as S]
-    : algebra.MultiplicativeGroup[X] with
+  given multiplicativeGroupToSpire
+    : [X : scalgebra.arithmetic.MultiplicativeGroup as S]
+      => algebra.MultiplicativeGroup[X]:
 
-    def times(x: X, y: X): X = S.multiply(x, y)
+    def times(x: X, y: X): X = x * y
     def one: X               = S.one
-    def div(x: X, y: X): X   = S.divide(x, y)
+    def div(x: X, y: X): X   = x / y
 
   /**
-    * Derives a [[structures.MultiplicativeGroup]] from a
+    * Derives a [[scalgebra.arithmetic.MultiplicativeGroup]] from a
     * [[spire.algebra.MultiplicativeGroup]].
     */
-  given multiplicativeGroupFromSpire[X : algebra.MultiplicativeGroup as S]
-    : structures.MultiplicativeGroup[X] with
+  given multiplicativeGroupFromSpire
+    : [X : algebra.MultiplicativeGroup as S]
+      => scalgebra.arithmetic.MultiplicativeGroup[X]:
 
-    def multiply(x: X, y: X): X = S.times(x, y)
-    def one: X                  = S.one
-    def reciprocate(x: X): X    = S.reciprocal(x)
+    override def one: X = S.one
+
+    extension (x: X)
+
+      override def mul(y: X): X  = S.times(x, y)
+      override def reciprocal: X = S.reciprocal(x)

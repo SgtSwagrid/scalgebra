@@ -1,21 +1,21 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[MultiplicativeIdentity]]. */
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeIdentity
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Multiplicative identity (`1`)
+  *   - Norm (length)
+  *
+  * @note
+  *   Laws, in addition to those inherited, whenever [[S]] carries the
+  *   corresponding structure:
+  *   - Normalisation: `‖one‖ == 1`.
+  */
 trait NormedMultiplicativeIdentity[X, S]
   extends MultiplicativeIdentity[X], Normed[X, S]
 
-/** The companion object for [[NormedMultiplicativeIdentity]]. */
-object NormedMultiplicativeIdentity extends NormedMultiplicativeIdentity.Ops:
-
-  trait Ops extends MultiplicativeIdentity.Ops, Normed.Ops
+object NormedMultiplicativeIdentity:
 
   type Over[S] = [X] =>> NormedMultiplicativeIdentity[X, S]
-
-  /**
-    * The [[NormedMultiplicativeIdentity]] instance describing the current
-    * algebra system.
-    */
-  inline def normedMultiplicativeIdentity[X, S]
-    (using ev: NormedMultiplicativeIdentity[X, S])
-    : NormedMultiplicativeIdentity[X, S] = ev

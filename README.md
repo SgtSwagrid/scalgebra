@@ -26,7 +26,7 @@ It is aimed at **library designers** rather than end users. If you are writing a
 ### Example
 
 ```scala 3
-import com.alecdorrington.scalgebra.Ring
+import com.alecdorrington.scalgebra.arithmetic.Ring
 
 // Only requires addition, negation, and multiplication (not division).
 def dot[X : Ring](xs: Seq[X], ys: Seq[X]): X =
@@ -78,6 +78,7 @@ Each trait can be found in the package `com.alecdorrington.scalgebra`.
 | `AdditiveIdentity`        | `0`                             |
 | `AdditiveInverse`         | `-_`                            |
 | `Difference`              | `-`                             |
+| `AdditiveMagma`           | `+` (non-associative)           |
 | `AdditiveSemigroup`       | `+`                             |
 | `DifferenceSemigroup`     | `+`, `-`                        |
 | `AdditiveMonoid`          | `+`, `0`                        |
@@ -85,17 +86,20 @@ Each trait can be found in the package `com.alecdorrington.scalgebra`.
 | `AdditiveGroup`           | `+`, `-_`, `0`                  |
 | `MultiplicativeIdentity`  | `1`                             |
 | `MultiplicativeInverse`   | `^-1`                           |
-| `Euclidean`               | `/`                             |
+| `Quotient`                | `/`                             |
+| `MultiplicativeMagma`     | `*` (non-associative)           |
 | `MultiplicativeSemigroup` | `*`                             |
-| `EuclideanSemigroup`      | `*`, `/`                        |
+| `QuotientSemigroup`       | `*`, `/`                        |
 | `MultiplicativeMonoid`    | `*`, `1`                        |
-| `EuclideanMonoid`         | `*`, `/`, `1`                   |
+| `QuotientMonoid`          | `*`, `/`, `1`                   |
 | `MultiplicativeGroup`     | `*`, `^-1`, `1`                 |
 | `Semiring`                | `+`, `*`, `0`, `1`              |
 | `DifferenceSemiring`      | `+`, `-`, `*`, `0`, `1`         |
+| `QuotientSemiring`        | `+`, `*`, `/`, `0`, `1`         |
+| `QuotientDifferenceSemiring` | `+`, `-`, `*`, `/`, `0`, `1` |
 | `Pseudoring`              | `+`, `-_`, `*`, `0`             |
 | `Ring`                    | `+`, `-_`, `*`, `0`, `1`        |
-| `EuclideanRing`           | `+`, `-_`, `*`, `/`, `0`, `1`   |
+| `QuotientRing`            | `+`, `-_`, `*`, `/`, `0`, `1`   |
 | `Semifield`               | `+`, `*`, `^-1`, `0`, `1`       |
 | `DifferenceSemifield`     | `+`, `-`, `*`, `^-1`, `0`, `1`  |
 | `Field`                   | `+`, `-_`, `*`, `^-1`, `0`, `1` |
@@ -115,6 +119,28 @@ The ordered variants go beyond merely combining their unordered counterpart with
 they also add operations that require both capabilities simultaneously, such as `abs`, `sign`, and `clamp`.
 Note that an `OrderedField[X]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Ordering[X]`.
 
+### Archimedean variants
+
+The `archimedean` subpackage provides `Archimedean`-prefixed variants of each ordered type class
+for structures that additionally support rounding to integer values.
+The new primitives are `floor` and `ceil` (the latter becoming derived once negation is available),
+from which `truncate`, `round`, `frac`,
+and `isIntegral` are derived at the appropriate levels of the hierarchy.
+At the quotient ring level and above, integer-quotient remainders
+(`remainder`, `floorRemainder`, `euclideanRemainder`) are also provided;
+unlike `mod`, these remain meaningful for fields, where division is exact.
+
+```scala 3
+import com.alecdorrington.scalgebra.archimedean.ArchimedeanField
+
+// Wraps x into the range [0, y), even when x is negative.
+def wrap[X : ArchimedeanField](x: X, y: X): X = x.floorRemainder(y)
+```
+
+Instances are included for `Double`, `Float`, and `BigDecimal`.
+Lawful instances exist exactly for Archimedean structures —
+those with no infinite or infinitesimal elements.
+
 ### Normed variants
 
 The `normed` subpackage provides `Normed`-prefixed variants that combine each type class with `Normed[X, S]`,
@@ -124,25 +150,43 @@ Use these when your algorithm needs both algebraic operations and a norm under a
 ```scala 3
 import com.alecdorrington.scalgebra.normed.NormedField
 
-def normalize[X : NormedField.Over[X]](x: X): X = x / x.length
+def normalise[X : NormedField.Over[X]](x: X): X = x / x.length
 ```
 
 The `Over[S]` type alias on each companion (e.g. `NormedField.Over[Double]`) allows them to be used as
 single-parameter context bounds.
 Note that a `NormedField[X, S]` instance must be provided explicitly and is not derived automatically from `Field[X]` and `Normed[X, S]`.
 
+### Lattices
+
+The `lattice` subpackage provides a separate hierarchy for lattice-like structures,
+spanning from `JoinSemilattice` and `MeetSemilattice` up to `BooleanAlgebra`.
+The operations use logical names with the familiar symbols as aliases:
+`or` (`|`), `and` (`&`), and `not` (`!`), plus the bounds `bottom` (`⊥`) and `top` (`⊤`)
+and the derived `imp` and `xor` (`^`).
+
+```scala 3
+import com.alecdorrington.scalgebra.lattice.BooleanAlgebra
+
+def majority[X : BooleanAlgebra](a: X, b: X, c: X): X =
+  (a & b) | (a & c) | (b & c)
+```
+
+Instances are included for `Boolean`, and for `Set` as a lattice under union and intersection.
+
 ### Providing evidence
 
 To make your own type work with these type classes, provide a `given` instance:
 
 ```scala 3
-import com.alecdorrington.scalgebra.AdditiveMonoid
+import com.alecdorrington.scalgebra.arithmetic.AdditiveMonoid
 
 case class Vec2(x: Double, y: Double)
 
-given AdditiveMonoid[Vec2] with
-  def add(a: Vec2, b: Vec2): Vec2 = Vec2(a.x + b.x, a.y + b.y)
+given AdditiveMonoid[Vec2]:
   def zero: Vec2 = Vec2(0, 0)
+  extension (a: Vec2)
+    def add(b: Vec2): Vec2 = Vec2(a.x + b.x, a.y + b.y)
 ```
 
 For in-built types (`Int`, `Double`, etc.), evidence is already included.
@@ -151,7 +195,7 @@ For in-built types (`Int`, `Double`, etc.), evidence is already included.
 
 _Scalgebra_ provides, as separate dependencies, connectors to all major abstract algebra libraries in the Scala ecosystem.
 These provide automatic conversion between the algebraic type classes found here and those from each of the other libraries, where equivalents exist.
-Conversions are provided in both directions.
+Conversions are provided in both directions, wherever this is possible without ambiguity.
 
 ### Usage
 
@@ -185,11 +229,11 @@ Connectors currently exist for the following projects:
 ## ⚖️ What sets this library apart?
 
 - **Scala 3 native.** Built from the ground up with `given`/`using`, new-style context bounds, and significant indentation. No legacy implicit machinery.
-- **Fine-grained hierarchy.** The type class ladder spans from `AdditiveSemigroup` all the way up through `Semiring`, `Ring`, `EuclideanRing`, `Semifield`, and `Field`, with many intermediate structures (e.g. `DifferenceMonoid`, `DifferenceSemifield`, `EuclideanMonoid`) that other libraries skip over. You can express precisely the capabilities you need.
+- **Fine-grained hierarchy.** The type class ladder spans from `AdditiveSemigroup` all the way up through `Semiring`, `Ring`, `QuotientRing`, `Semifield`, and `Field`, with many intermediate structures (e.g. `DifferenceMonoid`, `DifferenceSemifield`, `QuotientMonoid`) that other libraries skip over. You can express precisely the capabilities you need.
 - **Additive/multiplicative split.** Addition and multiplication are tracked as distinct capabilities via separate inheritance hierarchies, mirroring standard mathematical convention and enabling constraints like `Semiring` that are inexpressible in libraries with a single abstract binary operation.
-- **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes, not just a convention for pairing a structure with `Ordering`. They expose additional operations (`abs`, `sign`, `clamp`) that require both capabilities simultaneously.
+- **First-class ordered variants.** `OrderedRing`, `OrderedField`, etc. are proper type classes, not just a convention for pairing a structure with `Ordering`. They expose additional operations (`abs`, `sign`, `clamp`) that require both capabilities simultaneously. The Archimedean variants (`ArchimedeanRing`, `ArchimedeanField`, etc.) extend these further with rounding (`floor`, `round`, `frac`) and integer-quotient remainders (`floorRemainder`).
 - **Zero-import evidence.** Instances for in-built types (`Int`, `Double`, etc.) are propagated through the companion object hierarchy, so call sites need no extra imports.
-- **Minimal footprint.** No number types, no approximate data structures, no lattices. Just the structural layer.
+- **Minimal footprint.** No number types, no approximate data structures. Just the structural layer.
 - **Compatibility.** Integrates seamlessly with the competition.
 
 ## 👁️ See also
