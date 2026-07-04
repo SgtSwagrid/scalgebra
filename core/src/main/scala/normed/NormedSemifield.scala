@@ -13,8 +13,6 @@ object NormedSemifield extends NormedSemifield.Ops:
 
   type Over[S] = [X] =>> NormedSemifield[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedSemifield
-
   /** The [[NormedSemifield]] instance describing the current algebra system. */
   inline def normedSemifield[X, S]
     (using ev: NormedSemifield[X, S])

@@ -17,8 +17,6 @@ object NormedDifferenceSemifield extends NormedDifferenceSemifield.Ops:
 
   type Over[S] = [X] =>> NormedDifferenceSemifield[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedDifferenceSemifield
-
   /**
     * The [[NormedDifferenceSemifield]] instance describing the current algebra
     * system.

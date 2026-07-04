@@ -12,8 +12,6 @@ object NormedMultiplicativeIdentity extends NormedMultiplicativeIdentity.Ops:
 
   type Over[S] = [X] =>> NormedMultiplicativeIdentity[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedMultiplicativeIdentity
-
   /**
     * The [[NormedMultiplicativeIdentity]] instance describing the current
     * algebra system.

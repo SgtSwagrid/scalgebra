@@ -13,8 +13,6 @@ object NormedField extends NormedField.Ops:
 
   type Over[S] = [X] =>> NormedField[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedField
-
   /** The [[NormedField]] instance describing the current algebra system. */
   inline def normedField[X, S](using ev: NormedField[X, S]): NormedField[X, S] =
     ev

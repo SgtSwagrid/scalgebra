@@ -17,8 +17,6 @@ object NormedDifferenceSemigroup extends NormedDifferenceSemigroup.Ops:
 
   type Over[S] = [X] =>> NormedDifferenceSemigroup[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedDifferenceSemigroup
-
   /**
     * The [[NormedDifferenceSemigroup]] instance describing the current algebra
     * system.

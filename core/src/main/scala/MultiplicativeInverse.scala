@@ -34,8 +34,6 @@ object MultiplicativeInverse extends MultiplicativeInverse.Ops:
     inline def reciprocate[X : MultiplicativeInverse as X](x: X): X = X
       .reciprocate(x)
 
-  export com.alecdorrington.scalgebra.MultiplicativeInverse
-
   /**
     * The [[MultiplicativeInverse]] instance describing the current algebra
     * system.

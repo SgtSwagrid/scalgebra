@@ -15,7 +15,5 @@ object Ring extends Ring.Ops:
   trait Ops extends Pseudoring.Ops, DifferenceSemiring.Ops:
     inline def negativeOne[X : Ring as X]: X = X.negativeOne
 
-  export com.alecdorrington.scalgebra.Ring
-
   /** The [[Ring]] instance describing the current algebra system. */
   inline def ring[X : Ring as ring]: Ring[X] = ring

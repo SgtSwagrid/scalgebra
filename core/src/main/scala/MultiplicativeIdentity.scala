@@ -43,8 +43,6 @@ object MultiplicativeIdentity extends MultiplicativeIdentity.Ops:
     inline def isOne[X : MultiplicativeIdentity as X](x: X): Boolean =
       X.isOne(x)
 
-  export com.alecdorrington.scalgebra.MultiplicativeIdentity
-
   /**
     * The [[MultiplicativeIdentity]] instance describing the current algebra
     * system.

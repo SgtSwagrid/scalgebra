@@ -11,8 +11,6 @@ object NormedAdditiveSemigroup extends NormedAdditiveSemigroup.Ops:
 
   type Over[S] = [X] =>> NormedAdditiveSemigroup[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedAdditiveSemigroup
-
   /**
     * The [[NormedAdditiveSemigroup]] instance describing the current algebra
     * system.

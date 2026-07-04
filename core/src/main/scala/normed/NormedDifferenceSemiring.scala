@@ -17,8 +17,6 @@ object NormedDifferenceSemiring extends NormedDifferenceSemiring.Ops:
 
   type Over[S] = [X] =>> NormedDifferenceSemiring[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedDifferenceSemiring
-
   /**
     * The [[NormedDifferenceSemiring]] instance describing the current algebra
     * system.

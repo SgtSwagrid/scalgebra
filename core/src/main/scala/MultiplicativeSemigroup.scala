@@ -93,8 +93,6 @@ object MultiplicativeSemigroup extends MultiplicativeSemigroup.Ops:
     inline def pow[X : MultiplicativeSemigroup as X](x: X, n: Int): X =
       X.pow(x, n)
 
-  export com.alecdorrington.scalgebra.MultiplicativeSemigroup
-
   /**
     * The [[MultiplicativeSemigroup]] instance describing the current algebra
     * system.

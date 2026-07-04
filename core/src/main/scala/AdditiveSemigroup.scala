@@ -92,8 +92,6 @@ object AdditiveSemigroup extends AdditiveSemigroup.Ops:
     inline def scale[X : AdditiveSemigroup as X](x: X, n: Int): X =
       X.scale(x, n)
 
-  export com.alecdorrington.scalgebra.AdditiveSemigroup
-
   /** The [[AdditiveSemigroup]] instance describing the current algebra system. */
   inline def additiveSemigroup[X : AdditiveSemigroup as additiveSemigroup]
     : AdditiveSemigroup[X] = additiveSemigroup

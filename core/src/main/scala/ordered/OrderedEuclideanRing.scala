@@ -11,8 +11,6 @@ object OrderedEuclideanRing extends OrderedEuclideanRing.Ops:
   trait Ops
     extends EuclideanRing.Ops, OrderedRing.Ops, OrderedEuclideanMonoid.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedEuclideanRing
-
   /**
     * The [[OrderedEuclideanRing]] instance describing the current algebra
     * system.

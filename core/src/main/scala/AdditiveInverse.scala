@@ -30,8 +30,6 @@ object AdditiveInverse extends AdditiveInverse.Ops:
       */
     inline def negate[X : AdditiveInverse as X](x: X): X = X.negate(x)
 
-  export com.alecdorrington.scalgebra.AdditiveInverse
-
   /** The [[AdditiveInverse]] instance describing the current algebra system. */
   inline def additiveInverse[X : AdditiveInverse as additiveInverse]
     : AdditiveInverse[X] = additiveInverse

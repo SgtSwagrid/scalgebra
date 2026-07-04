@@ -12,8 +12,6 @@ object NormedEuclideanRing extends NormedEuclideanRing.Ops:
 
   type Over[S] = [X] =>> NormedEuclideanRing[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedEuclideanRing
-
   /**
     * The [[NormedEuclideanRing]] instance describing the current algebra
     * system.

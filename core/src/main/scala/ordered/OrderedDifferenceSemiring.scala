@@ -13,8 +13,6 @@ object OrderedDifferenceSemiring extends OrderedDifferenceSemiring.Ops:
             OrderedSemiring.Ops,
             OrderedDifferenceMonoid.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemiring
-
   /**
     * The [[OrderedDifferenceSemiring]] instance describing the current algebra
     * system.

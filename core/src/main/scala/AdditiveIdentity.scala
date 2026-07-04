@@ -44,8 +44,6 @@ object AdditiveIdentity extends AdditiveIdentity.Ops:
     /** @return `true` if [[x]] equals [[zero]]. */
     inline def isZero[X : AdditiveIdentity as X](x: X): Boolean = X.isZero(x)
 
-  export com.alecdorrington.scalgebra.AdditiveIdentity
-
   /** The [[AdditiveIdentity]] instance describing the current algebra system. */
   inline def additiveIdentity[X : AdditiveIdentity as zero]
     : AdditiveIdentity[X] = zero

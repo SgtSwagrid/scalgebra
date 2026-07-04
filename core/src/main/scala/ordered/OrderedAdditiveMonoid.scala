@@ -15,8 +15,6 @@ object OrderedAdditiveMonoid extends OrderedAdditiveMonoid.Ops:
             OrderedAdditiveSemigroup.Ops,
             OrderedAdditiveIdentity.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedAdditiveMonoid
-
   /**
     * The [[OrderedAdditiveMonoid]] instance describing the current algebra
     * system.

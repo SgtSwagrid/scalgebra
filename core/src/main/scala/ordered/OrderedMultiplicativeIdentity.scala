@@ -10,8 +10,6 @@ object OrderedMultiplicativeIdentity extends OrderedMultiplicativeIdentity.Ops:
 
   trait Ops extends MultiplicativeIdentity.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeIdentity
-
   /**
     * The [[OrderedMultiplicativeIdentity]] instance describing the current
     * algebra system.

@@ -9,8 +9,6 @@ object OrderedAdditiveSemigroup extends OrderedAdditiveSemigroup.Ops:
 
   trait Ops extends AdditiveSemigroup.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedAdditiveSemigroup
-
   /**
     * The [[OrderedAdditiveSemigroup]] instance describing the current algebra
     * system.

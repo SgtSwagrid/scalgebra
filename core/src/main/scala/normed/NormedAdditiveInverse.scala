@@ -11,8 +11,6 @@ object NormedAdditiveInverse extends NormedAdditiveInverse.Ops:
 
   type Over[S] = [X] =>> NormedAdditiveInverse[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedAdditiveInverse
-
   /**
     * The [[NormedAdditiveInverse]] instance describing the current algebra
     * system.

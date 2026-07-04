@@ -11,8 +11,6 @@ object OrderedSemifield extends OrderedSemifield.Ops:
   trait Ops
     extends Semifield.Ops, OrderedSemiring.Ops, OrderedMultiplicativeGroup.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedSemifield
-
   /** The [[OrderedSemifield]] instance describing the current algebra system. */
   inline def orderedSemifield[X : OrderedSemifield as orderedSemifield]
     : OrderedSemifield[X] = orderedSemifield

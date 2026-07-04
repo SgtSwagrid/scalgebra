@@ -17,8 +17,6 @@ object NormedMultiplicativeGroup extends NormedMultiplicativeGroup.Ops:
 
   type Over[S] = [X] =>> NormedMultiplicativeGroup[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedMultiplicativeGroup
-
   /**
     * The [[NormedMultiplicativeGroup]] instance describing the current algebra
     * system.

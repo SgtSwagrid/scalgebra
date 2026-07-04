@@ -17,8 +17,6 @@ object NormedEuclideanMonoid extends NormedEuclideanMonoid.Ops:
 
   type Over[S] = [X] =>> NormedEuclideanMonoid[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedEuclideanMonoid
-
   /**
     * The [[NormedEuclideanMonoid]] instance describing the current algebra
     * system.

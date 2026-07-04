@@ -10,8 +10,6 @@ object OrderedEuclideanSemigroup extends OrderedEuclideanSemigroup.Ops:
 
   trait Ops extends EuclideanSemigroup.Ops, OrderedMultiplicativeSemigroup.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedEuclideanSemigroup
-
   /**
     * The [[OrderedEuclideanSemigroup]] instance describing the current algebra
     * system.

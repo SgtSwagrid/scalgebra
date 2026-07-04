@@ -43,8 +43,6 @@ object AdditiveMonoid extends AdditiveMonoid.Ops:
       */
     inline def scale[X : AdditiveMonoid as X](x: X, n: Int): X = X.scale(x, n)
 
-  export com.alecdorrington.scalgebra.AdditiveMonoid
-
   /** The [[AdditiveMonoid]] instance describing the current algebra system. */
   inline def additiveMonoid[X : AdditiveMonoid as additiveMonoid]
     : AdditiveMonoid[X] = additiveMonoid

@@ -9,8 +9,6 @@ object OrderedEuclidean extends OrderedEuclidean.Ops:
 
   trait Ops extends Euclidean.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedEuclidean
-
   /** The [[OrderedEuclidean]] instance describing the current algebra system. */
   inline def orderedEuclidean[X : OrderedEuclidean as orderedEuclidean]
     : OrderedEuclidean[X] = orderedEuclidean

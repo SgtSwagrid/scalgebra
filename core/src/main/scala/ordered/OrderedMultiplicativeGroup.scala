@@ -15,8 +15,6 @@ object OrderedMultiplicativeGroup extends OrderedMultiplicativeGroup.Ops:
             OrderedEuclideanMonoid.Ops,
             OrderedMultiplicativeInverse.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeGroup
-
   /**
     * The [[OrderedMultiplicativeGroup]] instance describing the current algebra
     * system.

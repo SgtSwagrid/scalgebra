@@ -9,8 +9,6 @@ object OrderedDifference extends OrderedDifference.Ops:
 
   trait Ops extends Difference.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedDifference
-
   /** The [[OrderedDifference]] instance describing the current algebra system. */
   inline def orderedDifference[X : OrderedDifference as orderedDifference]
     : OrderedDifference[X] = orderedDifference

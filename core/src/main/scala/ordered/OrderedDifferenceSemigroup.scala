@@ -10,8 +10,6 @@ object OrderedDifferenceSemigroup extends OrderedDifferenceSemigroup.Ops:
 
   trait Ops extends DifferenceSemigroup.Ops, OrderedAdditiveSemigroup.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemigroup
-
   /**
     * The [[OrderedDifferenceSemigroup]] instance describing the current algebra
     * system.

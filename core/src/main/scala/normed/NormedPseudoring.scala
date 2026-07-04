@@ -17,8 +17,6 @@ object NormedPseudoring extends NormedPseudoring.Ops:
 
   type Over[S] = [X] =>> NormedPseudoring[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedPseudoring
-
   /** The [[NormedPseudoring]] instance describing the current algebra system. */
   inline def normedPseudoring[X, S]
     (using ev: NormedPseudoring[X, S])

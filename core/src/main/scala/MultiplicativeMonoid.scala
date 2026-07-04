@@ -46,8 +46,6 @@ object MultiplicativeMonoid extends MultiplicativeMonoid.Ops:
       */
     inline def pow[X : MultiplicativeMonoid as X](x: X, n: Int): X = X.pow(x, n)
 
-  export com.alecdorrington.scalgebra.MultiplicativeMonoid
-
   /**
     * The [[MultiplicativeMonoid]] instance describing the current algebra
     * system.

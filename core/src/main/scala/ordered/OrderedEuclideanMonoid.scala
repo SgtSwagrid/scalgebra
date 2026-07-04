@@ -15,8 +15,6 @@ object OrderedEuclideanMonoid extends OrderedEuclideanMonoid.Ops:
             OrderedEuclideanSemigroup.Ops,
             OrderedMultiplicativeMonoid.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedEuclideanMonoid
-
   /**
     * The [[OrderedEuclideanMonoid]] instance describing the current algebra
     * system.

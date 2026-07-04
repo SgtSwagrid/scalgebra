@@ -29,8 +29,6 @@ object OrderedAdditiveGroup extends OrderedAdditiveGroup.Ops:
     /** Computes the absolute value of a value [[x]], i.e. `|x|`. */
     inline def abs[X : OrderedAdditiveGroup as X](x: X): X = X.abs(x)
 
-  export com.alecdorrington.scalgebra.ordered.OrderedAdditiveGroup
-
   /**
     * The [[OrderedAdditiveGroup]] instance describing the current algebra
     * system.

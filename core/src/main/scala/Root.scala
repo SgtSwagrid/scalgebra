@@ -153,7 +153,5 @@ object Root
 
   trait Ops
 
-  export com.alecdorrington.scalgebra.Root
-
   /** The [[Root]] instance describing the current algebra system. */
   inline def root[X : Root as root]: Root[X] = root

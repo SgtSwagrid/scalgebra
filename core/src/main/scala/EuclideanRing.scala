@@ -36,8 +36,6 @@ object EuclideanRing extends EuclideanRing.Ops:
     /** Computes the least common multiple of two values [[x]] and [[y]]. */
     inline def lcm[X : EuclideanRing as X](x: X, y: X): X = X.lcm(x, y)
 
-  export com.alecdorrington.scalgebra.EuclideanRing
-
   /** The [[EuclideanRing]] instance describing the current algebra system. */
   inline def euclideanRing[X : EuclideanRing as euclideanRing]
     : EuclideanRing[X] = euclideanRing

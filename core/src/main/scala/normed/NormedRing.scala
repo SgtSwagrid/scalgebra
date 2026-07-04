@@ -12,7 +12,5 @@ object NormedRing extends NormedRing.Ops:
 
   type Over[S] = [X] =>> NormedRing[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedRing
-
   /** The [[NormedRing]] instance describing the current algebra system. */
   inline def normedRing[X, S](using ev: NormedRing[X, S]): NormedRing[X, S] = ev

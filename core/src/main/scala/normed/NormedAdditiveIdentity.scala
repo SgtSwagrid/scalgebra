@@ -11,8 +11,6 @@ object NormedAdditiveIdentity extends NormedAdditiveIdentity.Ops:
 
   type Over[S] = [X] =>> NormedAdditiveIdentity[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedAdditiveIdentity
-
   /**
     * The [[NormedAdditiveIdentity]] instance describing the current algebra
     * system.

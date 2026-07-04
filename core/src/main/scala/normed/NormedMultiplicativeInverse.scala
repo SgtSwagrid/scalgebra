@@ -12,8 +12,6 @@ object NormedMultiplicativeInverse extends NormedMultiplicativeInverse.Ops:
 
   type Over[S] = [X] =>> NormedMultiplicativeInverse[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedMultiplicativeInverse
-
   /**
     * The [[NormedMultiplicativeInverse]] instance describing the current
     * algebra system.

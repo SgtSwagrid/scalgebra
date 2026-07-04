@@ -17,8 +17,6 @@ object NormedDifferenceMonoid extends NormedDifferenceMonoid.Ops:
 
   type Over[S] = [X] =>> NormedDifferenceMonoid[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedDifferenceMonoid
-
   /**
     * The [[NormedDifferenceMonoid]] instance describing the current algebra
     * system.

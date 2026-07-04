@@ -17,8 +17,6 @@ object NormedMultiplicativeMonoid extends NormedMultiplicativeMonoid.Ops:
 
   type Over[S] = [X] =>> NormedMultiplicativeMonoid[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedMultiplicativeMonoid
-
   /**
     * The [[NormedMultiplicativeMonoid]] instance describing the current algebra
     * system.

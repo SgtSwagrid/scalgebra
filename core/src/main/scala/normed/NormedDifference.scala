@@ -23,8 +23,6 @@ object NormedDifference extends NormedDifference.Ops:
 
   type Over[S] = [X] =>> NormedDifference[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedDifference
-
   /** The [[NormedDifference]] instance describing the current algebra system. */
   inline def normedDifference[X, S]
     (using ev: NormedDifference[X, S])

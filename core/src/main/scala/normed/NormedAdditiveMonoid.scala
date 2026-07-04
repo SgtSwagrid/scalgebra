@@ -17,8 +17,6 @@ object NormedAdditiveMonoid extends NormedAdditiveMonoid.Ops:
 
   type Over[S] = [X] =>> NormedAdditiveMonoid[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
-
   /**
     * The [[NormedAdditiveMonoid]] instance describing the current algebra
     * system.

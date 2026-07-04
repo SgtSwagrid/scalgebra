@@ -15,8 +15,6 @@ object OrderedDifferenceMonoid extends OrderedDifferenceMonoid.Ops:
             OrderedDifferenceSemigroup.Ops,
             OrderedAdditiveMonoid.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedDifferenceMonoid
-
   /**
     * The [[OrderedDifferenceMonoid]] instance describing the current algebra
     * system.

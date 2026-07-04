@@ -12,8 +12,6 @@ object NormedEuclideanSemigroup extends NormedEuclideanSemigroup.Ops:
 
   type Over[S] = [X] =>> NormedEuclideanSemigroup[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedEuclideanSemigroup
-
   /**
     * The [[NormedEuclideanSemigroup]] instance describing the current algebra
     * system.

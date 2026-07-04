@@ -15,8 +15,6 @@ object OrderedDifferenceSemifield extends OrderedDifferenceSemifield.Ops:
             OrderedDifferenceSemiring.Ops,
             OrderedSemifield.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemifield
-
   /**
     * The [[OrderedDifferenceSemifield]] instance describing the current algebra
     * system.

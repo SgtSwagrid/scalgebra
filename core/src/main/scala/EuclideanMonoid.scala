@@ -8,8 +8,6 @@ object EuclideanMonoid extends EuclideanMonoid.Ops:
 
   trait Ops extends EuclideanSemigroup.Ops, MultiplicativeMonoid.Ops
 
-  export com.alecdorrington.scalgebra.EuclideanMonoid
-
   /** The [[EuclideanMonoid]] instance describing the current algebra system. */
   inline def euclideanMonoid[X : EuclideanMonoid as euclideanMonoid]
     : EuclideanMonoid[X] = euclideanMonoid

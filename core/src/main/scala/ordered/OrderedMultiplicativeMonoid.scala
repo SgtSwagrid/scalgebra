@@ -15,8 +15,6 @@ object OrderedMultiplicativeMonoid extends OrderedMultiplicativeMonoid.Ops:
             OrderedMultiplicativeSemigroup.Ops,
             OrderedMultiplicativeIdentity.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeMonoid
-
   /**
     * The [[OrderedMultiplicativeMonoid]] instance describing the current
     * algebra system.

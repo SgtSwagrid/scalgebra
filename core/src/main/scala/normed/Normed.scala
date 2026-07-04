@@ -23,7 +23,5 @@ object Normed extends Normed.Ops:
 
   type Over[S] = [X] =>> Normed[X, S]
 
-  export com.alecdorrington.scalgebra.normed.Normed
-
   /** The [[Normed]] instance describing the current algebra system. */
   inline def normed[X, S](using ev: Normed[X, S]): Normed[X, S] = ev

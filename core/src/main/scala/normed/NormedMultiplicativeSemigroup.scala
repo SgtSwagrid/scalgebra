@@ -12,8 +12,6 @@ object NormedMultiplicativeSemigroup extends NormedMultiplicativeSemigroup.Ops:
 
   type Over[S] = [X] =>> NormedMultiplicativeSemigroup[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedMultiplicativeSemigroup
-
   /**
     * The [[NormedMultiplicativeSemigroup]] instance describing the current
     * algebra system.

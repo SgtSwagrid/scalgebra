@@ -35,8 +35,6 @@ object OrderedRing extends OrderedRing.Ops:
       */
     inline def sign[X : OrderedRing as X](x: X): X = X.sign(x)
 
-  export com.alecdorrington.scalgebra.ordered.OrderedRing
-
   /** The [[OrderedRing]] instance describing the current algebra system. */
   inline def orderedRing[X : OrderedRing as orderedRing]: OrderedRing[X] =
     orderedRing

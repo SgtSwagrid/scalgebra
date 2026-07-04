@@ -8,8 +8,6 @@ object DifferenceSemiring extends DifferenceSemiring.Ops:
 
   trait Ops extends Semiring.Ops, DifferenceMonoid.Ops
 
-  export com.alecdorrington.scalgebra.DifferenceSemiring
-
   /** The [[DifferenceSemiring]] instance describing the current algebra system. */
   inline def differenceSemiring[X : DifferenceSemiring as differenceSemiring]
     : DifferenceSemiring[X] = differenceSemiring

@@ -9,8 +9,6 @@ object OrderedMultiplicativeInverse extends OrderedMultiplicativeInverse.Ops:
 
   trait Ops extends MultiplicativeInverse.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeInverse
-
   /**
     * The [[OrderedMultiplicativeInverse]] instance describing the current
     * algebra system.

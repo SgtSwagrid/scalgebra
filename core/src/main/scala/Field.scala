@@ -13,9 +13,5 @@ object Field extends Field.Ops:
     /** Computes the signed remainder between two values [[x]] and [[y]]. */
     inline def mod[X : Field as X](x: X, y: X): X = X.mod(x, y)
 
-  export com.alecdorrington.scalgebra.Field
-
   /** The [[Field]] instance describing the current algebra system. */
   inline def field[X : Field as field]: Field[X] = field
-
-trait Thing

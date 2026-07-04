@@ -11,8 +11,6 @@ object NormedEuclidean extends NormedEuclidean.Ops:
 
   type Over[S] = [X] =>> NormedEuclidean[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedEuclidean
-
   /** The [[NormedEuclidean]] instance describing the current algebra system. */
   inline def normedEuclidean[X, S]
     (using ev: NormedEuclidean[X, S])

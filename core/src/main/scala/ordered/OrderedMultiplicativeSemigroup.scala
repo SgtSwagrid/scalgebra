@@ -11,8 +11,6 @@ object OrderedMultiplicativeSemigroup
 
   trait Ops extends MultiplicativeSemigroup.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeSemigroup
-
   /**
     * The [[OrderedMultiplicativeSemigroup]] instance describing the current
     * algebra system.

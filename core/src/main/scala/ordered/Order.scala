@@ -60,7 +60,5 @@ object Order extends Order.Ops:
       */
     inline def clamp[X : Order as X](x: X, lb: X, ub: X): X = X.clamp(x, lb, ub)
 
-  export com.alecdorrington.scalgebra.ordered.Order
-
   /** The [[Order]] instance describing the current algebra system. */
   inline def order[X : Order as order]: Order[X] = order

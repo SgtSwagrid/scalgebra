@@ -25,8 +25,6 @@ object Difference extends Difference.Ops:
       */
     inline def subtract[X : Difference as X](x: X, y: X): X = X.subtract(x, y)
 
-  export com.alecdorrington.scalgebra.Difference
-
   /** The [[Difference]] instance describing the current algebra system. */
   inline def difference[X : Difference as difference]: Difference[X] =
     difference

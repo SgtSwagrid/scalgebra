@@ -17,8 +17,6 @@ object NormedAdditiveGroup extends NormedAdditiveGroup.Ops:
 
   type Over[S] = [X] =>> NormedAdditiveGroup[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedAdditiveGroup
-
   /**
     * The [[NormedAdditiveGroup]] instance describing the current algebra
     * system.

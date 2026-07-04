@@ -9,8 +9,6 @@ object OrderedAdditiveInverse extends OrderedAdditiveInverse.Ops:
 
   trait Ops extends AdditiveInverse.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedAdditiveInverse
-
   /**
     * The [[OrderedAdditiveInverse]] instance describing the current algebra
     * system.

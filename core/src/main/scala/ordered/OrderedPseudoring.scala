@@ -15,8 +15,6 @@ object OrderedPseudoring extends OrderedPseudoring.Ops:
             OrderedAdditiveGroup.Ops,
             OrderedMultiplicativeSemigroup.Ops
 
-  export com.alecdorrington.scalgebra.ordered.OrderedPseudoring
-
   /** The [[OrderedPseudoring]] instance describing the current algebra system. */
   inline def orderedPseudoring[X : OrderedPseudoring as orderedPseudoring]
     : OrderedPseudoring[X] = orderedPseudoring

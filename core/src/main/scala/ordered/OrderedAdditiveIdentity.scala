@@ -59,8 +59,6 @@ object OrderedAdditiveIdentity extends OrderedAdditiveIdentity.Ops:
     inline def isNonPositive[X : OrderedAdditiveIdentity as X](x: X): Boolean =
       X.isNonPositive(x)
 
-  export com.alecdorrington.scalgebra.ordered.OrderedAdditiveIdentity
-
   /**
     * The [[OrderedAdditiveIdentity]] instance describing the current algebra
     * system.

@@ -17,8 +17,6 @@ object NormedSemiring extends NormedSemiring.Ops:
 
   type Over[S] = [X] =>> NormedSemiring[X, S]
 
-  export com.alecdorrington.scalgebra.normed.NormedSemiring
-
   /** The [[NormedSemiring]] instance describing the current algebra system. */
   inline def normedSemiring[X, S]
     (using ev: NormedSemiring[X, S])
