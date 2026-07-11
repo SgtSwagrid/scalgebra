@@ -18,7 +18,9 @@ It is (and should remain) very lightweight and dependency-free.
 ### Structure
 
 The [core project](src/main/scala) contains the type classes themselves. It needs to remain dependency-free.
-Compatibility with other algebra libraries (e.g. cats, algebrid, spire) is provided in [connectors](connectors).
+The base type classes live in the root package; the `ordered`, `archimedean` (rounding to integer values),
+and `normed` subpackages each provide variant hierarchies mirroring the base one.
+Compatibility with other algebra libraries (e.g. cats, algebird, spire) is provided in [connectors](connectors).
 Each connector is for a single library and exists in a distinct subproject.
 Make sure to keep the connectors updated following changes to the core type classes.
 

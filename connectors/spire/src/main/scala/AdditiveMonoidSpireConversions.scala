@@ -1,30 +1,32 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 import spire.algebra
 
 /**
-  * Implicit conversions between [[structures.AdditiveMonoid]] and
+  * Implicit conversions between [[scalgebra.arithmetic.AdditiveMonoid]] and
   * [[spire.algebra.AdditiveMonoid]].
   */
 trait AdditiveMonoidSpireConversions:
 
   /**
     * Derives a [[spire.algebra.AdditiveMonoid]] from an
-    * [[structures.AdditiveMonoid]].
+    * [[scalgebra.arithmetic.AdditiveMonoid]].
     */
-  given additiveMonoidToSpire[X : structures.AdditiveMonoid as S]
-    : algebra.AdditiveMonoid[X] with
+  given additiveMonoidToSpire
+    : [X : scalgebra.arithmetic.AdditiveMonoid as S]
+      => algebra.AdditiveMonoid[X]:
 
-    def plus(x: X, y: X): X = S.add(x, y)
+    def plus(x: X, y: X): X = x + y
     def zero: X             = S.zero
 
   /**
-    * Derives an [[structures.AdditiveMonoid]] from a
+    * Derives an [[scalgebra.arithmetic.AdditiveMonoid]] from a
     * [[spire.algebra.AdditiveMonoid]].
     */
-  given additiveMonoidFromSpire[X : algebra.AdditiveMonoid as S]
-    : structures.AdditiveMonoid[X] with
+  given additiveMonoidFromSpire
+    : [X : algebra.AdditiveMonoid as S]
+      => scalgebra.arithmetic.AdditiveMonoid[X]:
 
-    def add(x: X, y: X): X = S.plus(x, y)
-    def zero: X            = S.zero
+    override def zero: X                       = S.zero
+    extension (x: X) override def add(y: X): X = S.plus(x, y)

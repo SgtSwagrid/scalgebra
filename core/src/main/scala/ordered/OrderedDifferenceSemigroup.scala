@@ -1,21 +1,13 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-/** An ordered version of [[DifferenceSemigroup]]. */
+import com.alecdorrington.scalgebra.arithmetic.DifferenceSemigroup
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Subtraction
+  *   - Total order
+  */
 trait OrderedDifferenceSemigroup[X]
   extends DifferenceSemigroup[X], OrderedAdditiveSemigroup[X]
-
-/** The companion object for [[OrderedDifferenceSemigroup]]. */
-object OrderedDifferenceSemigroup extends OrderedDifferenceSemigroup.Ops:
-
-  trait Ops extends DifferenceSemigroup.Ops, OrderedAdditiveSemigroup.Ops
-
-  export com.alecdorrington.scalgebra.ordered.OrderedDifferenceSemigroup
-
-  /**
-    * The [[OrderedDifferenceSemigroup]] instance describing the current algebra
-    * system.
-    */
-  inline def orderedDifferenceSemigroup[
-    X : OrderedDifferenceSemigroup as orderedDifferenceSemigroup,
-  ]: OrderedDifferenceSemigroup[X] = orderedDifferenceSemigroup

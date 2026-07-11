@@ -1,23 +1,30 @@
 package com.alecdorrington.scalgebra.connector.zioprelude
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 
 /**
-  * Implicit conversions between [[structures.AdditiveMonoid]] and
+  * Implicit conversions between [[scalgebra.arithmetic.AdditiveMonoid]] and
   * [[zio.prelude.Identity]].
   */
 trait AdditiveMonoidZioPreludeConversions:
 
-  /** Derives a [[zio.prelude.Identity]] from an [[structures.AdditiveMonoid]]. */
-  given additiveMonoidToZioPrelude[X : structures.AdditiveMonoid as S]
-    : zio.prelude.Identity[X] with
+  /**
+    * Derives a [[zio.prelude.Identity]] from an
+    * [[scalgebra.arithmetic.AdditiveMonoid]].
+    */
+  given additiveMonoidToZioPrelude
+    : [X : scalgebra.arithmetic.AdditiveMonoid as S] => zio.prelude.Identity[X]:
 
-    def combine(x: => X, y: => X): X = S.add(x, y)
+    def combine(x: => X, y: => X): X = x + y
     def identity: X                  = S.zero
 
-  /** Derives an [[structures.AdditiveMonoid]] from a [[zio.prelude.Identity]]. */
-  given additiveMonoidFromZioPrelude[X : zio.prelude.Identity as S]
-    : structures.AdditiveMonoid[X] with
+  /**
+    * Derives an [[scalgebra.arithmetic.AdditiveMonoid]] from a
+    * [[zio.prelude.Identity]].
+    */
+  given additiveMonoidFromZioPrelude
+    : [X : zio.prelude.Identity as S] => scalgebra.arithmetic.AdditiveMonoid[X]:
 
-    def add(x: X, y: X): X = S.combine(x, y)
-    def zero: X            = S.identity
+    override def zero: X = S.identity
+
+    extension (x: X) override def add(y: X): X = S.combine(x, y)

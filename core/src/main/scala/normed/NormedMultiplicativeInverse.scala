@@ -1,23 +1,16 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[MultiplicativeInverse]]. */
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeInverse
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Multiplicative inverse (reciprocation)
+  *   - Norm (length)
+  */
 trait NormedMultiplicativeInverse[X, S]
   extends MultiplicativeInverse[X], Normed[X, S]
 
-/** The companion object for [[NormedMultiplicativeInverse]]. */
-object NormedMultiplicativeInverse extends NormedMultiplicativeInverse.Ops:
-
-  trait Ops extends MultiplicativeInverse.Ops, Normed.Ops
+object NormedMultiplicativeInverse:
 
   type Over[S] = [X] =>> NormedMultiplicativeInverse[X, S]
-
-  export com.alecdorrington.scalgebra.normed.NormedMultiplicativeInverse
-
-  /**
-    * The [[NormedMultiplicativeInverse]] instance describing the current
-    * algebra system.
-    */
-  inline def normedMultiplicativeInverse[X, S]
-    (using ev: NormedMultiplicativeInverse[X, S])
-    : NormedMultiplicativeInverse[X, S] = ev

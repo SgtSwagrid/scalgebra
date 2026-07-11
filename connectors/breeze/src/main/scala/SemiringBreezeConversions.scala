@@ -1,25 +1,39 @@
 package com.alecdorrington.scalgebra.connector.breeze
 
 import breeze.math
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 
-/** Implicit conversions between [[structures.Semiring]] and [[math.Semiring]]. */
+/**
+  * Implicit conversions between [[scalgebra.arithmetic.Semiring]] and
+  * [[breeze.math.Semiring]].
+  */
 trait SemiringBreezeConversions:
 
-  /** Derives a [[math.Semiring]] from a [[structures.Semiring]]. */
-  given semiringToBreeze[X : structures.Semiring as S]: math.Semiring[X] with
+  /**
+    * Derives a [[breeze.math.Semiring]] from a
+    * [[scalgebra.arithmetic.Semiring]].
+    */
+  given semiringToBreeze
+    : [X : scalgebra.arithmetic.Semiring as S] => math.Semiring[X]:
 
     def zero: X                  = S.zero
     def one: X                   = S.one
-    def + (a: X, b: X): X        = S.add(a, b)
-    def * (a: X, b: X): X        = S.multiply(a, b)
+    def + (a: X, b: X): X        = a + b
+    def * (a: X, b: X): X        = a * b
     def == (a: X, b: X): Boolean = a == b
     def != (a: X, b: X): Boolean = a != b
 
-  /** Derives a [[structures.Semiring]] from a [[math.Semiring]]. */
-  given semiringFromBreeze[X : math.Semiring as S]: structures.Semiring[X] with
+  /**
+    * Derives a [[scalgebra.arithmetic.Semiring]] from a
+    * [[breeze.math.Semiring]].
+    */
+  given semiringFromBreeze
+    : [X : math.Semiring as S] => scalgebra.arithmetic.Semiring[X]:
 
-    def add(x: X, y: X): X      = S.+(x, y)
-    def zero: X                 = S.zero
-    def multiply(x: X, y: X): X = S.*(x, y)
-    def one: X                  = S.one
+    override def zero: X = S.zero
+    override def one: X  = S.one
+
+    extension (x: X)
+
+      override def add(y: X): X = S.+(x, y)
+      override def mul(y: X): X = S.*(x, y)

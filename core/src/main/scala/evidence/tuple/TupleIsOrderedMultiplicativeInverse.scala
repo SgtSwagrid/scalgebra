@@ -4,18 +4,18 @@ package evidence.tuple
 import com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeInverse
 
 /**
-  * Evidence that tuples of arity 0 and 1 have an
-  * [[OrderedMultiplicativeInverse]] under componentwise reciprocation and
-  * lexicographic ordering, provided the element type (if any) has an
-  * [[OrderedMultiplicativeInverse]] instance.
+  * Evidence that tuples of arity 1 have an [[OrderedMultiplicativeInverse]]
+  * under componentwise reciprocation and lexicographic ordering, provided the
+  * element type (if any) has an [[OrderedMultiplicativeInverse]] instance.
   */
 trait TupleIsOrderedMultiplicativeInverse:
 
   given [X : OrderedMultiplicativeInverse as X]
-    : OrderedMultiplicativeInverse[X *: EmptyTuple] with
+    => OrderedMultiplicativeInverse[X *: EmptyTuple]:
 
-    override inline def reciprocate(x: X *: EmptyTuple): X *: EmptyTuple = X
-      .reciprocate(x.head) *: EmptyTuple
-
-    override inline def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
+    override def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
       .compare(x.head, y.head)
+
+    extension (x: X *: EmptyTuple)
+
+      override def reciprocal: X *: EmptyTuple = x.head.reciprocal *: EmptyTuple

@@ -10,100 +10,78 @@ import com.alecdorrington.scalgebra.ordered.OrderedRing
   */
 trait TupleIsOrderedRing:
 
-  given [X : OrderedRing as X]: OrderedRing[X *: EmptyTuple] with
+  given [X : OrderedRing as X] => OrderedRing[X *: EmptyTuple]:
 
     override def zero: X *: EmptyTuple = X.zero *: EmptyTuple
     override def one: X *: EmptyTuple  = X.one *: EmptyTuple
 
-    override inline def add
-      (x: X *: EmptyTuple, y: X *: EmptyTuple)
-      : X *: EmptyTuple = X.add(x.head, y.head) *: EmptyTuple
-
-    override inline def multiply
-      (x: X *: EmptyTuple, y: X *: EmptyTuple)
-      : X *: EmptyTuple = X.multiply(x.head, y.head) *: EmptyTuple
-
-    override inline def negate(x: X *: EmptyTuple): X *: EmptyTuple =
-      X.negate(x.head) *: EmptyTuple
-
-    override inline def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
+    override def compare(x: X *: EmptyTuple, y: X *: EmptyTuple): Int = X
       .compare(x.head, y.head)
 
-  given [X : OrderedRing as X, Y : OrderedRing as Y]: OrderedRing[(X, Y)] with
+    extension (x: X *: EmptyTuple)
+
+      override def add(y: X *: EmptyTuple): X *: EmptyTuple =
+        (x.head + y.head) *: EmptyTuple
+
+      override def negate: X *: EmptyTuple = x.head.negate *: EmptyTuple
+
+      override def mul(y: X *: EmptyTuple): X *: EmptyTuple =
+        (x.head * y.head) *: EmptyTuple
+
+  given [X : OrderedRing as X, Y : OrderedRing as Y] => OrderedRing[(X, Y)]:
 
     override def zero: (X, Y) = (X.zero, Y.zero)
     override def one: (X, Y)  = (X.one, Y.one)
 
-    override inline def add(x: (X, Y), y: (X, Y)): (X, Y) =
-      (X.add(x(0), y(0)), Y.add(x(1), y(1)))
-
-    override inline def multiply(x: (X, Y), y: (X, Y)): (X, Y) =
-      (X.multiply(x(0), y(0)), Y.multiply(x(1), y(1)))
-
-    override inline def negate(x: (X, Y)): (X, Y) =
-      (X.negate(x(0)), Y.negate(x(1)))
-
-    override inline def compare(x: (X, Y), y: (X, Y)): Int =
+    override def compare(x: (X, Y), y: (X, Y)): Int =
       val c = X.compare(x(0), y(0))
       if c != 0 then c else Y.compare(x(1), y(1))
+
+    extension (x: (X, Y))
+
+      override def add(y: (X, Y)): (X, Y) = (x(0) + y(0), x(1) + y(1))
+
+      override def negate: (X, Y) = (x(0).negate, x(1).negate)
+
+      override def mul(y: (X, Y)): (X, Y) = (x(0) * y(0), x(1) * y(1))
 
   given [
     X : OrderedRing as X,
     Y : OrderedRing as Y,
     Z : OrderedRing as Z,
-  ]: OrderedRing[(X, Y, Z)] with
+  ] => OrderedRing[(X, Y, Z)]:
 
     override def zero: (X, Y, Z) = (X.zero, Y.zero, Z.zero)
     override def one: (X, Y, Z)  = (X.one, Y.one, Z.one)
 
-    override inline def add(x: (X, Y, Z), y: (X, Y, Z)): (X, Y, Z) =
-      (X.add(x(0), y(0)), Y.add(x(1), y(1)), Z.add(x(2), y(2)))
-
-    override inline def multiply(x: (X, Y, Z), y: (X, Y, Z)): (X, Y, Z) =
-      (X.multiply(x(0), y(0)), Y.multiply(x(1), y(1)), Z.multiply(x(2), y(2)))
-
-    override inline def negate(x: (X, Y, Z)): (X, Y, Z) =
-      (X.negate(x(0)), Y.negate(x(1)), Z.negate(x(2)))
-
-    override inline def compare(x: (X, Y, Z), y: (X, Y, Z)): Int =
+    override def compare(x: (X, Y, Z), y: (X, Y, Z)): Int =
       val c = X.compare(x(0), y(0))
       if c != 0 then c
       else
         val c2 = Y.compare(x(1), y(1))
         if c2 != 0 then c2 else Z.compare(x(2), y(2))
 
+    extension (x: (X, Y, Z))
+
+      override def add(y: (X, Y, Z)): (X, Y, Z) =
+        (x(0) + y(0), x(1) + y(1), x(2) + y(2))
+
+      override def negate: (X, Y, Z) = (x(0).negate, x(1).negate, x(2).negate)
+
+      override def mul(y: (X, Y, Z)): (X, Y, Z) =
+        (x(0) * y(0), x(1) * y(1), x(2) * y(2))
+
   given [
     X1 : OrderedRing as X1,
     X2 : OrderedRing as X2,
     X3 : OrderedRing as X3,
     X4 : OrderedRing as X4,
-  ]: OrderedRing[(X1, X2, X3, X4)] with
+  ] => OrderedRing[(X1, X2, X3, X4)]:
 
     override def zero: (X1, X2, X3, X4) = (X1.zero, X2.zero, X3.zero, X4.zero)
     override def one: (X1, X2, X3, X4)  = (X1.one, X2.one, X3.one, X4.one)
 
-    override inline def add
-      (x: (X1, X2, X3, X4), y: (X1, X2, X3, X4))
-      : (X1, X2, X3, X4) = (
-      X1.add(x(0), y(0)),
-      X2.add(x(1), y(1)),
-      X3.add(x(2), y(2)),
-      X4.add(x(3), y(3)),
-    )
-
-    override inline def multiply
-      (x: (X1, X2, X3, X4), y: (X1, X2, X3, X4))
-      : (X1, X2, X3, X4) = (
-      X1.multiply(x(0), y(0)),
-      X2.multiply(x(1), y(1)),
-      X3.multiply(x(2), y(2)),
-      X4.multiply(x(3), y(3)),
-    )
-
-    override inline def negate(x: (X1, X2, X3, X4)): (X1, X2, X3, X4) =
-      (X1.negate(x(0)), X2.negate(x(1)), X3.negate(x(2)), X4.negate(x(3)))
-
-    override inline def compare(x: (X1, X2, X3, X4), y: (X1, X2, X3, X4)): Int =
+    override def compare(x: (X1, X2, X3, X4), y: (X1, X2, X3, X4)): Int =
       val c1 = X1.compare(x(0), y(0))
       if c1 != 0 then c1
       else
@@ -113,13 +91,24 @@ trait TupleIsOrderedRing:
           val c3 = X3.compare(x(2), y(2))
           if c3 != 0 then c3 else X4.compare(x(3), y(3))
 
+    extension (x: (X1, X2, X3, X4))
+
+      override def add(y: (X1, X2, X3, X4)): (X1, X2, X3, X4) =
+        (x(0) + y(0), x(1) + y(1), x(2) + y(2), x(3) + y(3))
+
+      override def negate: (X1, X2, X3, X4) =
+        (x(0).negate, x(1).negate, x(2).negate, x(3).negate)
+
+      override def mul(y: (X1, X2, X3, X4)): (X1, X2, X3, X4) =
+        (x(0) * y(0), x(1) * y(1), x(2) * y(2), x(3) * y(3))
+
   given [
     X1 : OrderedRing as X1,
     X2 : OrderedRing as X2,
     X3 : OrderedRing as X3,
     X4 : OrderedRing as X4,
     X5 : OrderedRing as X5,
-  ]: OrderedRing[(X1, X2, X3, X4, X5)] with
+  ] => OrderedRing[(X1, X2, X3, X4, X5)]:
 
     override def zero: (X1, X2, X3, X4, X5) =
       (X1.zero, X2.zero, X3.zero, X4.zero, X5.zero)
@@ -127,36 +116,7 @@ trait TupleIsOrderedRing:
     override def one: (X1, X2, X3, X4, X5) =
       (X1.one, X2.one, X3.one, X4.one, X5.one)
 
-    override inline def add
-      (x: (X1, X2, X3, X4, X5), y: (X1, X2, X3, X4, X5))
-      : (X1, X2, X3, X4, X5) = (
-      X1.add(x(0), y(0)),
-      X2.add(x(1), y(1)),
-      X3.add(x(2), y(2)),
-      X4.add(x(3), y(3)),
-      X5.add(x(4), y(4)),
-    )
-
-    override inline def multiply
-      (x: (X1, X2, X3, X4, X5), y: (X1, X2, X3, X4, X5))
-      : (X1, X2, X3, X4, X5) = (
-      X1.multiply(x(0), y(0)),
-      X2.multiply(x(1), y(1)),
-      X3.multiply(x(2), y(2)),
-      X4.multiply(x(3), y(3)),
-      X5.multiply(x(4), y(4)),
-    )
-
-    override inline def negate(x: (X1, X2, X3, X4, X5)): (X1, X2, X3, X4, X5) =
-      (
-        X1.negate(x(0)),
-        X2.negate(x(1)),
-        X3.negate(x(2)),
-        X4.negate(x(3)),
-        X5.negate(x(4)),
-      )
-
-    override inline def compare
+    override def compare
       (x: (X1, X2, X3, X4, X5), y: (X1, X2, X3, X4, X5))
       : Int =
       val c1 = X1.compare(x(0), y(0))
@@ -171,6 +131,17 @@ trait TupleIsOrderedRing:
             val c4 = X4.compare(x(3), y(3))
             if c4 != 0 then c4 else X5.compare(x(4), y(4))
 
+    extension (x: (X1, X2, X3, X4, X5))
+
+      override def add(y: (X1, X2, X3, X4, X5)): (X1, X2, X3, X4, X5) =
+        (x(0) + y(0), x(1) + y(1), x(2) + y(2), x(3) + y(3), x(4) + y(4))
+
+      override def negate: (X1, X2, X3, X4, X5) =
+        (x(0).negate, x(1).negate, x(2).negate, x(3).negate, x(4).negate)
+
+      override def mul(y: (X1, X2, X3, X4, X5)): (X1, X2, X3, X4, X5) =
+        (x(0) * y(0), x(1) * y(1), x(2) * y(2), x(3) * y(3), x(4) * y(4))
+
   given [
     X1 : OrderedRing as X1,
     X2 : OrderedRing as X2,
@@ -178,7 +149,7 @@ trait TupleIsOrderedRing:
     X4 : OrderedRing as X4,
     X5 : OrderedRing as X5,
     X6 : OrderedRing as X6,
-  ]: OrderedRing[(X1, X2, X3, X4, X5, X6)] with
+  ] => OrderedRing[(X1, X2, X3, X4, X5, X6)]:
 
     override def zero: (X1, X2, X3, X4, X5, X6) =
       (X1.zero, X2.zero, X3.zero, X4.zero, X5.zero, X6.zero)
@@ -186,46 +157,7 @@ trait TupleIsOrderedRing:
     override def one: (X1, X2, X3, X4, X5, X6) =
       (X1.one, X2.one, X3.one, X4.one, X5.one, X6.one)
 
-    override inline def add
-      (
-        x: (X1, X2, X3, X4, X5, X6),
-        y: (X1, X2, X3, X4, X5, X6),
-      )
-      : (X1, X2, X3, X4, X5, X6) = (
-      X1.add(x(0), y(0)),
-      X2.add(x(1), y(1)),
-      X3.add(x(2), y(2)),
-      X4.add(x(3), y(3)),
-      X5.add(x(4), y(4)),
-      X6.add(x(5), y(5)),
-    )
-
-    override inline def multiply
-      (
-        x: (X1, X2, X3, X4, X5, X6),
-        y: (X1, X2, X3, X4, X5, X6),
-      )
-      : (X1, X2, X3, X4, X5, X6) = (
-      X1.multiply(x(0), y(0)),
-      X2.multiply(x(1), y(1)),
-      X3.multiply(x(2), y(2)),
-      X4.multiply(x(3), y(3)),
-      X5.multiply(x(4), y(4)),
-      X6.multiply(x(5), y(5)),
-    )
-
-    override inline def negate
-      (x: (X1, X2, X3, X4, X5, X6))
-      : (X1, X2, X3, X4, X5, X6) = (
-      X1.negate(x(0)),
-      X2.negate(x(1)),
-      X3.negate(x(2)),
-      X4.negate(x(3)),
-      X5.negate(x(4)),
-      X6.negate(x(5)),
-    )
-
-    override inline def compare
+    override def compare
       (
         x: (X1, X2, X3, X4, X5, X6),
         y: (X1, X2, X3, X4, X5, X6),
@@ -245,3 +177,34 @@ trait TupleIsOrderedRing:
             else
               val c5 = X5.compare(x(4), y(4))
               if c5 != 0 then c5 else X6.compare(x(5), y(5))
+
+    extension (x: (X1, X2, X3, X4, X5, X6))
+
+      override def add(y: (X1, X2, X3, X4, X5, X6)): (X1, X2, X3, X4, X5, X6) =
+        (
+          x(0) + y(0),
+          x(1) + y(1),
+          x(2) + y(2),
+          x(3) + y(3),
+          x(4) + y(4),
+          x(5) + y(5),
+        )
+
+      override def negate: (X1, X2, X3, X4, X5, X6) = (
+        x(0).negate,
+        x(1).negate,
+        x(2).negate,
+        x(3).negate,
+        x(4).negate,
+        x(5).negate,
+      )
+
+      override def mul(y: (X1, X2, X3, X4, X5, X6)): (X1, X2, X3, X4, X5, X6) =
+        (
+          x(0) * y(0),
+          x(1) * y(1),
+          x(2) * y(2),
+          x(3) * y(3),
+          x(4) * y(4),
+          x(5) * y(5),
+        )

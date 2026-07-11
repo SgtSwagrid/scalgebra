@@ -1,26 +1,15 @@
 package com.alecdorrington.scalgebra
 package ordered
 
-/** An ordered version of [[MultiplicativeMonoid]]. */
+import com.alecdorrington.scalgebra.arithmetic.MultiplicativeMonoid
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Total order
+  */
 trait OrderedMultiplicativeMonoid[X]
   extends MultiplicativeMonoid[X],
           OrderedMultiplicativeSemigroup[X],
           OrderedMultiplicativeIdentity[X]
-
-/** The companion object for [[OrderedMultiplicativeMonoid]]. */
-object OrderedMultiplicativeMonoid extends OrderedMultiplicativeMonoid.Ops:
-
-  trait Ops
-    extends MultiplicativeMonoid.Ops,
-            OrderedMultiplicativeSemigroup.Ops,
-            OrderedMultiplicativeIdentity.Ops
-
-  export com.alecdorrington.scalgebra.ordered.OrderedMultiplicativeMonoid
-
-  /**
-    * The [[OrderedMultiplicativeMonoid]] instance describing the current
-    * algebra system.
-    */
-  inline def orderedMultiplicativeMonoid[
-    X : OrderedMultiplicativeMonoid as orderedMultiplicativeMonoid,
-  ]: OrderedMultiplicativeMonoid[X] = orderedMultiplicativeMonoid

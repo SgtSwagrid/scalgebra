@@ -10,8 +10,11 @@ import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
   */
 trait StringIsNormedAdditiveMonoid:
 
-  given NormedAdditiveMonoid[String, Int] with
+  given NormedAdditiveMonoid[String, Int]:
 
-    override def zero: String                             = ""
-    override inline def add(x: String, y: String): String = s"$x$y"
-    override inline def norm(x: String): Int              = x.length
+    override def zero: String = ""
+
+    extension (x: String)
+
+      override def add(y: String): String = s"$x$y"
+      override def length: Int            = x.length

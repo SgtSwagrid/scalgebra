@@ -1,30 +1,32 @@
 package com.alecdorrington.scalgebra.connector.spire
 
-import com.alecdorrington.scalgebra as structures
+import com.alecdorrington.scalgebra as scalgebra
 import spire.algebra
 
 /**
-  * Implicit conversions between [[structures.MultiplicativeMonoid]] and
-  * [[spire.algebra.MultiplicativeMonoid]].
+  * Implicit conversions between [[scalgebra.arithmetic.MultiplicativeMonoid]]
+  * and [[spire.algebra.MultiplicativeMonoid]].
   */
 trait MultiplicativeMonoidSpireConversions:
 
   /**
     * Derives a [[spire.algebra.MultiplicativeMonoid]] from a
-    * [[structures.MultiplicativeMonoid]].
+    * [[scalgebra.arithmetic.MultiplicativeMonoid]].
     */
-  given multiplicativeMonoidToSpire[X : structures.MultiplicativeMonoid as S]
-    : algebra.MultiplicativeMonoid[X] with
+  given multiplicativeMonoidToSpire
+    : [X : scalgebra.arithmetic.MultiplicativeMonoid as S]
+      => algebra.MultiplicativeMonoid[X]:
 
-    def times(x: X, y: X): X = S.multiply(x, y)
+    def times(x: X, y: X): X = x * y
     def one: X               = S.one
 
   /**
-    * Derives a [[structures.MultiplicativeMonoid]] from a
+    * Derives a [[scalgebra.arithmetic.MultiplicativeMonoid]] from a
     * [[spire.algebra.MultiplicativeMonoid]].
     */
-  given multiplicativeMonoidFromSpire[X : algebra.MultiplicativeMonoid as S]
-    : structures.MultiplicativeMonoid[X] with
+  given multiplicativeMonoidFromSpire
+    : [X : algebra.MultiplicativeMonoid as S]
+      => scalgebra.arithmetic.MultiplicativeMonoid[X]:
 
-    def multiply(x: X, y: X): X = S.times(x, y)
-    def one: X                  = S.one
+    override def one: X                        = S.one
+    extension (x: X) override def mul(y: X): X = S.times(x, y)

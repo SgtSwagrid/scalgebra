@@ -11,8 +11,11 @@ import scala.reflect.ClassTag
   */
 trait ArrayIsNormedAdditiveMonoid:
 
-  given [X : ClassTag]: NormedAdditiveMonoid[Array[X], Int] with
+  given [X : ClassTag] => NormedAdditiveMonoid[Array[X], Int]:
 
-    override def zero: Array[X]                                 = Array.empty
-    override inline def add(x: Array[X], y: Array[X]): Array[X] = x ++ y
-    override inline def norm(x: Array[X]): Int                  = x.length
+    override def zero: Array[X] = Array.empty
+
+    extension (x: Array[X])
+
+      override def add(y: Array[X]): Array[X] = x ++ y
+      override def length: Int                = x.length

@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package collection
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveSemigroup
 import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 
 /**
@@ -11,13 +12,14 @@ import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
   */
 trait OptionIsNormedAdditiveMonoid:
 
-  given [X : AdditiveSemigroup as X]: NormedAdditiveMonoid[Option[X], Int] with
+  given [X : AdditiveSemigroup as X] => NormedAdditiveMonoid[Option[X], Int]:
 
     override def zero: Option[X] = None
 
-    override def add(x: Option[X], y: Option[X]): Option[X] = (x, y) match
-      case (None, _)          => y
-      case (_, None)          => x
-      case (Some(a), Some(b)) => Some(X.add(a, b))
+    extension (x: Option[X])
 
-    override inline def norm(x: Option[X]): Int = x.size
+      override def add(y: Option[X]): Option[X] = (x, y) match
+        case (None, _)          => y
+        case (_, None)          => x
+        case (Some(a), Some(b)) => Some(a + b)
+      override def length: Int = x.size

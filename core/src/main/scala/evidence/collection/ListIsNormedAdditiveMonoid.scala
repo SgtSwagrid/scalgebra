@@ -10,8 +10,11 @@ import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
   */
 trait ListIsNormedAdditiveMonoid:
 
-  given [X]: NormedAdditiveMonoid[List[X], Int] with
+  given [X] => NormedAdditiveMonoid[List[X], Int]:
 
-    override def zero: List[X]                               = Nil
-    override inline def add(x: List[X], y: List[X]): List[X] = x ++ y
-    override inline def norm(x: List[X]): Int                = x.length
+    override def zero: List[X] = Nil
+
+    extension (x: List[X])
+
+      override def add(y: List[X]): List[X] = x ++ y
+      override def length: Int              = x.length

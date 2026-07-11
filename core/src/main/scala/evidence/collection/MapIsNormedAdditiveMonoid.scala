@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package collection
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveSemigroup
 import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
 
 /**
@@ -10,12 +11,12 @@ import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
   */
 trait MapIsNormedAdditiveMonoid:
 
-  given [X, Y : AdditiveSemigroup as Y]: NormedAdditiveMonoid[Map[X, Y], Int]
-  with
+  given [X, Y : AdditiveSemigroup as Y] => NormedAdditiveMonoid[Map[X, Y], Int]:
 
     override def zero: Map[X, Y] = Map.empty
 
-    override def add(x: Map[X, Y], y: Map[X, Y]): Map[X, Y] = y.foldLeft(x):
-      case (acc, (k, v)) => acc.updated(k, acc.get(k).fold(v)(Y.add(_, v)))
+    extension (x: Map[X, Y])
 
-    override inline def norm(x: Map[X, Y]): Int = x.size
+      override def add(y: Map[X, Y]): Map[X, Y] = y.foldLeft(x):
+        case (acc, (k, v)) => acc.updated(k, acc.get(k).fold(v)(_ + v))
+      override def length: Int = x.size

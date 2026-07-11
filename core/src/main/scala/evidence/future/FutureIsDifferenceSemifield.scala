@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.DifferenceSemifield
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,24 +12,15 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsDifferenceSemifield:
 
-  given [X : DifferenceSemifield as X]
-    (using ExecutionContext)
-    : DifferenceSemifield[Future[X]] with
+  given [X : DifferenceSemifield as X] => ExecutionContext
+    => DifferenceSemifield[Future[X]]:
 
     override def zero: Future[X] = Future.successful(X.zero)
+    override def one: Future[X]  = Future.successful(X.one)
 
-    override def one: Future[X] = Future.successful(X.one)
+    extension (x: Future[X])
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
-
-    override def subtract(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.subtract(a, b))
-
-    override def multiply(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.multiply(a, b))
-
-    override def reciprocate(x: Future[X]): Future[X] = x.map(X.reciprocate)
+      override def add(y: Future[X]): Future[X]      = x.zip(y).map(_ + _)
+      override def subtract(y: Future[X]): Future[X] = x.zip(y).map(_ - _)
+      override def mul(y: Future[X]): Future[X]      = x.zip(y).map(_ * _)
+      override def reciprocal: Future[X]             = x.map(_.reciprocal)

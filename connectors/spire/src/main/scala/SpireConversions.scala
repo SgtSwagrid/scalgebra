@@ -18,5 +18,13 @@ object SpireConversions
           SemiringSpireConversions,
           PseudoringSpireConversions,
           RingSpireConversions,
-          EuclideanRingSpireConversions,
-          FieldSpireConversions
+          QuotientRingSpireConversions,
+          FieldSpireConversions,
+          ArchimedeanSpireConversions,
+          JoinSemilatticeSpireConversions,
+          MeetSemilatticeSpireConversions,
+          BoundedJoinSemilatticeSpireConversions,
+          BoundedMeetSemilatticeSpireConversions,
+          LatticeSpireConversions,
+          BoundedLatticeSpireConversions,
+          BooleanAlgebraSpireConversions

@@ -1,25 +1,21 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[Semiring]]. */
+import com.alecdorrington.scalgebra.arithmetic.Semiring
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Additive identity (`0`)
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Norm (length)
+  */
 trait NormedSemiring[X, S]
   extends Semiring[X],
           NormedAdditiveMonoid[X, S],
           NormedMultiplicativeMonoid[X, S]
 
-/** The companion object for [[NormedSemiring]]. */
-object NormedSemiring extends NormedSemiring.Ops:
-
-  trait Ops
-    extends Semiring.Ops,
-            NormedAdditiveMonoid.Ops,
-            NormedMultiplicativeMonoid.Ops
+object NormedSemiring:
 
   type Over[S] = [X] =>> NormedSemiring[X, S]
-
-  export com.alecdorrington.scalgebra.normed.NormedSemiring
-
-  /** The [[NormedSemiring]] instance describing the current algebra system. */
-  inline def normedSemiring[X, S]
-    (using ev: NormedSemiring[X, S])
-    : NormedSemiring[X, S] = ev

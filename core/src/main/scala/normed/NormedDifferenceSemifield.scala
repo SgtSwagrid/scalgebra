@@ -1,28 +1,23 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[DifferenceSemifield]]. */
+import com.alecdorrington.scalgebra.arithmetic.DifferenceSemifield
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Additive identity (`0`)
+  *   - Subtraction
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Multiplicative inverse (reciprocation)
+  *   - Norm (length)
+  */
 trait NormedDifferenceSemifield[X, S]
   extends DifferenceSemifield[X],
-          NormedDifferenceSemiring[X, S],
+          NormedQuotientDifferenceSemiring[X, S],
           NormedSemifield[X, S]
 
-/** The companion object for [[NormedDifferenceSemifield]]. */
-object NormedDifferenceSemifield extends NormedDifferenceSemifield.Ops:
-
-  trait Ops
-    extends DifferenceSemifield.Ops,
-            NormedDifferenceSemiring.Ops,
-            NormedSemifield.Ops
+object NormedDifferenceSemifield:
 
   type Over[S] = [X] =>> NormedDifferenceSemifield[X, S]
-
-  export com.alecdorrington.scalgebra.normed.NormedDifferenceSemifield
-
-  /**
-    * The [[NormedDifferenceSemifield]] instance describing the current algebra
-    * system.
-    */
-  inline def normedDifferenceSemifield[X, S]
-    (using ev: NormedDifferenceSemifield[X, S])
-    : NormedDifferenceSemifield[X, S] = ev

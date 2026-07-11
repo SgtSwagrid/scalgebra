@@ -1,16 +1,17 @@
 import IdeSettings.packagePrefix
-import sbt._
-import sbt.Keys._
 import sbtunidoc.BaseUnidocPlugin.autoImport.*
 import sbtunidoc.ScalaUnidocPlugin
 
-ThisBuild / scalaVersion := "3.8.3"
+ThisBuild / scalaVersion := "3.8.4"
 
 ThisBuild / scalacOptions ++= Seq(
   "-explain",
   "-explain-types",
   "-explain-cyclic",
 )
+
+// MUnit is used as the test framework for all subprojects.
+ThisBuild / libraryDependencies += "org.scalameta" %% "munit" % "1.3.4" % Test
 
 lazy val `scalgebra-root` = project
   .in(file("."))
@@ -63,7 +64,7 @@ lazy val `scalgebra-connector-scalaz` = project
   .dependsOn(`scalgebra`)
   .settings(
     packagePrefix := "com.alecdorrington.scalgebra.connector.scalaz",
-    libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.3.8",
+    libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.3.9",
   )
 
 lazy val `scalgebra-connector-spire` = project

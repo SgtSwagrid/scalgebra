@@ -1,28 +1,19 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[AdditiveMonoid]]. */
+import com.alecdorrington.scalgebra.arithmetic.AdditiveMonoid
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Additive identity (`0`)
+  *   - Norm (length)
+  */
 trait NormedAdditiveMonoid[X, S]
   extends AdditiveMonoid[X],
           NormedAdditiveSemigroup[X, S],
           NormedAdditiveIdentity[X, S]
 
-/** The companion object for [[NormedAdditiveMonoid]]. */
-object NormedAdditiveMonoid extends NormedAdditiveMonoid.Ops:
-
-  trait Ops
-    extends AdditiveMonoid.Ops,
-            NormedAdditiveSemigroup.Ops,
-            NormedAdditiveIdentity.Ops
+object NormedAdditiveMonoid:
 
   type Over[S] = [X] =>> NormedAdditiveMonoid[X, S]
-
-  export com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
-
-  /**
-    * The [[NormedAdditiveMonoid]] instance describing the current algebra
-    * system.
-    */
-  inline def normedAdditiveMonoid[X, S]
-    (using ev: NormedAdditiveMonoid[X, S])
-    : NormedAdditiveMonoid[X, S] = ev

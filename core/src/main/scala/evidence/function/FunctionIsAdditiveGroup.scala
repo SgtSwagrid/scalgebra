@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveGroup
+
 /**
   * Evidence that single-argument functions form an [[AdditiveGroup]] under
   * pointwise negation and addition, provided the return type has an
@@ -8,11 +10,11 @@ package evidence.function
   */
 trait FunctionIsAdditiveGroup:
 
-  given [X, Y : AdditiveGroup as Y]: AdditiveGroup[X => Y] with
+  given [X, Y : AdditiveGroup as Y] => AdditiveGroup[X => Y]:
 
     override def zero: X => Y = _ => Y.zero
 
-    override inline def add(f: X => Y, g: X => Y): X => Y =
-      x => Y.add(f(x), g(x))
+    extension (f: X => Y)
 
-    override inline def negate(f: X => Y): X => Y = x => Y.negate(f(x))
+      override def add(g: X => Y): X => Y = x => f(x) + g(x)
+      override def negate: X => Y         = x => f(x).negate

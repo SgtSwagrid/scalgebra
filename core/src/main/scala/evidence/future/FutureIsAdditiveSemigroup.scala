@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveSemigroup
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -10,10 +11,8 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsAdditiveSemigroup:
 
-  given [X : AdditiveSemigroup as X]
-    (using ExecutionContext)
-    : AdditiveSemigroup[Future[X]] with
+  given [X : AdditiveSemigroup as X] => ExecutionContext
+    => AdditiveSemigroup[Future[X]]:
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
+    extension (x: Future[X])
+      override def add(y: Future[X]): Future[X] = x.zip(y).map(_ + _)

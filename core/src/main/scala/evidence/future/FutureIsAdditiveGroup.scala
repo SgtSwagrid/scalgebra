@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.AdditiveGroup
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -10,14 +11,12 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsAdditiveGroup:
 
-  given [X : AdditiveGroup as X]
-    (using ExecutionContext)
-    : AdditiveGroup[Future[X]] with
+  given [X : AdditiveGroup as X] => ExecutionContext
+    => AdditiveGroup[Future[X]]:
 
     override def zero: Future[X] = Future.successful(X.zero)
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
+    extension (x: Future[X])
 
-    override def negate(x: Future[X]): Future[X] = x.map(X.negate)
+      override def add(y: Future[X]): Future[X] = x.zip(y).map(_ + _)
+      override def negate: Future[X]            = x.map(_.negate)

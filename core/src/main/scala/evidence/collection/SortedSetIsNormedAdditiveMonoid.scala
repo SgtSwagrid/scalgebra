@@ -11,11 +11,11 @@ import scala.collection.immutable.SortedSet
   */
 trait SortedSetIsNormedAdditiveMonoid:
 
-  given [X : Ordering]: NormedAdditiveMonoid[SortedSet[X], Int] with
+  given [X : Ordering] => NormedAdditiveMonoid[SortedSet[X], Int]:
 
     override def zero: SortedSet[X] = SortedSet.empty
 
-    override inline def add(x: SortedSet[X], y: SortedSet[X]): SortedSet[X] =
-      x | y
+    extension (x: SortedSet[X])
 
-    override inline def norm(x: SortedSet[X]): Int = x.size
+      override def add(y: SortedSet[X]): SortedSet[X] = x | y
+      override def length: Int                        = x.size

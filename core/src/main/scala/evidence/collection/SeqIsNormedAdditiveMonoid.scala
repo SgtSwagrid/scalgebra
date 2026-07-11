@@ -10,8 +10,11 @@ import com.alecdorrington.scalgebra.normed.NormedAdditiveMonoid
   */
 trait SeqIsNormedAdditiveMonoid:
 
-  given [X]: NormedAdditiveMonoid[Seq[X], Int] with
+  given [X] => NormedAdditiveMonoid[Seq[X], Int]:
 
-    override def zero: Seq[X]                             = Seq.empty
-    override inline def add(x: Seq[X], y: Seq[X]): Seq[X] = x ++ y
-    override inline def norm(x: Seq[X]): Int              = x.length
+    override def zero: Seq[X] = Seq.empty
+
+    extension (x: Seq[X])
+
+      override def add(y: Seq[X]): Seq[X] = x ++ y
+      override def length: Int            = x.length

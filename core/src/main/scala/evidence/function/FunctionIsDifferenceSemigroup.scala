@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.DifferenceSemigroup
+
 /**
   * Evidence that single-argument functions form a [[DifferenceSemigroup]] under
   * pointwise addition and subtraction, provided the return type has a
@@ -8,10 +10,9 @@ package evidence.function
   */
 trait FunctionIsDifferenceSemigroup:
 
-  given [X, Y : DifferenceSemigroup as Y]: DifferenceSemigroup[X => Y] with
+  given [X, Y : DifferenceSemigroup as Y] => DifferenceSemigroup[X => Y]:
 
-    override inline def add(f: X => Y, g: X => Y): X => Y =
-      x => Y.add(f(x), g(x))
+    extension (f: X => Y)
 
-    override inline def subtract(f: X => Y, g: X => Y): X => Y =
-      x => Y.subtract(f(x), g(x))
+      override def add(g: X => Y): X => Y      = x => f(x) + g(x)
+      override def subtract(g: X => Y): X => Y = x => f(x) - g(x)

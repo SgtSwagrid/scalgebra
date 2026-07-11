@@ -1,6 +1,8 @@
 package com.alecdorrington.scalgebra
 package evidence.function
 
+import com.alecdorrington.scalgebra.arithmetic.Difference
+
 /**
   * Evidence that single-argument functions form a [[Difference]] under
   * pointwise subtraction, provided the return type has a [[Difference]]
@@ -8,7 +10,7 @@ package evidence.function
   */
 trait FunctionIsDifference:
 
-  given [X, Y : Difference as Y]: Difference[X => Y] with
+  given [X, Y : Difference as Y] => Difference[X => Y]:
 
-    override inline def subtract(f: X => Y, g: X => Y): X => Y =
-      x => Y.subtract(f(x), g(x))
+    extension (f: X => Y)
+      override def subtract(g: X => Y): X => Y = x => f(x) - g(x)

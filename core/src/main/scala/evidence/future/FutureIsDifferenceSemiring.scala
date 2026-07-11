@@ -2,6 +2,7 @@ package com.alecdorrington.scalgebra
 package evidence
 package future
 
+import com.alecdorrington.scalgebra.arithmetic.DifferenceSemiring
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -11,22 +12,14 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 trait FutureIsDifferenceSemiring:
 
-  given [X : DifferenceSemiring as X]
-    (using ExecutionContext)
-    : DifferenceSemiring[Future[X]] with
+  given [X : DifferenceSemiring as X] => ExecutionContext
+    => DifferenceSemiring[Future[X]]:
 
     override def zero: Future[X] = Future.successful(X.zero)
+    override def one: Future[X]  = Future.successful(X.one)
 
-    override def one: Future[X] = Future.successful(X.one)
+    extension (x: Future[X])
 
-    override def add(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.add(a, b))
-
-    override def subtract(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.subtract(a, b))
-
-    override def multiply(x: Future[X], y: Future[X]): Future[X] = x
-      .zip(y)
-      .map((a, b) => X.multiply(a, b))
+      override def add(y: Future[X]): Future[X]      = x.zip(y).map(_ + _)
+      override def subtract(y: Future[X]): Future[X] = x.zip(y).map(_ - _)
+      override def mul(y: Future[X]): Future[X]      = x.zip(y).map(_ * _)

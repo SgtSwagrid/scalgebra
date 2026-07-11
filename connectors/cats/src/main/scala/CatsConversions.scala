@@ -16,7 +16,16 @@ object CatsConversions
           MultiplicativeMonoidCatsConversions,
           MultiplicativeGroupCatsConversions,
           SemiringCatsConversions,
+          SemifieldCatsConversions,
           PseudoringCatsConversions,
           RingCatsConversions,
-          EuclideanRingCatsConversions,
-          FieldCatsConversions
+          QuotientRingCatsConversions,
+          FieldCatsConversions,
+          OrderedCatsConversions,
+          JoinSemilatticeCatsConversions,
+          MeetSemilatticeCatsConversions,
+          BoundedJoinSemilatticeCatsConversions,
+          BoundedMeetSemilatticeCatsConversions,
+          LatticeCatsConversions,
+          BoundedLatticeCatsConversions,
+          BooleanAlgebraCatsConversions

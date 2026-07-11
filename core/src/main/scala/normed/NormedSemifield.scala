@@ -1,21 +1,22 @@
 package com.alecdorrington.scalgebra
 package normed
 
-/** A normed version of [[Semifield]]. */
+import com.alecdorrington.scalgebra.arithmetic.Semifield
+
+/**
+  * A typeclass for algebraic values with the following features:
+  *   - Associative addition
+  *   - Additive identity (`0`)
+  *   - Associative multiplication
+  *   - Multiplicative identity (`1`)
+  *   - Multiplicative inverse (reciprocation)
+  *   - Norm (length)
+  */
 trait NormedSemifield[X, S]
-  extends Semifield[X], NormedSemiring[X, S], NormedMultiplicativeGroup[X, S]
+  extends Semifield[X],
+          NormedQuotientSemiring[X, S],
+          NormedMultiplicativeGroup[X, S]
 
-/** The companion object for [[NormedSemifield]]. */
-object NormedSemifield extends NormedSemifield.Ops:
-
-  trait Ops
-    extends Semifield.Ops, NormedSemiring.Ops, NormedMultiplicativeGroup.Ops
+object NormedSemifield:
 
   type Over[S] = [X] =>> NormedSemifield[X, S]
-
-  export com.alecdorrington.scalgebra.normed.NormedSemifield
-
-  /** The [[NormedSemifield]] instance describing the current algebra system. */
-  inline def normedSemifield[X, S]
-    (using ev: NormedSemifield[X, S])
-    : NormedSemifield[X, S] = ev
