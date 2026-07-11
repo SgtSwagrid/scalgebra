@@ -18,9 +18,8 @@ object IdeSettings extends AutoPlugin:
     ideExcludedDirectories := {
 
       // Excluded in any subdirectory:
-      val recursive = Seq("target", ".js", ".jvm").flatMap(name =>
-        (baseDirectory.value ** name).get(),
-      )
+      val recursive = Seq("target", ".js", ".jvm").flatMap: name =>
+        (baseDirectory.value ** name).get()
 
       // Excluded at the root level only:
       val rootOnly = Seq(
