@@ -13,8 +13,8 @@ import com.alecdorrington.scalgebra.arithmetic.Semiring
   *
   * @note
   *   Laws, in addition to those inherited:
-  *   - Monotonicity: if `x <= y` and `zero <= z`, then `x × z <= y × z` and
-  *     `z × x <= z × y`.
+  *   - Monotonicity: if `x ≤ y` and `zero ≤ z`, then `x × z ≤ y × z` and
+  *     `z × x ≤ z × y`.
   */
 trait OrderedSemiring[X]
   extends Semiring[X], OrderedAdditiveMonoid[X], OrderedMultiplicativeMonoid[X]

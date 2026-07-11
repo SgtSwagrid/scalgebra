@@ -11,7 +11,7 @@ import com.alecdorrington.scalgebra.arithmetic.AdditiveMagma
   * @note
   *   Laws, in addition to those inherited, whenever [[S]] carries the
   *   corresponding structure:
-  *   - Subadditivity: `‖x + y‖ <= ‖x‖ + ‖y‖`.
+  *   - Subadditivity: `‖x + y‖ ≤ ‖x‖ + ‖y‖`.
   */
 trait NormedAdditiveMagma[X, S] extends AdditiveMagma[X], Normed[X, S]
 

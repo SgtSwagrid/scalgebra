@@ -11,7 +11,7 @@ import com.alecdorrington.scalgebra.ordered.Ordered
   * @note
   *   Laws, in addition to those inherited:
   *   - Integrality: `x.floor.isIntegral` and `x.ceil.isIntegral`.
-  *   - Bounds: `x.floor <= x` and `x <= x.ceil`.
+  *   - Bounds: `x.floor ≤ x` and `x ≤ x.ceil`.
   *   - Optimality: `x.floor` is the greatest integer value not exceeding [[x]],
   *     and `x.ceil` is the least integer value not less than [[x]].
   */

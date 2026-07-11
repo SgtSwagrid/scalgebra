@@ -11,7 +11,7 @@ import com.alecdorrington.scalgebra.arithmetic.MultiplicativeMagma
   * @note
   *   Laws, in addition to those inherited, whenever [[S]] carries the
   *   corresponding structure:
-  *   - Submultiplicativity: `‖x × y‖ <= ‖x‖ × ‖y‖`.
+  *   - Submultiplicativity: `‖x × y‖ ≤ ‖x‖ × ‖y‖`.
   */
 trait NormedMultiplicativeMagma[X, S]
   extends MultiplicativeMagma[X], Normed[X, S]
