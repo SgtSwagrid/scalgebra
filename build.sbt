@@ -80,5 +80,5 @@ lazy val `scalgebra-connector-zio-prelude` = project
   .dependsOn(`scalgebra`)
   .settings(
     packagePrefix := "com.alecdorrington.scalgebra.connector.zioprelude",
-    libraryDependencies += "dev.zio" %% "zio-prelude" % "1.0.0-RC47",
+    libraryDependencies += "dev.zio" %% "zio-prelude" % "1.0.0-RC48",
   )
