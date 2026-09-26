@@ -11,7 +11,7 @@ ThisBuild / scalacOptions ++= Seq(
 )
 
 // MUnit is used as the test framework for all subprojects.
-ThisBuild / libraryDependencies += "org.scalameta" %% "munit" % "1.3.4" % Test
+ThisBuild / libraryDependencies += "org.scalameta" %% "munit" % "1.3.6" % Test
 
 lazy val `scalgebra-root` = project
   .in(file("."))
