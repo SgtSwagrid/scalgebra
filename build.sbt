@@ -2,7 +2,7 @@ import IdeSettings.packagePrefix
 import sbtunidoc.BaseUnidocPlugin.autoImport.*
 import sbtunidoc.ScalaUnidocPlugin
 
-ThisBuild / scalaVersion := "3.8.4"
+ThisBuild / scalaVersion := "3.9.0"
 
 ThisBuild / scalacOptions ++= Seq(
   "-explain",
