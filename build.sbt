@@ -2,7 +2,7 @@ import IdeSettings.packagePrefix
 import sbtunidoc.BaseUnidocPlugin.autoImport.*
 import sbtunidoc.ScalaUnidocPlugin
 
-ThisBuild / scalaVersion := "3.8.4"
+ThisBuild / scalaVersion := "3.9.0"
 
 ThisBuild / scalacOptions ++= Seq(
   "-explain",
@@ -11,7 +11,7 @@ ThisBuild / scalacOptions ++= Seq(
 )
 
 // MUnit is used as the test framework for all subprojects.
-ThisBuild / libraryDependencies += "org.scalameta" %% "munit" % "1.3.4" % Test
+ThisBuild / libraryDependencies += "org.scalameta" %% "munit" % "1.3.6" % Test
 
 lazy val `scalgebra-root` = project
   .in(file("."))
@@ -80,5 +80,5 @@ lazy val `scalgebra-connector-zio-prelude` = project
   .dependsOn(`scalgebra`)
   .settings(
     packagePrefix := "com.alecdorrington.scalgebra.connector.zioprelude",
-    libraryDependencies += "dev.zio" %% "zio-prelude" % "1.0.0-RC47",
+    libraryDependencies += "dev.zio" %% "zio-prelude" % "1.0.0-RC48",
   )
