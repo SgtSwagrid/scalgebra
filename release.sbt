@@ -1,5 +1,5 @@
 ThisBuild / description :=
-  "A collection of type classes for algebraic structures in Scala."
+  "Fine-grained algebraic type classes for Scala 3 library authors."
 
 ThisBuild / homepage := Some(url("https://alecdorrington.com/scalgebra"))
 
