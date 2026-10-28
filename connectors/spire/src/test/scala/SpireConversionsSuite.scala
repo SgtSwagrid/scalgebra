@@ -10,31 +10,26 @@ package com.alecdorrington.scalgebra.connector.spire
   */
 class SpireConversionsSuite extends munit.FunSuite:
 
-  test("ring to spire"):
+  test("ring to and from spire"):
     val ring = SpireConversions.ringToSpire[Int]
     assertEquals(ring.plus(2, 3), 5)
     assertEquals(ring.zero, 0)
     assertEquals(ring.negate(4), -4)
     assertEquals(ring.times(3, 4), 12)
     assertEquals(ring.one, 1)
-
-  test("ring from spire"):
-    val R =
-      SpireConversions.ringFromSpire[Int](using SpireConversions.ringToSpire)
+    val R = SpireConversions.ringFromSpire[Int](using ring)
     assertEquals(R.add(2)(3), 5)
     assertEquals(R.mul(3)(4), 12)
     assertEquals(R.negate(4), -4)
     assertEquals(R.subtract(2)(5), -3)
 
-  test("semiring to and from spire"):
+  test("semiring and pseudoring to and from spire"):
     val rig = SpireConversions.semiringToSpire[Int]
     assertEquals(rig.plus(2, 3), 5)
     assertEquals(rig.times(2, 3), 6)
     val S = SpireConversions.semiringFromSpire[Int](using rig)
     assertEquals(S.add(2)(3), 5)
     assertEquals(S.fromInt(2), 2)
-
-  test("pseudoring to and from spire"):
     val rng = SpireConversions.pseudoringToSpire[Int]
     assertEquals(rng.negate(3), -3)
     val P = SpireConversions.pseudoringFromSpire[Int](using rng)

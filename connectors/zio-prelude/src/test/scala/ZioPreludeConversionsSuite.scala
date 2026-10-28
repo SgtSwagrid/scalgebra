@@ -9,14 +9,12 @@ package com.alecdorrington.scalgebra.connector.zioprelude
   */
 class ZioPreludeConversionsSuite extends munit.FunSuite:
 
-  test("associative to and from zio prelude"):
+  test("associative and identity to and from zio prelude"):
     val assoc = ZioPreludeConversions.additiveSemigroupToZioPrelude[Int]
     assertEquals(assoc.combine(2, 3), 5)
     val S =
       ZioPreludeConversions.additiveSemigroupFromZioPrelude[Int](using assoc)
     assertEquals(S.add(2)(3), 5)
-
-  test("identity to and from zio prelude"):
     val id = ZioPreludeConversions.additiveMonoidToZioPrelude[Int]
     assertEquals(id.combine(2, 3), 5)
     assertEquals(id.identity, 0)

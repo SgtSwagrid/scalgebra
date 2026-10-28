@@ -10,21 +10,17 @@ package com.alecdorrington.scalgebra.connector.algebird
   */
 class AlgebirdConversionsSuite extends munit.FunSuite:
 
-  test("semigroup to and from algebird"):
+  test("additive classes to and from algebird"):
     val sg = AlgebirdConversions.additiveSemigroupToAlgebird[Int]
     assertEquals(sg.plus(2, 3), 5)
     val S = AlgebirdConversions.additiveSemigroupFromAlgebird[Int](using sg)
     assertEquals(S.add(2)(3), 5)
-
-  test("monoid to and from algebird"):
     val mon = AlgebirdConversions.additiveMonoidToAlgebird[Int]
     assertEquals(mon.plus(2, 3), 5)
     assertEquals(mon.zero, 0)
     val M = AlgebirdConversions.additiveMonoidFromAlgebird[Int](using mon)
     assertEquals(M.zero, 0)
     assertEquals(M.sumOrZero(Seq(1, 2, 3)), 6)
-
-  test("group to and from algebird"):
     val grp = AlgebirdConversions.additiveGroupToAlgebird[Int]
     assertEquals(grp.negate(4), -4)
     val G = AlgebirdConversions.additiveGroupFromAlgebird[Int](using grp)

@@ -21,16 +21,14 @@ class CatsConversionsSuite extends munit.FunSuite:
       def equot(x: Int, y: Int): Int        = x / y
       def emod(x: Int, y: Int): Int         = x % y
 
-  test("ring to cats"):
+  test("ring to and from cats"):
     val ring = CatsConversions.ringToCats[Int]
     assertEquals(ring.plus(2, 3), 5)
     assertEquals(ring.zero, 0)
     assertEquals(ring.negate(4), -4)
     assertEquals(ring.times(3, 4), 12)
     assertEquals(ring.one, 1)
-
-  test("ring from cats"):
-    val R = CatsConversions.ringFromCats[Int](using CatsConversions.ringToCats)
+    val R = CatsConversions.ringFromCats[Int](using ring)
     assertEquals(R.add(2)(3), 5)
     assertEquals(R.zero, 0)
     assertEquals(R.negate(4), -4)
@@ -38,7 +36,7 @@ class CatsConversionsSuite extends munit.FunSuite:
     assertEquals(R.one, 1)
     assertEquals(R.subtract(2)(5), -3)
 
-  test("semiring to and from cats (rig)"):
+  test("semiring and pseudoring to and from cats (rig, rng)"):
     val rig = CatsConversions.semiringToCats[Int]
     assertEquals(rig.plus(2, 3), 5)
     assertEquals(rig.times(2, 3), 6)
@@ -46,8 +44,6 @@ class CatsConversionsSuite extends munit.FunSuite:
     val S = CatsConversions.semiringFromCats[Int](using rig)
     assertEquals(S.add(2)(3), 5)
     assertEquals(S.fromInt(2), 2)
-
-  test("pseudoring to and from cats (rng)"):
     val rng = CatsConversions.pseudoringToCats[Int]
     assertEquals(rng.negate(3), -3)
     val P = CatsConversions.pseudoringFromCats[Int](using rng)
