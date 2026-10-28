@@ -11,6 +11,9 @@
 
 </div>
 
+> [!WARNING]
+> Scalgebra is still a prototype. Anything could be broken or change between minor versions.
+
 ## 💡 Overview
 
 <br/>
@@ -38,13 +41,17 @@ including all standard numeric types, without any additional imports on their en
 
 ## ⬇️ Installation
 
-Add the following dependency to your `build.sbt`:
+There are several components which can be installed separately, but the same version number (e.g. [latest](../../releases/latest)) must be used across all of them.
+The following applies for [Scala 3](https://www.scala-lang.org/) projects built with [sbt 2](https://www.scala-sbt.org/).
+Add the desired components to your `build.sbt` file:
 
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra" % "0.5.0"
-```
+// Core (required)
+libraryDependencies += "com.alecdorrington" %% "scalgebra" % "{version}"
 
-Requires Scala 3.
+// Connector to another algebra library, such as Cats or Spire (see Connectors below)
+libraryDependencies += "com.alecdorrington" %% "scalgebra-connector-{library-name}" % "{version}"
+```
 
 ## 📖 Usage
 
@@ -200,10 +207,10 @@ Conversions are provided in both directions, wherever this is possible without a
 ### Usage
 
 Each connector is published under the name
-`scalgebra-connector-<library-name>`
+`scalgebra-connector-{library-name}`
 and can be installed using:
 ```scala
-libraryDependencies += "com.alecdorrington" %% "scalgebra-connector-<library-name>" % "<scalgebra-version>"
+libraryDependencies += "com.alecdorrington" %% "scalgebra-connector-{library-name}" % "{version}"
 ```
 The version of the connector always matches the version of the core _Scalgebra_ library.
 
