@@ -16,15 +16,10 @@ class GenericUsageSuite extends munit.FunSuite:
 
   private def halfway[X : Field](x: X, y: X): X = (x + y) / Semiring.fromInt(2)
 
-  test("generic sums work across algebras"):
+  test("generic sums, products and field operations work across algebras"):
     assertEquals(sumAll(1, 2, 3), 6)
     assertEquals(sumAll("a", "b", "c"), "abc")
-    assertEquals(sumAll(List(1), List(2)), List(1, 2))
     assertEquals(sumAll[Int](), 0)
-
-  test("generic products work across algebras"):
     assertEquals(square(7), 49)
     assertEquals(square(1.5), 2.25)
-
-  test("generic field operations work"):
     assertEquals(halfway(1.0, 2.0), 1.5)

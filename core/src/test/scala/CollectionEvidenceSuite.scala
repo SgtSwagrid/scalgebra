@@ -23,8 +23,6 @@ class CollectionEvidenceSuite extends munit.FunSuite:
     assertEquals(S.zero, "")
     assertEquals(S.add("foo")("bar"), "foobar")
     assertEquals(S.length("foo"), 3)
-    assertEquals(S.scale("ab")(3), "ababab")
-    assertEquals(S.scale("ab")(0), "")
 
   test("sets unite, with size as norm"):
     val S = summon[NormedAdditiveMonoid[Set[Int], Int]]

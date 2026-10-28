@@ -9,21 +9,16 @@ import com.alecdorrington.scalgebra.ordered.OrderedRing
   */
 class TupleFunctionEvidenceSuite extends munit.FunSuite:
 
-  test("pairs operate componentwise"):
-    val T = summon[OrderedRing[(Int, Int)]]
-    assertEquals(T.zero, (0, 0))
-    assertEquals(T.one, (1, 1))
-    assertEquals(T.add((1, 2))((3, 4)), (4, 6))
-    assertEquals(T.mul((2, 3))((4, 5)), (8, 15))
-    assertEquals(T.negate((1, -2)), (-1, 2))
-
-  test("pairs order lexicographically"):
-    val T = summon[OrderedRing[(Int, Int)]]
-    assert(T.compare((1, 5), (2, 0)) < 0)
-    assert(T.compare((1, 5), (1, 4)) > 0)
-    assertEquals(T.compare((1, 5), (1, 5)), 0)
-
-  test("triples operate componentwise"):
+  test("tuples operate componentwise and order lexicographically"):
+    val P = summon[OrderedRing[(Int, Int)]]
+    assertEquals(P.zero, (0, 0))
+    assertEquals(P.one, (1, 1))
+    assertEquals(P.add((1, 2))((3, 4)), (4, 6))
+    assertEquals(P.mul((2, 3))((4, 5)), (8, 15))
+    assertEquals(P.negate((1, -2)), (-1, 2))
+    assert(P.compare((1, 5), (2, 0)) < 0)
+    assert(P.compare((1, 5), (1, 4)) > 0)
+    assertEquals(P.compare((1, 5), (1, 5)), 0)
     val T = summon[OrderedRing[(Int, Int, Int)]]
     assertEquals(T.add((1, 2, 3))((4, 5, 6)), (5, 7, 9))
     assert(T.compare((1, 1, 1), (1, 1, 2)) < 0)

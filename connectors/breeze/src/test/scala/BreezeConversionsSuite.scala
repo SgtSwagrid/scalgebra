@@ -11,17 +11,13 @@ import breeze.math
   */
 class BreezeConversionsSuite extends munit.FunSuite:
 
-  test("semiring to breeze"):
+  test("semiring to and from breeze"):
     val sr = BreezeConversions.semiringToBreeze[Int]
     assertEquals(sr.+(2, 3), 5)
     assertEquals(sr.*(3, 4), 12)
     assertEquals(sr.zero, 0)
     assertEquals(sr.one, 1)
-
-  test("semiring from breeze"):
-    val S = BreezeConversions.semiringFromBreeze[Int](
-      using BreezeConversions.semiringToBreeze,
-    )
+    val S = BreezeConversions.semiringFromBreeze[Int](using sr)
     assertEquals(S.add(2)(3), 5)
     assertEquals(S.mul(3)(4), 12)
     assertEquals(S.fromInt(2), 2)
