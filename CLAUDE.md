@@ -17,7 +17,7 @@ It is (and should remain) very lightweight and dependency-free.
 
 ### Structure
 
-The [core project](src/main/scala) contains the type classes themselves. It needs to remain dependency-free.
+The [core project](core/src/main/scala) contains the type classes themselves. It needs to remain dependency-free.
 The base type classes live in the root package; the `ordered`, `archimedean` (rounding to integer values),
 and `normed` subpackages each provide variant hierarchies mirroring the base one.
 Compatibility with other algebra libraries (e.g. cats, algebird, spire) is provided in [connectors](connectors).
